@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 53bc984abd273b24eb5260be241f6807
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Bosch Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 43f1c85fcdc53ef4eac11edc4e41398f, type: 3}
+  - {fileID: 12800000, guid: b4d444982d1f6ab4b93ad08519716eac, type: 3}
+  - {fileID: 12800000, guid: 554083bac7aa0394292a53f19bc9a7d1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

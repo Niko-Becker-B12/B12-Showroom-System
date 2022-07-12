@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de707f343259fb64d83e0870549cd8d0, type: 3}
+  m_Name: Test-Skin
+  m_EditorClassIdentifier: 
+  animationSpeed: 1
+  animationEasingType: 19
+  useSidebarSettings: 1
+  sidebarClosedPos: {x: -775, y: 0}
+  sidebarOpenedPos: {x: 72, y: 0}
+  sidebarBackground: {fileID: 0}
+  sidebarBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+  sidebarHeaderSize: {x: 0, y: 0}
+  sidebarButtonColors:
+    m_NormalColor: {r: 0, g: 0.121568635, b: 0.22352943, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.19089466, b: 0.35099998, a: 1}
+    m_PressedColor: {r: 0, g: 0.121568635, b: 0.22352943, a: 1}
+    m_SelectedColor: {r: 0, g: 0.121568635, b: 0.22352943, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  sidebarButtonTextColors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  sidebarButtonAdditionalColors:
+    m_NormalColor: {r: 0.16862746, g: 0.18431373, b: 0.28627452, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_PressedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  sidebarHeaderButtonColors:
+    m_NormalColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.121568635, b: 0.22352943, a: 1}
+    m_PressedColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    m_SelectedColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  sidebarHeaderButtonTextColors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  sidebarHeaderButtonAdditionalColors:
+    m_NormalColor: {r: 0.16862746, g: 0.18431373, b: 0.28627452, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_PressedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  useGeneralMenuSettings: 1
+  generalMenuClosedPos: {x: 0, y: -72}
+  generalMenuOpenedPos: {x: 0, y: 72}
+  generalMenuBackground: {fileID: 0}
+  generalMenuBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  generalMenuHasDivider: 0
+  generalMenuButtonColors:
+    m_NormalColor: {r: 0.1764706, g: 0.21568628, b: 0.23529412, a: 1}
+    m_HighlightedColor: {r: 0.34125, g: 0.41708338, b: 0.455, a: 1}
+    m_PressedColor: {r: 0.1764706, g: 0.21568629, b: 0.23529413, a: 1}
+    m_SelectedColor: {r: 0.1764706, g: 0.21568629, b: 0.23529413, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  generalMenuPlayButtonIcon: {fileID: 3286163911610860551, guid: ed96209f9c77b444ca1d2edeb0559e11,
+    type: 3}
+  generalMenuPauseButtonIcon: {fileID: 3286163911610860551, guid: 8a4d18eb3e7489940bd440b425dfbb63,
+    type: 3}
+  generalMenuReplayButtonIcon: {fileID: 3286163911610860551, guid: be4061e7dd177a6408b64a48bfa02324,
+    type: 3}
+  generalMenuCameraDropdownIcon: {fileID: 3286163911610860551, guid: 2432c6cb37ee19d4ca8fbf2b6b07dbc0,
+    type: 3}
+  generalMenuTransparencyToggleActiveIcon: {fileID: 3286163911610860551, guid: 5dd57325e29a0af4f95dbe9b83c77ba9,
+    type: 3}
+  generalMenuTransparencyToggleDeactiveIcon: {fileID: 3286163911610860551, guid: e2c3abff0de0be546bf7e3f3ef014297,
+    type: 3}
+  generalMenuBackButtonIcon: {fileID: 3286163911610860551, guid: a150b26823b5f5e4d96ee638aa689224,
+    type: 3}
+  generalMenuHomeButtonIcon: {fileID: 3286163911610860551, guid: 9d8c3393eea7cf1429d531a37e812c9f,
+    type: 3}
+  useMenuFoilSettings: 1
+  menuFoilClosedPos: {x: 0, y: 0}
+  menuFoilOpenedPos: {x: 0, y: 0}
+  menuFoilBackground: {fileID: 0}
+  menuFoilBackgroundColor: {fileID: 0}
+  menuFoilToggleButtonActivateSprite: {fileID: 0}
+  menuFoilToggleButtonDeactivateSprite: {fileID: 0}
