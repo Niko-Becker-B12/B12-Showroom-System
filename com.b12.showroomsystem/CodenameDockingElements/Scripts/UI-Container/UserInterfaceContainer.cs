@@ -41,14 +41,34 @@ namespace Showroom.UI
             if (ShowroomManager.Instance.showDebugMessages)
                 Debug.Log(string.Format("Generating UI-Container with the name: {0}!", uiContainerShortName));
 
-            uiContainerObj = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerPrefab, CodenameDockingElements.Instance.uiContainerParent) as GameObject;
 
-            uiContainerRect = uiContainerObj.GetComponent<RectTransform>();
+            switch(userInterfaceContainerType)
+            {
+
+                case UserInterfaceContainerType.numericList:
+
+                    uiContainerObj = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerPrefab, CodenameDockingElements.Instance.uiContainerParent) as GameObject;
+
+                    uiContainerRect = uiContainerObj.GetComponent<RectTransform>();
 
 
-            uiContainerRect.anchoredPosition = uiContainerClosedPosition;
+                    uiContainerRect.anchoredPosition = uiContainerClosedPosition;
 
-            ApplyBaseSkin();
+                    ApplyBaseSkin();
+
+                    break;
+
+            }
+
+
+            //uiContainerObj = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerPrefab, CodenameDockingElements.Instance.uiContainerParent) as GameObject;
+            //
+            //uiContainerRect = uiContainerObj.GetComponent<RectTransform>();
+            //
+            //
+            //uiContainerRect.anchoredPosition = uiContainerClosedPosition;
+            //
+            //ApplyBaseSkin();
 
 
 

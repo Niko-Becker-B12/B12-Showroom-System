@@ -437,7 +437,16 @@ namespace Showroom.UI
 
                 headButtons.Add(ShowroomManager.Instance.useCases[i].useCaseSidebarHeaderButton);
 
-                headButtons[i].sidebarHeadButtonSubButtons.AddRange(ShowroomManager.Instance.useCases[i].useCaseSidebarSubButtons);
+                headButtons[i].sidebarHeadButtonUseCaseIndex = i;
+
+                //headButtons[i].sidebarHeadButtonSubButtons.AddRange(ShowroomManager.Instance.useCases[i].useCaseSidebarHeaderButton.sidebarHeadButtonSubButtons);
+                //
+                //for(int j = 0; j < headButtons[i].sidebarHeadButtonSubButtons.Count; j++)
+                //{
+                //
+                //    headButtons[i].sidebarHeadButtonSubButtons[j].sidebarButtonUseCaseIndex = i;
+                //
+                //}
 
             }
 
@@ -759,8 +768,10 @@ namespace Showroom.UI
             tooltipRect.gameObject.SetActive(true);
 
             tooltipTextbox.text = tooltipText;
+           
+            LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipRect.GetChild(0).GetComponent<RectTransform>());
+            LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipRect.GetChild(0).GetComponent<RectTransform>());
 
-            LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipRect);
 
             if (rectPos == null || tooltipText == "" || string.IsNullOrEmpty(tooltipText))
             {
@@ -775,58 +786,61 @@ namespace Showroom.UI
 
                 Vector2 screenSpacePos = rectPos.position;
 
-                if (Mouse.current.position.ReadValue().x >= (currentResolution.x * .85f))
-                {
+                /*
+    if (Mouse.current.position.ReadValue().x >= (currentResolution.x * .85f))
+    {
 
-                    tooltipShape.RoundedProperties.BLRadius = 16f;
-                    tooltipShape.RoundedProperties.TLRadius = 16f;
-                    tooltipShape.RoundedProperties.BRRadius = 0f;
-                    tooltipShape.RoundedProperties.TRRadius = 0f;
+        tooltipShape.RoundedProperties.BLRadius = 16f;
+        tooltipShape.RoundedProperties.TLRadius = 16f;
+        tooltipShape.RoundedProperties.BRRadius = 0f;
+        tooltipShape.RoundedProperties.TRRadius = 0f;
 
 
-                    if (Mouse.current.position.ReadValue().y >= (currentResolution.y * .8f))
-                        tooltipRect.pivot = new Vector2(1.375f, 0.5f);
-                    else
-                        tooltipRect.pivot = new Vector2(1.12f, 0.5f);
+        if (Mouse.current.position.ReadValue().y >= (currentResolution.y * .8f))
+            tooltipRect.pivot = new Vector2(1.375f, 0.5f);
+        else
+            tooltipRect.pivot = new Vector2(1.3f, 0.5f);
 
-                    screenSpacePos = new Vector2(screenSpacePos.x, screenSpacePos.y);
-                }
-                else
-                {
+        screenSpacePos = new Vector2(screenSpacePos.x, screenSpacePos.y);
+    }
+    else
+    {
 
-                    if (generalMenuOneButtonActive)
-                    {
+        if (generalMenuOneButtonActive)
+        {
 
-                        tooltipRect.pivot = new Vector2(-0.11f, 0.5f);
+            tooltipRect.pivot = new Vector2(-0.11f, 0.5f);
 
-                        tooltipShape.RoundedProperties.BLRadius = 0f;
-                        tooltipShape.RoundedProperties.TLRadius = 0f;
-                        tooltipShape.RoundedProperties.BRRadius = 16f;
-                        tooltipShape.RoundedProperties.TRRadius = 16f;
+            tooltipShape.RoundedProperties.BLRadius = 0f;
+            tooltipShape.RoundedProperties.TLRadius = 0f;
+            tooltipShape.RoundedProperties.BRRadius = 16f;
+            tooltipShape.RoundedProperties.TRRadius = 16f;
 
-                    }
-                    else
-                    {
+        }
+        else
+        {
 
-                        tooltipRect.pivot = new Vector2(0.5f, -0.86f);
+            tooltipRect.pivot = new Vector2(0.5f, -0.86f);
 
-                        tooltipShape.RoundedProperties.BLRadius = 16f;
-                        tooltipShape.RoundedProperties.TLRadius = 16f;
-                        tooltipShape.RoundedProperties.BRRadius = 16f;
-                        tooltipShape.RoundedProperties.TRRadius = 16f;
-
-                    }
-
-                    screenSpacePos = new Vector2(screenSpacePos.x, screenSpacePos.y);
-                }
-
-                tooltipRect.position = screenSpacePos;
-
-            }
+            tooltipShape.RoundedProperties.BLRadius = 16f;
+            tooltipShape.RoundedProperties.TLRadius = 16f;
+            tooltipShape.RoundedProperties.BRRadius = 16f;
+            tooltipShape.RoundedProperties.TRRadius = 16f;
 
         }
 
-        public void DisableTooltip()
+        screenSpacePos = new Vector2(screenSpacePos.x, screenSpacePos.y);
+    }
+
+*/
+    tooltipRect.position = screenSpacePos;
+            }
+
+
+
+        }
+
+            public void DisableTooltip()
         {
 
             tooltipRect.gameObject.SetActive(false);
@@ -1094,6 +1108,7 @@ namespace Showroom.UI
 
         public Sprite sidebarHeadButtonSprite;
 
+        [ReadOnly]
         public int sidebarHeadButtonUseCaseIndex = -1;      //Just as a fallback
 
         [ReadOnly]
@@ -1111,6 +1126,11 @@ namespace Showroom.UI
 
         public void SetUpButton(int useCaseIndex = -1)
         {
+
+            Debug.Log($"Setting up a Sidebar Button {useCaseIndex}");
+
+            if (useCaseIndex == -1)
+                return;
 
             GameObject newSidebarHeadButton = GameObject.Instantiate(CodenameDockingElements.Instance.sidebarHeadButtonPrefab, CodenameDockingElements.Instance.sidebarButtonParent) as GameObject;
 

@@ -15,8 +15,8 @@ MonoBehaviour:
   animationSpeed: 1
   animationEasingType: 19
   useSidebarSettings: 1
-  sidebarClosedPos: {x: -775, y: 0}
-  sidebarOpenedPos: {x: 72, y: 0}
+  sidebarClosedPos: {x: -445, y: 0}
+  sidebarOpenedPos: {x: 40, y: 0}
   sidebarBackground: {fileID: 0}
   sidebarBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
   sidebarHeaderSize: {x: 0, y: 0}
@@ -69,8 +69,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   useGeneralMenuSettings: 1
-  generalMenuClosedPos: {x: 0, y: -72}
-  generalMenuOpenedPos: {x: 0, y: 72}
+  generalMenuClosedPos: {x: 80, y: 40}
+  generalMenuOpenedPos: {x: -40, y: 40}
   generalMenuBackground: {fileID: 0}
   generalMenuBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   generalMenuPlayButtonIcon: {fileID: 3286163911610860551, guid: ed96209f9c77b444ca1d2edeb0559e11,
@@ -120,7 +120,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   loadingScreenBackground: {fileID: 0}
-  loadingScreenBackgroundColor: {r: 0, g: 0.6039216, b: 0.6039216, a: 1}
+  loadingScreenBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
   loadingScreenLogoSprite: {fileID: 21300000, guid: 42c6858699fe8224f8d7de251857c196,
     type: 3}
   loadingScreenLoadingBarColor: {r: 0, g: 0.6039216, b: 0.6039216, a: 1}

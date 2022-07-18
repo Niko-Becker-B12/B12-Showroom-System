@@ -20,5 +20,5 @@ MonoBehaviour:
   uiContainerDockingPosition: 0
   uiContainerRect: {fileID: 0}
   uiContainerCanvasGroup: {fileID: 0}
-  userInterfaceContainerType: 0
+  userInterfaceContainerType: 6
   uiContainerObj: {fileID: 0}

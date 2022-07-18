@@ -29,7 +29,7 @@ namespace Showroom.UI
 
         public Image loadingScreenBackground;
         public Image loadingScreenLogo;
-        public Slider loadingScreenLoadingBar;
+        //public Slider loadingScreenLoadingBar;
 
         public string sceneToLoad;
 
@@ -51,7 +51,7 @@ namespace Showroom.UI
 
             loadingScreenLogo.sprite = baseUISkin.loadingScreenLogoSprite;
 
-            loadingScreenLoadingBar.transform.GetChild(1).GetChild(0).GetComponent<Image>().color = baseUISkin.loadingScreenLoadingBarColor;
+            //loadingScreenLoadingBar.transform.GetChild(1).GetChild(0).GetComponent<Image>().color = baseUISkin.loadingScreenLoadingBarColor;
 
         }
 
@@ -75,7 +75,7 @@ namespace Showroom.UI
             {
                 totalProgress = Mathf.Clamp01(asyncLoad.progress / .9f);
 
-                loadingScreenLoadingBar.value = totalProgress;
+                //loadingScreenLoadingBar.value = totalProgress;
 
                 yield return null;
             }
@@ -86,7 +86,9 @@ namespace Showroom.UI
 
                 Showroom.ShowroomSSPDataHandler.Instance.StartDownloadingFairtouchData();
 
-                loadingScreenLoadingBar.value = 1f;
+                yield return new WaitForSecondsRealtime(2f);
+
+                //loadingScreenLoadingBar.value = 1f;
 
                 loadingScreenCamera.gameObject.SetActive(false);
 

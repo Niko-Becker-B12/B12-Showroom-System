@@ -1183,9 +1183,9 @@ namespace Showroom
             [FoldoutGroup("$useCaseName/General Menu Contents")][ShowIf("@this.hasPlayButton == true && this.playButtonIsRestartButton != true")] public bool playButtonIsPauseButton;
             [FoldoutGroup("$useCaseName/General Menu Contents")][ShowIf("@this.hasPlayButton == true && this.hasRestartButton != true && this.playButtonIsPauseButton != true")] public bool playButtonIsRestartButton;
 
-            [FoldoutGroup("$useCaseName/General Menu Contents")][ShowIf("subLevelHasGeneralMenu")] public bool hasTransparencyButton;
-            [FoldoutGroup("$useCaseName/General Menu Contents")][ShowIf("@this.hasTransparencyButton")] public List<MeshRenderer> transparentObjects = new List<MeshRenderer>();
-            [FoldoutGroup("$useCaseName/General Menu Contents")][ShowIf("@this.hasTransparencyButton")][SerializeField] public Animator xRayLinesObj;
+            [FoldoutGroup("$useCaseName/General Menu Contents")] public bool hasTransparencyButton;
+            [FoldoutGroup("$useCaseName/General Menu Contents")][ShowIf("hasTransparencyButton")] public List<MeshRenderer> transparentObjects = new List<MeshRenderer>();
+            [FoldoutGroup("$useCaseName/General Menu Contents")][ShowIf("hasTransparencyButton")][SerializeField] public Animator xRayLinesObj;
 
             [FoldoutGroup("$useCaseName/General Menu Contents")][ShowIf("@this.playButtonIsRestartButton == false")] public bool hasRestartButton;
 
@@ -1196,7 +1196,7 @@ namespace Showroom
             [FoldoutGroup("$useCaseName/General Menu Contents")] public bool hasDragModeButton;
 
             [FoldoutGroup("$useCaseName/General Menu Contents")]
-            [ShowIf("@this.hasPlayButton")]
+            [ShowIf("hasPlayButton")]
             public CustomGeneralMenuButton generalMenuPlayButton = new CustomGeneralMenuButton
             {
 
@@ -1205,7 +1205,7 @@ namespace Showroom
                 isIndexed = false
 
             };
-            [FoldoutGroup("General Menu Contents")]
+            [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("@this.hasRestartButton || this.playButtonIsRestartButton")]
             public CustomGeneralMenuButton generalMenuReplayButton = new CustomGeneralMenuButton
             {
@@ -1215,8 +1215,8 @@ namespace Showroom
                 isIndexed = false
 
             };
-            [FoldoutGroup("General Menu Contents")] [ShowIf("@this.playButtonIsPauseButton")] public CustomGeneralMenuButton generalMenuPauseButton;
-            [FoldoutGroup("General Menu Contents")] [ShowIf("@this.hasTransparencyButton")] public CustomGeneralMenuButton generalMenuTransparencyToggle = new CustomGeneralMenuButton
+            [FoldoutGroup("$useCaseName/General Menu Contents")] [ShowIf("playButtonIsPauseButton")] public CustomGeneralMenuButton generalMenuPauseButton;
+            [FoldoutGroup("$useCaseName/General Menu Contents")] [ShowIf("hasTransparencyButton")] public CustomGeneralMenuButton generalMenuTransparencyToggle = new CustomGeneralMenuButton
             {
 
                 customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle,
@@ -1224,7 +1224,7 @@ namespace Showroom
                 isIndexed = false
 
             };
-            [FoldoutGroup("General Menu Contents")] [ShowIf("@this.hasCameraPosButton")] public CustomGeneralMenuButton generalMenuCameraDropdown = new CustomGeneralMenuButton
+            [FoldoutGroup("$useCaseName/General Menu Contents")] [ShowIf("hasCameraPosButton")] public CustomGeneralMenuButton generalMenuCameraDropdown = new CustomGeneralMenuButton
             {
 
                 customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown,
@@ -1232,8 +1232,8 @@ namespace Showroom
                 isIndexed = false
 
             };
-            [FoldoutGroup("General Menu Contents")]
-            [ShowIf("@this.hasDragModeButton")]
+            [FoldoutGroup("$useCaseName/General Menu Contents")]
+            [ShowIf("hasDragModeButton")]
             public CustomGeneralMenuButton generalMenuDragModeToggle = new CustomGeneralMenuButton
             {
 
@@ -1242,8 +1242,8 @@ namespace Showroom
                 isIndexed = false
 
             };
-            [FoldoutGroup("General Menu Contents")]
-            [ShowIf("@this.hasResetCameraButton")]
+            [FoldoutGroup("$useCaseName/General Menu Contents")]
+            [ShowIf("hasResetCameraButton")]
             public CustomGeneralMenuButton generalMenuBackButton = new CustomGeneralMenuButton
             {
 
@@ -1252,8 +1252,8 @@ namespace Showroom
                 isIndexed = false
 
             };
-            [FoldoutGroup("General Menu Contents")]
-            [ShowIf("@this.hasResetCameraButton")]
+            [FoldoutGroup("$useCaseName/General Menu Contents")]
+            [ShowIf("hasResetCameraButton")]
             public CustomGeneralMenuButton generalMenuHomeButton = new CustomGeneralMenuButton
             {
 
@@ -1327,15 +1327,7 @@ namespace Showroom
             [FoldoutGroup("$useCaseName/Timeline Stepper")] [ShowIf("hasTimelineStepper")] public bool timelineStepperAutoPlay = false;
             [FoldoutGroup("$useCaseName/Timeline Stepper")] [ShowIf("hasTimelineStepper")] public List<ShowroomTimelineStep> timelineSteps = new List<ShowroomTimelineStep>();
 
-
-            [FoldoutGroup("$useCaseName/Sidebar Settings")] public UseCaseButtonEvent useCaseTopLevelButton;
-
-            [FoldoutGroup("$useCaseName/Sidebar Settings")] public bool useCaseHasSidebarButtons;
-            [FoldoutGroup("$useCaseName/Sidebar Settings")] [ShowIf("useCaseHasSidebarButtons")] public List<UseCaseButtonEvent> useCaseButtons = new List<UseCaseButtonEvent>();
-
-
             [FoldoutGroup("$useCaseName/Sidebar Settings")] public SidebarHeadButton useCaseSidebarHeaderButton;
-            [FoldoutGroup("$useCaseName/Sidebar Settings")][ShowIf("useCaseHasSidebarButtons")] public List<SidebarButton> useCaseSidebarSubButtons = new List<SidebarButton>();
 
 
             [HideInInspector]

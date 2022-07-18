@@ -57,14 +57,16 @@ namespace Showroom.UI
         public virtual void SetUpButton()
         {
 
+            Debug.Log("Setting up Button");
+
             sidebarButtonBehavior = this.GetComponent<ButtonBehavior>();
             sidebarButton = this.GetComponent<Button>();
-            sidebarButtonText = this.GetComponentInChildren<TextMeshProUGUI>();
-            sidebarButtonIcon = this.transform.GetChild(3).GetComponent<Image>();
-            sidebarButtonChevron = this.transform.GetChild(4).GetComponent<Image>();
+            sidebarButtonText = this.transform.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
+            sidebarButtonIcon = this.transform.GetChild(2).GetChild(0).GetComponent<Image>();
+            sidebarButtonChevron = this.transform.GetChild(2).GetChild(2).GetComponent<Image>();
 
-            pixelLineTop = this.transform.GetChild(1).GetComponent<PixelLine>();
-            pixelLineBottom = this.transform.GetChild(2).GetComponent<PixelLine>();
+            pixelLineTop = this.transform.GetChild(0).GetComponent<PixelLine>();
+            pixelLineBottom = this.transform.GetChild(1).GetComponent<PixelLine>();
 
 
             sidebarButtonIcon.gameObject.SetActive(false);
@@ -91,6 +93,9 @@ namespace Showroom.UI
             sidebarButtonBehavior.onMouseDown.AddRange(onButtonDown);
             sidebarButtonBehavior.onMouseEnter.AddRange(onButtonEnter);
             sidebarButtonBehavior.onMouseExit.AddRange(onButtonExit);
+
+            CodenameDockingElements.Instance.UpdateSidebarContainer();
+            CodenameDockingElements.Instance.UpdateSidebarContainer();
 
 
             ButtonHighlight();

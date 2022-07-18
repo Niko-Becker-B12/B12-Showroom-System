@@ -171,12 +171,12 @@ namespace Showroom
 
                     //ShowroomSSPDataHandlerUseCaseData newUseCaseData = new ShowroomSSPDataHandlerUseCaseData();//Needs to go into the GetData Function
 
-                    ShowroomManager.Instance.useCases[i].useCaseTopLevelButton.useCaseButtonName = subLevelUseCases[i].useCaseButtonText;
+                    ShowroomManager.Instance.useCases[i].useCaseSidebarHeaderButton.sidebarHeadButtonText = subLevelUseCases[i].useCaseButtonText;
 
                     for (int j = 0; j < subLevelUseCases[i].useCaseSubButtons.Count; j++)
                     {
                     
-                        ShowroomManager.Instance.useCases[i].useCaseButtons[j].useCaseButtonName = subLevelUseCases[i].useCaseSubButtons[j].asModel().GetString("name");
+                        ShowroomManager.Instance.useCases[i].useCaseSidebarHeaderButton.sidebarHeadButtonSubButtons[j].sidebarButtonText = subLevelUseCases[i].useCaseSubButtons[j].asModel().GetString("name");
 
                     }
 
