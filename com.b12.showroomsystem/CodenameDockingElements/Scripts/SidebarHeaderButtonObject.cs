@@ -24,7 +24,17 @@ namespace Showroom.UI
 
             base.SetUpButton();
 
-            if(sidebarHeadButtonDataContainer.sidebarHeadButtonSubButtons.Count > 0)
+            onButtonReset.AddRange(sidebarHeadButtonDataContainer.sidebarHeadButtonOnResetFunctions);
+            onButtonDown.AddRange(sidebarHeadButtonDataContainer.sidebarHeadButtonOnClickFunctions);
+            onButtonEnter.AddRange(sidebarHeadButtonDataContainer.sidebarHeadButtonOnEnterFunctions);
+            onButtonExit.AddRange(sidebarHeadButtonDataContainer.sidebarHeadButtonOnExitFunctions);
+
+            sidebarButtonBehavior.onButtonReset.AddRange(onButtonReset);
+            sidebarButtonBehavior.onMouseDown.AddRange(onButtonDown);
+            sidebarButtonBehavior.onMouseEnter.AddRange(onButtonEnter);
+            sidebarButtonBehavior.onMouseExit.AddRange(onButtonExit);
+
+            if (sidebarHeadButtonDataContainer.sidebarHeadButtonSubButtons.Count > 0)
                 sidebarButtonChevron.gameObject.SetActive(true);
 
             this.gameObject.name = "SidebarButton_" + sidebarHeadButtonDataContainer.sidebarHeadButtonText + sidebarHeadButtonDataContainer.sidebarHeadButtonUseCaseIndex.ToString();

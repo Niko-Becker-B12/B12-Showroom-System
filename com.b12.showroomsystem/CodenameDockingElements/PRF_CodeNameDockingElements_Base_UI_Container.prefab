@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3660042838123039532}
   - component: {fileID: 1753568321390915477}
   - component: {fileID: 3846787647410874057}
-  - component: {fileID: 3470463309644280501}
   m_Layer: 5
   m_Name: PRF_CodeNameDockingElements_Base_UI_Container
   m_TagString: Untagged
@@ -76,15 +75,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3470463309644280501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828268816344655082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0747d17578cf82243b6d684ae9d02096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

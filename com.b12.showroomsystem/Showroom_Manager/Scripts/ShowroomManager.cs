@@ -11,11 +11,12 @@ using UnityEngine.Video;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using Showroom.UI;
+using Sirenix.Serialization;
 
 namespace Showroom
 {
 
-    public class ShowroomManager : MonoBehaviour
+    public class ShowroomManager : SerializedMonoBehaviour
     {
 
         #region Singleton
@@ -176,6 +177,8 @@ namespace Showroom
             isIndexed = false
 
         };
+
+        [FoldoutGroup("General Menu Contents")] [ShowIf("subLevelHasGeneralMenu")] [OdinSerialize] private List<CustomGeneralMenuButton> customGeneralMenuButtons = new List<CustomGeneralMenuButton>();
 
         //[FoldoutGroup("General Menu Contents/Camera Position Button")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasCameraPosButton")] public List<AdditionalCameraPositionButtons> cameraButtons = new List<AdditionalCameraPositionButtons>();
 
@@ -1262,6 +1265,8 @@ namespace Showroom
                 isIndexed = false
 
             };
+
+            [FoldoutGroup("$useCaseName/General Menu Contents")] [OdinSerialize] private List<CustomGeneralMenuButton> customGeneralMenuButtons = new List<CustomGeneralMenuButton>();
 
 
             [FoldoutGroup("$useCaseName/Focus Menu Contents")] public bool hasFocusMenu = false;

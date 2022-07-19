@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 using ThisOtherThing.UI.Shapes;
 using UnityEngine.UI;
 using Showroom;
+using Sirenix.Serialization;
 
 namespace Showroom.UI
 {
@@ -164,6 +165,8 @@ namespace Showroom.UI
 
         [BoxGroup("Custom UI Containers")] public GameObject uiContainerPrefab;
         [BoxGroup("Custom UI Containers")] public Transform uiContainerParent;
+
+        [BoxGroup("Custom UI Containers")] public GameObject uiContainerButtonPrefab;
 
 
         private void Start()
@@ -651,6 +654,204 @@ namespace Showroom.UI
 
         }
 
+        public void DisplayContainerViaIndex(int containerIndex)
+        {
+
+            UserInterfaceContainer newContainer = null;
+
+            if (uiContainers.Count > containerIndex && uiContainers[containerIndex] != null)
+            {
+
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log(string.Format("Found UI-Container with the name: {0}!", uiContainers[containerIndex].uiContainerShortName));
+
+                newContainer = uiContainers[containerIndex];
+
+            }
+
+            if (newContainer != null)
+            {
+
+                newContainer.uiContainerObj.GetComponent<RectTransform>().DOAnchorPos(newContainer.uiContainerOpenedPosition, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                .OnStart(() =>
+                {
+
+
+
+                })
+                .OnComplete(() =>
+                {
+
+
+
+                });
+
+            }
+            else
+            {
+
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log(string.Format("Could not find any UI-Containers with the name: {0}!", uiContainers[containerIndex].uiContainerShortName));
+
+                return;
+
+            }
+
+        }
+
+        public void DisplayContainerViaString(string containerName)
+        {
+
+            UserInterfaceContainer newContainer = null;
+
+            for (int i = 0; i < uiContainers.Count; i++)
+            {
+
+                if (uiContainers[i].uiContainerShortName.Equals(containerName))
+                {
+
+                    if (ShowroomManager.Instance.showDebugMessages)
+                        Debug.Log(string.Format("Found UI-Container with the name: {0}!", containerName));
+
+                    newContainer = uiContainers[i];
+
+                    break;
+
+                }
+                else
+                    continue;
+
+            }
+
+            if (newContainer != null)
+            {
+
+                newContainer.uiContainerObj.GetComponent<RectTransform>().DOAnchorPos(newContainer.uiContainerOpenedPosition, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                .OnStart(() =>
+                {
+
+
+
+                })
+                .OnComplete(() =>
+                {
+
+
+
+                });
+
+            }
+            else
+            {
+
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log(string.Format("Could not find any UI-Containers with the name: {0}!", containerName));
+
+                return;
+
+            }
+
+        }
+
+        public void HideContainerViaIndex(int containerIndex)
+        {
+
+            UserInterfaceContainer newContainer = null;
+
+            if (uiContainers.Count > containerIndex && uiContainers[containerIndex] != null)
+            {
+
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log(string.Format("Found UI-Container with the name: {0}!", uiContainers[containerIndex].uiContainerShortName));
+
+                newContainer = uiContainers[containerIndex];
+
+            }
+
+            if (newContainer != null)
+            {
+
+                newContainer.uiContainerObj.GetComponent<RectTransform>().DOAnchorPos(newContainer.uiContainerClosedPosition, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                .OnStart(() =>
+                {
+
+
+
+                })
+                .OnComplete(() =>
+                {
+
+
+
+                });
+
+            }
+            else
+            {
+
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log(string.Format("Could not find any UI-Containers with the name: {0}!", uiContainers[containerIndex].uiContainerShortName));
+
+                return;
+
+            }
+
+        }
+
+        public void HideContainerViaString(string containerName)
+        {
+
+            UserInterfaceContainer newContainer = null;
+
+            for (int i = 0; i < uiContainers.Count; i++)
+            {
+
+                if (uiContainers[i].uiContainerShortName.Equals(containerName))
+                {
+
+                    if (ShowroomManager.Instance.showDebugMessages)
+                        Debug.Log(string.Format("Found UI-Container with the name: {0}!", containerName));
+
+                    newContainer = uiContainers[i];
+
+                    break;
+
+                }
+                else
+                    continue;
+
+            }
+
+            if (newContainer != null)
+            {
+
+                newContainer.uiContainerObj.GetComponent<RectTransform>().DOAnchorPos(newContainer.uiContainerClosedPosition, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                .OnStart(() =>
+                {
+
+
+
+                })
+                .OnComplete(() =>
+                {
+
+
+
+                });
+
+            }
+            else
+            {
+
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log(string.Format("Could not find any UI-Containers with the name: {0}!", containerName));
+
+                return;
+
+            }
+
+        }
+
         public void UpdateSidebarContainer()
         {
 
@@ -786,61 +987,15 @@ namespace Showroom.UI
 
                 Vector2 screenSpacePos = rectPos.position;
 
-                /*
-    if (Mouse.current.position.ReadValue().x >= (currentResolution.x * .85f))
-    {
+                tooltipRect.position = screenSpacePos;
 
-        tooltipShape.RoundedProperties.BLRadius = 16f;
-        tooltipShape.RoundedProperties.TLRadius = 16f;
-        tooltipShape.RoundedProperties.BRRadius = 0f;
-        tooltipShape.RoundedProperties.TRRadius = 0f;
-
-
-        if (Mouse.current.position.ReadValue().y >= (currentResolution.y * .8f))
-            tooltipRect.pivot = new Vector2(1.375f, 0.5f);
-        else
-            tooltipRect.pivot = new Vector2(1.3f, 0.5f);
-
-        screenSpacePos = new Vector2(screenSpacePos.x, screenSpacePos.y);
-    }
-    else
-    {
-
-        if (generalMenuOneButtonActive)
-        {
-
-            tooltipRect.pivot = new Vector2(-0.11f, 0.5f);
-
-            tooltipShape.RoundedProperties.BLRadius = 0f;
-            tooltipShape.RoundedProperties.TLRadius = 0f;
-            tooltipShape.RoundedProperties.BRRadius = 16f;
-            tooltipShape.RoundedProperties.TRRadius = 16f;
-
-        }
-        else
-        {
-
-            tooltipRect.pivot = new Vector2(0.5f, -0.86f);
-
-            tooltipShape.RoundedProperties.BLRadius = 16f;
-            tooltipShape.RoundedProperties.TLRadius = 16f;
-            tooltipShape.RoundedProperties.BRRadius = 16f;
-            tooltipShape.RoundedProperties.TRRadius = 16f;
-
-        }
-
-        screenSpacePos = new Vector2(screenSpacePos.x, screenSpacePos.y);
-    }
-
-*/
-    tooltipRect.position = screenSpacePos;
             }
 
 
 
         }
 
-            public void DisableTooltip()
+        public void DisableTooltip()
         {
 
             tooltipRect.gameObject.SetActive(false);
@@ -1093,10 +1248,15 @@ namespace Showroom.UI
     public enum DockingPositions
     {
 
-        Top,
-        Right,
-        LowerRight,
-        LowerLeft
+        topCenter,
+        topRight,
+        rightCenter,
+        bottomRight,
+        bottomCenter,
+        bottomLeft,
+        leftCenter,
+        topLeft,
+        center
 
     }
 

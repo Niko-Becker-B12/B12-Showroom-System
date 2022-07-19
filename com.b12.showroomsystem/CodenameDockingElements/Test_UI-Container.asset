@@ -12,13 +12,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2613f5a7fd8a84c83441394d25f75c, type: 3}
   m_Name: Test_UI-Container
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: uiModule
+      Entry: 7
+      Data: 0|Showroom.UI.UIContainerModule_NumericList, B12.ShowroomSystem
+    - Name: userInterfaceContainerModuleType
+      Entry: 3
+      Data: 1
+    - Name: UIContainerModule_NumericList+userInterfaceContainerModuleType
+      Entry: 3
+      Data: 6
+    - Name: containerModuleButtons
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Showroom.UI.UIContainerBlock_Button,
+        B12.ShowroomSystem]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|Showroom.UI.UIContainerBlock_Button, B12.ShowroomSystem
+    - Name: buttonText
+      Entry: 1
+      Data: Test
+    - Name: buttonOnClickFunctions
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnEnterFunctions
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnExitFunctions
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnResetFunctions
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   uiContainerShortName: Test
   uiContainerLongName: Test-UI-Container
-  uiContainerClosedPosition: {x: 1000, y: 0}
-  uiContainerOpenedPosition: {x: 0, y: 0}
-  uiContainerSize: {x: 0, y: 0}
-  uiContainerDockingPosition: 0
+  uiContainerClosedPosition: {x: 1400, y: 0}
+  uiContainerOpenedPosition: {x: 920, y: 0}
+  uiContainerSize: {x: 440, y: 0}
+  uiContainerDockingPosition: 1
   uiContainerRect: {fileID: 0}
   uiContainerCanvasGroup: {fileID: 0}
-  userInterfaceContainerType: 6
   uiContainerObj: {fileID: 0}

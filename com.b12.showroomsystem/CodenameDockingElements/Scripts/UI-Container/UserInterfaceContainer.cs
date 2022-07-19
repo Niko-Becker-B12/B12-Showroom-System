@@ -1,7 +1,9 @@
+using Sirenix.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
 
 namespace Showroom.UI
@@ -10,7 +12,7 @@ namespace Showroom.UI
     [System.Serializable]
     [Sirenix.OdinInspector.InlineEditor]
     [CreateAssetMenu(fileName = "UI-Container", menuName = "Showroom/UI-Container")]
-    public class UserInterfaceContainer : ScriptableObject
+    public class UserInterfaceContainer : SerializedScriptableObject
     {
 
         public string uiContainerShortName;
@@ -29,11 +31,10 @@ namespace Showroom.UI
         [HideInInspector]
         public CanvasGroup uiContainerCanvasGroup;
 
-        public UserInterfaceContainerType userInterfaceContainerType;
-
+        [OdinSerialize]
+        private UserInterfaceContainerModule uiModule;
 
         public GameObject uiContainerObj;
-
 
         public virtual void CreateUIContainer()
         {
@@ -42,42 +43,56 @@ namespace Showroom.UI
                 Debug.Log(string.Format("Generating UI-Container with the name: {0}!", uiContainerShortName));
 
 
-            switch(userInterfaceContainerType)
+            uiContainerObj = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerPrefab, CodenameDockingElements.Instance.uiContainerParent) as GameObject;
+            uiContainerRect = uiContainerObj.GetComponent<RectTransform>();
+            
+            switch(uiContainerDockingPosition)
             {
 
-                case UserInterfaceContainerType.numericList:
-
-                    uiContainerObj = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerPrefab, CodenameDockingElements.Instance.uiContainerParent) as GameObject;
-
-                    uiContainerRect = uiContainerObj.GetComponent<RectTransform>();
-
-
-                    uiContainerRect.anchoredPosition = uiContainerClosedPosition;
-
-                    ApplyBaseSkin();
-
+                case DockingPositions.topCenter:
+                    uiContainerRect.pivot = new Vector2(0.5f, 1f);
+                    break;
+                case DockingPositions.topRight:
+                    uiContainerRect.pivot = new Vector2(1f, 1f);
+                    break;
+                case DockingPositions.rightCenter:
+                    uiContainerRect.pivot = new Vector2(1f, 0.5f);
+                    break;
+                case DockingPositions.bottomRight:
+                    uiContainerRect.pivot = new Vector2(1f, 0f);
+                    break;
+                case DockingPositions.bottomCenter:
+                    uiContainerRect.pivot = new Vector2(0.5f, 0f);
+                    break;
+                case DockingPositions.bottomLeft:
+                    uiContainerRect.pivot = new Vector2(0f, 0f);
+                    break;
+                case DockingPositions.leftCenter:
+                    uiContainerRect.pivot = new Vector2(0f, 0.5f);
+                    break;
+                case DockingPositions.topLeft:
+                    uiContainerRect.pivot = new Vector2(0f, 1f);
+                    break;
+                case DockingPositions.center:
+                    uiContainerRect.pivot = new Vector2(0.5f, 0.5f);
                     break;
 
             }
 
+            uiContainerRect.anchoredPosition = uiContainerClosedPosition;
 
-            //uiContainerObj = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerPrefab, CodenameDockingElements.Instance.uiContainerParent) as GameObject;
-            //
-            //uiContainerRect = uiContainerObj.GetComponent<RectTransform>();
-            //
-            //
-            //uiContainerRect.anchoredPosition = uiContainerClosedPosition;
-            //
-            //ApplyBaseSkin();
+            uiContainerRect.sizeDelta = uiContainerSize;
 
+            uiModule.Create(uiContainerObj.transform);
 
+            ApplyBaseSkin();
 
         }
 
         public virtual void UpdateUIContainer()
         {
 
-
+            uiModule.Update(uiContainerObj.transform);
 
         }
 
@@ -92,7 +107,7 @@ namespace Showroom.UI
     }
 
 
-    public enum UserInterfaceContainerType
+    public enum UserInterfaceContainerModuleType
     {
 
         customModules,

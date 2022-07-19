@@ -88,6 +88,10 @@ namespace Showroom.UI
 
             }
 
+            onButtonReset.AddRange(sidebarButtonDataContainer.sidebarButtonOnResetFunctions);
+            onButtonDown.AddRange(sidebarButtonDataContainer.sidebarButtonOnClickFunctions);
+            onButtonEnter.AddRange(sidebarButtonDataContainer.sidebarButtonOnEnterFunctions);
+            onButtonExit.AddRange(sidebarButtonDataContainer.sidebarButtonOnExitFunctions);
 
             sidebarButtonBehavior.onButtonReset.AddRange(onButtonReset);
             sidebarButtonBehavior.onMouseDown.AddRange(onButtonDown);
