@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
+using ThisOtherThing.UI.Shapes;
 
 
 namespace Showroom.UI
@@ -99,8 +100,13 @@ namespace Showroom.UI
         void ApplyBaseSkin()
         {
 
-            uiContainerRect.GetComponent<Image>().sprite = CodenameDockingElements.Instance.baseUISkin.uiContainerBackground;
-            uiContainerRect.GetComponent<Image>().color = CodenameDockingElements.Instance.baseUISkin.uiContainerBackgroundColor;
+            uiContainerRect.GetComponent<Rectangle>().Sprite = CodenameDockingElements.Instance.baseUISkin.uiContainerBackground;
+            uiContainerRect.GetComponent<Rectangle>().color = CodenameDockingElements.Instance.baseUISkin.uiContainerBackgroundColor;
+
+            uiContainerRect.GetComponent<Rectangle>().RoundedProperties.BLRadius = CodenameDockingElements.Instance.baseUISkin.uiContainerRoundness.left;
+            uiContainerRect.GetComponent<Rectangle>().RoundedProperties.TLRadius = CodenameDockingElements.Instance.baseUISkin.uiContainerRoundness.right;
+            uiContainerRect.GetComponent<Rectangle>().RoundedProperties.TRRadius = CodenameDockingElements.Instance.baseUISkin.uiContainerRoundness.top;
+            uiContainerRect.GetComponent<Rectangle>().RoundedProperties.BRRadius = CodenameDockingElements.Instance.baseUISkin.uiContainerRoundness.bottom;
 
         }
 

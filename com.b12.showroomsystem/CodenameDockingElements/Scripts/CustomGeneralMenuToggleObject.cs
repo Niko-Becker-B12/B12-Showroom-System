@@ -34,7 +34,8 @@ namespace Showroom.UI
 
             generalMenuToggleBehavior = this.GetComponent<ToggleBehavior>();
             generalMenuButton = this.GetComponent<Button>();
-            generalMenuButtonIcon = this.GetComponent<Image>();
+            Rectangle generalMenuRect = this.GetComponent<Rectangle>();
+            generalMenuButtonIcon = this.transform.GetChild(0).GetComponent<Image>();
 
             if(generalMenuToggleBehavior.isActive)
                 generalMenuButtonIcon.sprite = generalButtonDataContainer.toggleActiveSprite;
@@ -69,6 +70,7 @@ namespace Showroom.UI
         {
 
             generalMenuButtonColors = CodenameDockingElements.Instance.baseUISkin.generalMenuButtonColors;
+            generalMenuButtonIconColors = CodenameDockingElements.Instance.baseUISkin.generalMenuButtonIconColors;
 
             generalMenuButton.colors = generalMenuButtonColors;
 
@@ -168,6 +170,8 @@ namespace Showroom.UI
                 generalMenuButtonIcon.sprite = generalButtonDataContainer.toggleActiveSprite;
             else
                 generalMenuButtonIcon.sprite = generalButtonDataContainer.toggleDeactiveSprite;
+
+            generalMenuButtonIcon.color = generalMenuButtonIconColors.selectedColor;
 
         }
 

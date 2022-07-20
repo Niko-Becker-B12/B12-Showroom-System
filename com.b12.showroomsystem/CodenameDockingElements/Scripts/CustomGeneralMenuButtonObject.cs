@@ -16,6 +16,7 @@ namespace Showroom.UI
     {
 
         [FoldoutGroup("Design")][ReadOnly] public ColorBlock generalMenuButtonColors = ColorBlock.defaultColorBlock;
+        [FoldoutGroup("Design")][ReadOnly] public ColorBlock generalMenuButtonIconColors = ColorBlock.defaultColorBlock;
 
         [FoldoutGroup("Functions")]
         [ReadOnly]
@@ -41,6 +42,8 @@ namespace Showroom.UI
         public Button generalMenuButton;
         [ReadOnly]
         public Image generalMenuButtonIcon;
+        [ReadOnly]
+        public Rectangle generalMenuButtonRectangle;
 
 
         public virtual void SetUpButton()
@@ -51,7 +54,8 @@ namespace Showroom.UI
 
             generalMenuButtonBehavior = this.GetComponent<ButtonBehavior>();
             generalMenuButton = this.GetComponent<Button>();
-            generalMenuButtonIcon = this.GetComponent<Image>();
+            generalMenuButtonRectangle = this.GetComponent<Rectangle>();
+            generalMenuButtonIcon = this.transform.GetChild(0).GetComponent<Image>();
 
             generalMenuButtonIcon.sprite = generalButtonDataContainer.buttonSprite;
 
@@ -72,6 +76,7 @@ namespace Showroom.UI
         {
 
             generalMenuButtonColors = CodenameDockingElements.Instance.baseUISkin.generalMenuButtonColors;
+            generalMenuButtonIconColors = CodenameDockingElements.Instance.baseUISkin.generalMenuButtonIconColors;
 
             generalMenuButton.colors = generalMenuButtonColors;
 
@@ -158,6 +163,8 @@ namespace Showroom.UI
 
             CodenameDockingElements.Instance.DisplayTooltip(this.GetComponent<RectTransform>(), generalButtonDataContainer.tooltipText);
 
+            generalMenuButtonIcon.color = generalMenuButtonIconColors.highlightedColor;
+
         }
 
         public virtual void GeneralMenuButtonObjectOnExit()
@@ -165,12 +172,16 @@ namespace Showroom.UI
 
             CodenameDockingElements.Instance.DisableTooltip();
 
+            generalMenuButtonIcon.color = generalMenuButtonIconColors.normalColor;
+
         }
 
         public virtual void GeneralMenuButtonObjectOnClick()
         {
 
             CodenameDockingElements.Instance.DisableTooltip();
+
+            generalMenuButtonIcon.color = generalMenuButtonIconColors.selectedColor;
 
         }
 

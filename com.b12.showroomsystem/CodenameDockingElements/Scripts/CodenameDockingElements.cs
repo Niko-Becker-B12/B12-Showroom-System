@@ -323,8 +323,10 @@ namespace Showroom.UI
 
                 backButtonOnclick.AddListener(() =>
                 {
-
-                    ShowroomManager.Instance.MoveToFixedPos(-1);
+                    if (ShowroomManager.Instance.isAtUseCaseHomePos)
+                        ShowroomManager.Instance.SwitchUseCase(-2);
+                    else
+                        ShowroomManager.Instance.MoveToFixedPos(-1);
 
                 });
 
@@ -483,6 +485,13 @@ namespace Showroom.UI
             generalMenuContainerRect.GetComponent<Rectangle>().Sprite = baseUISkin.generalMenuBackground;
             generalMenuContainerRect.GetComponent<Rectangle>().color = baseUISkin.generalMenuBackgroundColor;
 
+            generalMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.Type = ThisOtherThing.UI.ShapeUtils.RoundedRects.RoundedProperties.RoundedType.Individual;
+
+            generalMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.BLRadius = baseUISkin.generalMenuRoundness.left;
+            generalMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.TLRadius = baseUISkin.generalMenuRoundness.right;
+            generalMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.TRRadius = baseUISkin.generalMenuRoundness.top;
+            generalMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.BRRadius = baseUISkin.generalMenuRoundness.bottom;
+
             generalMenuPlayButton.buttonSprite = baseUISkin.generalMenuPlayButtonIcon;
             generalMenuReplayButton.buttonSprite = baseUISkin.generalMenuReplayButtonIcon;
             generalMenuCameraDropdown.dropdownSprite = baseUISkin.generalMenuCameraDropdownIcon;
@@ -508,12 +517,36 @@ namespace Showroom.UI
             focusMenuContainerRect.GetComponent<Rectangle>().Sprite = baseUISkin.focusMenuBackground;
             focusMenuContainerRect.GetComponent<Rectangle>().color = baseUISkin.focusMenuBackgroundColor;
 
+            focusMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.Type = ThisOtherThing.UI.ShapeUtils.RoundedRects.RoundedProperties.RoundedType.Individual;
+
+            focusMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.BLRadius = baseUISkin.focusMenuRoundness.left;
+            focusMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.TLRadius = baseUISkin.focusMenuRoundness.right;
+            focusMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.TRRadius = baseUISkin.focusMenuRoundness.top;
+            focusMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.BRRadius = baseUISkin.focusMenuRoundness.bottom;
+
             focusMenuBackButton.buttonSprite = baseUISkin.focusMenuBackButtonIcon;
             focusMenuResetRotationButton.buttonSprite = baseUISkin.focusMenuActualResetRotationButtonIcon;
             focusMenuResetRotationButtonNoRotationButton.buttonSprite = baseUISkin.focusMenuResetRotationButtonIcon;
 
             #endregion
 
+            #region Tooltip
+
+
+            tooltipShape.color = baseUISkin.tooltipBackgroundColor;
+            tooltipShape.Sprite = baseUISkin.tooltipBackground;
+
+            tooltipTextbox.color = baseUISkin.tooltipTextColor;
+
+            tooltipShape.RoundedProperties.Type = ThisOtherThing.UI.ShapeUtils.RoundedRects.RoundedProperties.RoundedType.Individual;
+
+            tooltipShape.RoundedProperties.BLRadius = baseUISkin.tooltipRoundness.left;
+            tooltipShape.RoundedProperties.TLRadius = baseUISkin.tooltipRoundness.right;
+            tooltipShape.RoundedProperties.TRRadius = baseUISkin.tooltipRoundness.top;
+            tooltipShape.RoundedProperties.BRRadius = baseUISkin.tooltipRoundness.bottom;
+
+
+            #endregion
 
 
 
@@ -981,13 +1014,44 @@ namespace Showroom.UI
 
                 tooltipRect.position = screenSpacePos;
 
+                tooltipShape.rectTransform.pivot = new Vector2(1f, .5f);
+                tooltipShape.rectTransform.anchoredPosition = new Vector2(-41f, 0f);
+
+                tooltipShape.transform.GetChild(1).gameObject.SetActive(false);
+                tooltipRect.transform.GetChild(1).gameObject.SetActive(true);
+
             }
             else
             {
 
-                Vector2 screenSpacePos = rectPos.position;
+                if (Mouse.current.position.ReadValue().x >= (currentResolution.x * .85f))
+                {
 
-                tooltipRect.position = screenSpacePos;
+                    Vector2 screenSpacePos = rectPos.position;
+
+                    tooltipRect.position = screenSpacePos;
+
+                    tooltipShape.rectTransform.pivot = new Vector2(1f, .5f);
+                    tooltipShape.rectTransform.anchoredPosition = new Vector2(-41f, 0f);
+
+                    tooltipShape.transform.GetChild(1).gameObject.SetActive(false);
+                    tooltipRect.transform.GetChild(1).gameObject.SetActive(true);
+
+                }
+                else
+                {
+
+                    Vector2 screenSpacePos = rectPos.position;
+
+                    tooltipRect.position = screenSpacePos;
+
+                    tooltipShape.rectTransform.pivot = new Vector2(.5f, .5f);
+                    tooltipShape.rectTransform.anchoredPosition = new Vector2(0f, 52f);
+
+                    tooltipShape.transform.GetChild(1).gameObject.SetActive(true);
+                    tooltipRect.transform.GetChild(1).gameObject.SetActive(false);
+
+                }
 
             }
 

@@ -22,7 +22,8 @@ namespace Showroom.UI
 
             generalMenuButtonBehavior = this.GetComponent<ButtonBehavior>();
             generalMenuButton = this.GetComponent<Button>();
-            generalMenuButtonIcon = this.GetComponent<Image>();
+            generalMenuButtonRectangle = this.GetComponent<Rectangle>();
+            generalMenuButtonIcon = this.transform.GetChild(0).GetComponent<Image>();
 
             generalMenuButtonIcon.sprite = generalButtonDataContainer.dropdownSprite;
 

@@ -14,12 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationSpeed: 1
   animationEasingType: 19
+  buttonRoundness:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  buttonPadding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   useSidebarSettings: 1
   sidebarClosedPos: {x: -445, y: 0}
   sidebarOpenedPos: {x: 40, y: 0}
   sidebarBackground: {fileID: 0}
   sidebarBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+  sidebarRoundness:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  sidebarPadding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   sidebarHeaderSize: {x: 0, y: 0}
+  sidebarHeaderRoundness:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   sidebarButtonColors:
     m_NormalColor: {r: 0, g: 0.121568635, b: 0.22352943, a: 1}
     m_HighlightedColor: {r: 0, g: 0.19089466, b: 0.35099998, a: 1}
@@ -69,12 +94,23 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   useGeneralMenuSettings: 1
-  generalMenuClosedPos: {x: 80, y: 40}
-  generalMenuOpenedPos: {x: -40, y: 40}
+  generalMenuClosedPos: {x: 0, y: -56}
+  generalMenuOpenedPos: {x: 0, y: 40}
   generalMenuBackground: {fileID: 0}
-  generalMenuBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  generalMenuBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+  generalMenuRoundness:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  generalMenuPadding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   generalMenuPlayButtonIcon: {fileID: 3286163911610860551, guid: ed96209f9c77b444ca1d2edeb0559e11,
     type: 3}
+  generalMenuPauseButtonIcon: {fileID: 0}
   generalMenuReplayButtonIcon: {fileID: 3286163911610860551, guid: be4061e7dd177a6408b64a48bfa02324,
     type: 3}
   generalMenuCameraDropdownIcon: {fileID: 3286163911610860551, guid: 2432c6cb37ee19d4ca8fbf2b6b07dbc0,
@@ -93,18 +129,36 @@ MonoBehaviour:
     type: 3}
   generalMenuHasDivider: 0
   generalMenuButtonColors:
-    m_NormalColor: {r: 0.1764706, g: 0.21568628, b: 0.23529412, a: 1}
-    m_HighlightedColor: {r: 0.34125, g: 0.41708338, b: 0.455, a: 1}
-    m_PressedColor: {r: 0.1764706, g: 0.21568629, b: 0.23529413, a: 1}
-    m_SelectedColor: {r: 0.1764706, g: 0.21568629, b: 0.23529413, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_PressedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_SelectedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_DisabledColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  generalMenuButtonIconColors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_PressedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   useFocusMenuSettings: 1
-  focusMenuClosedPos: {x: 72, y: 72}
-  focusMenuOpenedPos: {x: -72, y: 72}
+  focusMenuClosedPos: {x: 56, y: 40}
+  focusMenuOpenedPos: {x: -40, y: 40}
   focusMenuBackground: {fileID: 0}
-  focusMenuBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  focusMenuBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+  focusMenuRoundness:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  focusMenuPadding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   focusMenuResetRotationButtonIcon: {fileID: 3286163911610860551, guid: 7c16dd151279ddd459b1170373dcdb15,
     type: 3}
   focusMenuActualResetRotationButtonIcon: {fileID: 3286163911610860551, guid: d3d4b09f29fcd1c42bda681a458237fc,
@@ -112,13 +166,34 @@ MonoBehaviour:
   focusMenuBackButtonIcon: {fileID: 3286163911610860551, guid: d956352457491db4992d37049f852760,
     type: 3}
   focusMenuButtonColors:
-    m_NormalColor: {r: 0.1764706, g: 0.21568628, b: 0.23529412, a: 1}
-    m_HighlightedColor: {r: 0.34125, g: 0.41708338, b: 0.455, a: 1}
-    m_PressedColor: {r: 0.1764706, g: 0.21568629, b: 0.23529413, a: 1}
-    m_SelectedColor: {r: 0.1764706, g: 0.21568629, b: 0.23529413, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_PressedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_SelectedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_DisabledColor: {r: 0, g: 0, b: 0.15686275, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
+  focusMenuButtonIconColors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_PressedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  tooltipBackground: {fileID: 0}
+  tooltipBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+  tooltipTextColor: {r: 1, g: 1, b: 1, a: 1}
+  tooltipRoundness:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  tooltipPadding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   loadingScreenBackground: {fileID: 0}
   loadingScreenBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
   loadingScreenLogoSprite: {fileID: 21300000, guid: 42c6858699fe8224f8d7de251857c196,
@@ -126,8 +201,29 @@ MonoBehaviour:
   loadingScreenLoadingBarColor: {r: 0, g: 0.6039216, b: 0.6039216, a: 1}
   uiContainerBackground: {fileID: 0}
   uiContainerBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+  uiContainerRoundness:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   uiContainerPadding:
     m_Left: 56
     m_Right: 56
-    m_Top: 92
+    m_Top: 56
     m_Bottom: 20
+  customUIContainerButtonColors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  customUIContainerButtonTextColors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0.7254902, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
