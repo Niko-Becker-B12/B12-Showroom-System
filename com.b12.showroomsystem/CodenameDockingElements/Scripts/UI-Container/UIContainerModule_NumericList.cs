@@ -36,11 +36,11 @@ namespace Showroom.UI
 
                 GameObject newButton = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerButtonPrefab, moduleParent);
 
-                TextMeshProUGUI newText = newButton.GetComponentInChildren<TextMeshProUGUI>();
+                UIContainerBlock_Button_Object uIContainerBlockButton = newButton.GetComponent<UIContainerBlock_Button_Object>();
 
-                newText.text = string.Format("{0}. {1}", (i + 1), containerModuleButtons[i].buttonText);
-
-                newButton.GetComponent<Button>().colors = CodenameDockingElements.Instance.baseUISkin.customUIContainerButtonColors;
+                uIContainerBlockButton.data = containerModuleButtons[i];
+                uIContainerBlockButton.index = (i + 1);
+                uIContainerBlockButton.SetUpButton();
 
             }
 

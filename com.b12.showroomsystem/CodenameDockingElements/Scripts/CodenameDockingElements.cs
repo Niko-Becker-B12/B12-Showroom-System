@@ -471,7 +471,7 @@ namespace Showroom.UI
             {
                 Debug.Log(i - 1);
 
-                customGeneralMenuButtons[i - 1].SetUpButton(i - 1);
+                customGeneralMenuButtons[i - 1].SetUpButton(customGeneralMenuButtons[i], i - 1);
 
             }
 
@@ -1522,29 +1522,34 @@ namespace Showroom.UI
         #endregion
 
 
-        public void SetUpButton(int buttonIndex = -1, int useCaseIndex = -1)
+        public void SetUpButton(CustomGeneralMenuButton customGeneralMenuDataContainer = null, int buttonIndex = -1, int useCaseIndex = -1)
         {
 
             if (customButtonType == CustomGeneralMenuButtonType.toggle)
             {
 
-                GameObject newGeneralMenuButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuTogglePrefab, CodenameDockingElements.Instance.generalMenuButtonParent) as GameObject;
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log("Generating General Menu toggle module");
 
-                newGeneralMenuButton.transform.SetAsFirstSibling();
+                GameObject newGeneralMenuToggle = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuTogglePrefab, CodenameDockingElements.Instance.generalMenuButtonParent) as GameObject;
 
-                CustomGeneralMenuToggleObject customGeneralMenuButtonToggleObj = (CustomGeneralMenuToggleObject)customGeneralMenuButtonObj;
+
+                customGeneralMenuToggleObj = newGeneralMenuToggle.GetComponent<CustomGeneralMenuToggleObject>();
+                customGeneralMenuToggleObj.generalButtonDataContainer = customGeneralMenuDataContainer;
+
+                customGeneralMenuToggleObj.SetUpButton();
 
             }
             else if (customButtonType == CustomGeneralMenuButtonType.button)
             {
 
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log("Generating General Menu button module");
 
                 GameObject newGeneralMenuButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuButtonPrefab, CodenameDockingElements.Instance.generalMenuButtonParent) as GameObject;
 
-                newGeneralMenuButton.transform.SetAsFirstSibling();
-
                 customGeneralMenuButtonObj = newGeneralMenuButton.GetComponent<CustomGeneralMenuButtonObject>();
-                customGeneralMenuButtonObj.generalButtonDataContainer = CodenameDockingElements.Instance.customGeneralMenuButtons[buttonIndex];
+                customGeneralMenuButtonObj.generalButtonDataContainer = customGeneralMenuDataContainer;
 
                 customGeneralMenuButtonObj.SetUpButton();
 
@@ -1552,16 +1557,31 @@ namespace Showroom.UI
             else if (customButtonType == CustomGeneralMenuButtonType.slider)
             {
 
-                GameObject newGeneralMenuButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuSliderPrefab, CodenameDockingElements.Instance.generalMenuButtonParent) as GameObject;
-                newGeneralMenuButton.transform.SetAsFirstSibling();
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log("Generating General Menu slider module");
+
+                GameObject newGeneralMenuSlider = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuSliderPrefab, CodenameDockingElements.Instance.generalMenuButtonParent) as GameObject;
+
+
+                customGeneralMenuSliderObj = newGeneralMenuSlider.GetComponent<CustomGeneralMenuSliderObject>();
+                customGeneralMenuSliderObj.generalButtonDataContainer = customGeneralMenuDataContainer;
+
+                customGeneralMenuSliderObj.SetUpButton();
 
             }
             else if (customButtonType == CustomGeneralMenuButtonType.dropdown)
             {
 
-                GameObject newGeneralMenuButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuDropdownPrefab, CodenameDockingElements.Instance.generalMenuButtonParent) as GameObject;
+                if (ShowroomManager.Instance.showDebugMessages)
+                    Debug.Log("Generating General Menu dropdown module");
 
-                newGeneralMenuButton.transform.SetAsFirstSibling();
+                GameObject newGeneralMenuDropdown = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuDropdownPrefab, CodenameDockingElements.Instance.generalMenuButtonParent) as GameObject;
+
+
+                customGeneralMenuDropdownObj = newGeneralMenuDropdown.GetComponent<CustomGeneralMenuDropdownObject>();
+                customGeneralMenuDropdownObj.generalButtonDataContainer = customGeneralMenuDataContainer;
+
+                customGeneralMenuDropdownObj.SetUpButton();
 
             }
 
@@ -1593,12 +1613,8 @@ namespace Showroom.UI
 
                 GameObject newGeneralMenuButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuButtonPrefab, CodenameDockingElements.Instance.generalMenuButtonParent) as GameObject;
 
-
-
                 customGeneralMenuButtonObj = newGeneralMenuButton.GetComponent<CustomGeneralMenuButtonObject>();
                 customGeneralMenuButtonObj.generalButtonDataContainer = customGeneralMenuDataContainer;
-
-
 
                 customGeneralMenuButtonObj.SetUpButton();
 
