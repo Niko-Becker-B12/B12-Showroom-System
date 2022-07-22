@@ -336,29 +336,6 @@ namespace Showroom.UI
 
                 }
 
-                UnityEvent homeButtonOnclick = new UnityEvent();
-
-                homeButtonOnclick.AddListener(() =>
-                {
-
-                    ShowroomManager.Instance.SwitchUseCase(-2);
-
-
-                    if (ShowroomManager.Instance.useCaseIndex != -1)
-                        ToggleGeneralMenu(true);
-
-                    //ShowroomManager.Instance.MoveToFixedPos(-2);
-
-                });
-
-                Function homeButtonOnclickFunction = new Function
-                {
-                    functionName = homeButtonOnclick,
-                    functionDelay = 0f
-                };
-
-                generalMenuHomeButton.buttonOnClickFunctions.Add(homeButtonOnclickFunction);
-
                 #endregion
 
                 #region Back Button
@@ -384,48 +361,6 @@ namespace Showroom.UI
 
                 }
 
-                UnityEvent backButtonOnclick = new UnityEvent();
-
-                backButtonOnclick.AddListener(() =>
-                {
-
-                    if (ShowroomManager.Instance.useCaseIndex != -1)
-                    {
-
-                        if (ShowroomManager.Instance.isAtUseCaseHomePos && !headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
-                            ShowroomManager.Instance.SwitchUseCase(-2);
-                        else if (!ShowroomManager.Instance.isAtUseCaseHomePos)
-                            ShowroomManager.Instance.MoveToFixedPos(-1);
-                        else if (ShowroomManager.Instance.isAtUseCaseHomePos && headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
-                        {
-
-                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.ResetSubButtons();
-                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarButtonObjectOnClick();
-
-                        }
-
-                    }
-                    else
-                    {
-
-                        if (ShowroomManager.Instance.isAtUseCaseHomePos)
-                            ShowroomManager.Instance.SwitchUseCase(-2);
-                        else
-                            ShowroomManager.Instance.MoveToFixedPos(-1);
-
-                    }
-
-
-                });
-
-                Function backButtonOnClickFunction = new Function
-                {
-                    functionName = backButtonOnclick,
-                    functionDelay = 0f
-                };
-
-                generalMenuBackButton.buttonOnClickFunctions.Add(backButtonOnClickFunction);
-
                 #endregion
 
                 #region Drag Mode Toggle
@@ -450,44 +385,6 @@ namespace Showroom.UI
                     generalMenuDragModeToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
 
                 }
-
-                UnityEvent dragModeOnSetActive = new UnityEvent();
-
-                dragModeOnSetActive.AddListener(() =>
-                {
-
-                    ShowroomNavigation.Instance.dragModeActive = true;
-
-                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function dragModeOnSetActiveFunction = new Function
-                {
-                    functionName = dragModeOnSetActive,
-                    functionDelay = 0f
-                };
-
-                generalMenuDragModeToggle.onSetActiveFunctions.Add(dragModeOnSetActiveFunction);
-
-                UnityEvent dragModeOnSetDeactive = new UnityEvent();
-
-                dragModeOnSetDeactive.AddListener(() =>
-                {
-
-                    ShowroomNavigation.Instance.dragModeActive = false;
-
-                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function dragModeOnSetDeactiveFunction = new Function
-                {
-                    functionName = dragModeOnSetDeactive,
-                    functionDelay = 0f
-                };
-
-                generalMenuDragModeToggle.onSetDeactiveFunctions.Add(dragModeOnSetDeactiveFunction);
 
                 #endregion
 
@@ -538,44 +435,6 @@ namespace Showroom.UI
                     generalMenuTransparencyToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
 
                 }
-
-                UnityEvent transparencyOnSetActive = new UnityEvent();
-
-                transparencyOnSetActive.AddListener(() =>
-                {
-
-                    ShowroomManager.Instance.EnableTransparency();
-
-                    generalMenuTransparencyToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function transparencyOnSetActiveFunction = new Function
-                {
-                    functionName = transparencyOnSetActive,
-                    functionDelay = 0f
-                };
-
-                generalMenuTransparencyToggle.onSetActiveFunctions.Add(transparencyOnSetActiveFunction);
-
-                UnityEvent transparencyOnSetDeactive = new UnityEvent();
-
-                transparencyOnSetDeactive.AddListener(() =>
-                {
-
-                    ShowroomManager.Instance.DisableTransparency();
-
-                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function transparencyOnSetDeactiveFunction = new Function
-                {
-                    functionName = transparencyOnSetDeactive,
-                    functionDelay = 0f
-                };
-
-                generalMenuTransparencyToggle.onSetDeactiveFunctions.Add(transparencyOnSetDeactiveFunction);
 
                 #endregion
 
@@ -658,29 +517,6 @@ namespace Showroom.UI
 
                 }
 
-                UnityEvent homeButtonOnclick = new UnityEvent();
-
-                homeButtonOnclick.AddListener(() =>
-                {
-
-                    ShowroomManager.Instance.SwitchUseCase(-2);
-
-
-                    if (ShowroomManager.Instance.useCaseIndex != -1)
-                        ToggleGeneralMenu(true);
-
-                    //ShowroomManager.Instance.MoveToFixedPos(-2);
-
-                });
-
-                Function homeButtonOnclickFunction = new Function
-                {
-                    functionName = homeButtonOnclick,
-                    functionDelay = 0f
-                };
-
-                generalMenuHomeButton.buttonOnClickFunctions.Add(homeButtonOnclickFunction);
-
                 #endregion
 
                 #region Back Button
@@ -706,48 +542,6 @@ namespace Showroom.UI
 
                 }
 
-                UnityEvent backButtonOnclick = new UnityEvent();
-
-                backButtonOnclick.AddListener(() =>
-                {
-
-                    if (ShowroomManager.Instance.useCaseIndex != -1)
-                    {
-
-                        if (ShowroomManager.Instance.isAtUseCaseHomePos && !headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
-                            ShowroomManager.Instance.SwitchUseCase(-2);
-                        else if (!ShowroomManager.Instance.isAtUseCaseHomePos)
-                            ShowroomManager.Instance.MoveToFixedPos(-1);
-                        else if (ShowroomManager.Instance.isAtUseCaseHomePos && headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
-                        {
-
-                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.ResetSubButtons();
-                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarButtonObjectOnClick();
-
-                        }
-
-                    }
-                    else
-                    {
-
-                        if (ShowroomManager.Instance.isAtUseCaseHomePos)
-                            ShowroomManager.Instance.SwitchUseCase(-2);
-                        else
-                            ShowroomManager.Instance.MoveToFixedPos(-1);
-
-                    }
-
-
-                });
-
-                Function backButtonOnClickFunction = new Function
-                {
-                    functionName = backButtonOnclick,
-                    functionDelay = 0f
-                };
-
-                generalMenuBackButton.buttonOnClickFunctions.Add(backButtonOnClickFunction);
-
                 #endregion
 
                 #region Drag Mode Toggle
@@ -772,44 +566,6 @@ namespace Showroom.UI
                     generalMenuDragModeToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
 
                 }
-
-                UnityEvent dragModeOnSetActive = new UnityEvent();
-
-                dragModeOnSetActive.AddListener(() =>
-                {
-
-                    ShowroomNavigation.Instance.dragModeActive = true;
-
-                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function dragModeOnSetActiveFunction = new Function
-                {
-                    functionName = dragModeOnSetActive,
-                    functionDelay = 0f
-                };
-
-                generalMenuDragModeToggle.onSetActiveFunctions.Add(dragModeOnSetActiveFunction);
-
-                UnityEvent dragModeOnSetDeactive = new UnityEvent();
-
-                dragModeOnSetDeactive.AddListener(() =>
-                {
-
-                    ShowroomNavigation.Instance.dragModeActive = false;
-
-                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function dragModeOnSetDeactiveFunction = new Function
-                {
-                    functionName = dragModeOnSetDeactive,
-                    functionDelay = 0f
-                };
-
-                generalMenuDragModeToggle.onSetDeactiveFunctions.Add(dragModeOnSetDeactiveFunction);
 
                 #endregion
 
@@ -860,44 +616,6 @@ namespace Showroom.UI
                     generalMenuTransparencyToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
 
                 }
-
-                UnityEvent transparencyOnSetActive = new UnityEvent();
-
-                transparencyOnSetActive.AddListener(() =>
-                {
-
-                    ShowroomManager.Instance.EnableTransparency();
-
-                    generalMenuTransparencyToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function transparencyOnSetActiveFunction = new Function
-                {
-                    functionName = transparencyOnSetActive,
-                    functionDelay = 0f
-                };
-
-                generalMenuTransparencyToggle.onSetActiveFunctions.Add(transparencyOnSetActiveFunction);
-
-                UnityEvent transparencyOnSetDeactive = new UnityEvent();
-
-                transparencyOnSetDeactive.AddListener(() =>
-                {
-
-                    ShowroomManager.Instance.DisableTransparency();
-
-                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function transparencyOnSetDeactiveFunction = new Function
-                {
-                    functionName = transparencyOnSetDeactive,
-                    functionDelay = 0f
-                };
-
-                generalMenuTransparencyToggle.onSetDeactiveFunctions.Add(transparencyOnSetDeactiveFunction);
 
                 #endregion
 
