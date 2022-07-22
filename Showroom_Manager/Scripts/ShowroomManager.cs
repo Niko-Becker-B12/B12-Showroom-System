@@ -828,7 +828,7 @@ namespace Showroom
 
             ToggleTransparency();
 
-            showroomUI.generalMenuTransparencyToggle.customGeneralMenuButtonObj.UpdateButton();
+            showroomUI.generalMenuTransparencyToggle.customGeneralMenuToggleObj.UpdateButton();
 
         }
 
