@@ -64,7 +64,9 @@ namespace Showroom.UI
         [BoxGroup("General Menu Settings")][ReadOnly] public bool generalMenuOneButtonActive = false;
         [BoxGroup("General Menu Settings")][ReadOnly] public bool generalMenuIsOpen = false;
 
-        [BoxGroup("General Menu Settings")] [SerializeField] public CustomGeneralMenuButton generalMenuPlayButton = new CustomGeneralMenuButton
+        [BoxGroup("General Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton generalMenuPlayButton = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
@@ -72,7 +74,9 @@ namespace Showroom.UI
             isIndexed = false
 
         };
-        [BoxGroup("General Menu Settings")][SerializeField] public CustomGeneralMenuButton generalMenuReplayButton = new CustomGeneralMenuButton
+        [BoxGroup("General Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton generalMenuReplayButton = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
@@ -80,7 +84,9 @@ namespace Showroom.UI
             isIndexed = false
 
         };
-        [BoxGroup("General Menu Settings")][SerializeField] public CustomGeneralMenuButton generalMenuCameraDropdown = new CustomGeneralMenuButton
+        [BoxGroup("General Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton generalMenuCameraDropdown = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown,
@@ -88,7 +94,9 @@ namespace Showroom.UI
             isIndexed = false
 
         };
-        [BoxGroup("General Menu Settings")][SerializeField] public CustomGeneralMenuButton generalMenuTransparencyToggle = new CustomGeneralMenuButton
+        [BoxGroup("General Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton generalMenuTransparencyToggle = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle,
@@ -96,7 +104,9 @@ namespace Showroom.UI
             isIndexed = false
 
         };
-        [BoxGroup("General Menu Settings")][SerializeField] public CustomGeneralMenuButton generalMenuDragModeToggle = new CustomGeneralMenuButton
+        [BoxGroup("General Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton generalMenuDragModeToggle = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle,
@@ -104,7 +114,9 @@ namespace Showroom.UI
             isIndexed = false
 
         };
-        [BoxGroup("General Menu Settings")][SerializeField] public CustomGeneralMenuButton generalMenuBackButton = new CustomGeneralMenuButton
+        [BoxGroup("General Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton generalMenuBackButton = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
@@ -112,7 +124,9 @@ namespace Showroom.UI
             isIndexed = false
 
         };
-        [BoxGroup("General Menu Settings")][SerializeField] public CustomGeneralMenuButton generalMenuHomeButton = new CustomGeneralMenuButton
+        [BoxGroup("General Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton generalMenuHomeButton = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
@@ -134,7 +148,9 @@ namespace Showroom.UI
 
         [BoxGroup("Focus Menu Settings")][SerializeField] public RectTransform focusMenuContainerRect;
 
-        [BoxGroup("Focus Menu Settings")] [SerializeField] public CustomGeneralMenuButton focusMenuResetRotationButton = new CustomGeneralMenuButton
+        [BoxGroup("Focus Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton focusMenuResetRotationButton = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
@@ -142,7 +158,9 @@ namespace Showroom.UI
             isIndexed = false
 
         };
-        [BoxGroup("Focus Menu Settings")] [SerializeField] public CustomGeneralMenuButton focusMenuBackButton = new CustomGeneralMenuButton
+        [BoxGroup("Focus Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton focusMenuBackButton = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
@@ -150,7 +168,9 @@ namespace Showroom.UI
             isIndexed = false
 
         };
-        [BoxGroup("Focus Menu Settings")][SerializeField] public CustomGeneralMenuButton focusMenuResetRotationButtonNoRotationButton = new CustomGeneralMenuButton
+        [BoxGroup("Focus Menu Settings")]
+        [SerializeField]
+        public CustomGeneralMenuButton focusMenuResetRotationButtonNoRotationButton = new CustomGeneralMenuButton
         {
 
             customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
@@ -171,7 +191,7 @@ namespace Showroom.UI
 
             currentResolution = new Vector2(Screen.width, Screen.height);
 
-            if(!ShowroomManager.Instance.isOnlyLevelInBuild && !ShowroomManager.Instance.downloadFairtouchData)
+            if (!ShowroomManager.Instance.isOnlyLevelInBuild && !ShowroomManager.Instance.downloadFairtouchData)
             {
 
                 GetData();
@@ -283,7 +303,7 @@ namespace Showroom.UI
                 Debug.Log("Generating General Menu Default Modules");
 
 
-            if(ShowroomManager.Instance.useCaseIndex == -1)
+            if (ShowroomManager.Instance.useCaseIndex == -1)
             {
 
                 #region Play Button
@@ -294,7 +314,7 @@ namespace Showroom.UI
 
                 generalMenuPlayButton = ShowroomManager.Instance.generalMenuPlayButton;
 
-                if(tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
                     generalMenuPlayButton.buttonSprite = tempButton.buttonSprite;
                 else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
                 {
@@ -336,6 +356,29 @@ namespace Showroom.UI
 
                 }
 
+                UnityEvent homeButtonOnclick = new UnityEvent();
+
+                homeButtonOnclick.AddListener(() =>
+                {
+
+                    ShowroomManager.Instance.SwitchUseCase(-2);
+
+
+                    if (ShowroomManager.Instance.useCaseIndex != -1)
+                        ToggleGeneralMenu(true);
+
+                    //ShowroomManager.Instance.MoveToFixedPos(-2);
+
+                });
+
+                Function homeButtonOnclickFunction = new Function
+                {
+                    functionName = homeButtonOnclick,
+                    functionDelay = 0f
+                };
+
+                generalMenuHomeButton.buttonOnClickFunctions.Add(homeButtonOnclickFunction);
+
                 #endregion
 
                 #region Back Button
@@ -361,6 +404,48 @@ namespace Showroom.UI
 
                 }
 
+                UnityEvent backButtonOnclick = new UnityEvent();
+
+                backButtonOnclick.AddListener(() =>
+                {
+
+                    if (ShowroomManager.Instance.useCaseIndex != -1)
+                    {
+
+                        if (ShowroomManager.Instance.isAtUseCaseHomePos && !headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
+                            ShowroomManager.Instance.SwitchUseCase(-2);
+                        else if (!ShowroomManager.Instance.isAtUseCaseHomePos)
+                            ShowroomManager.Instance.MoveToFixedPos(-1);
+                        else if (ShowroomManager.Instance.isAtUseCaseHomePos && headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
+                        {
+
+                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.ResetSubButtons();
+                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarButtonObjectOnClick();
+
+                        }
+
+                    }
+                    else
+                    {
+
+                        if (ShowroomManager.Instance.isAtUseCaseHomePos)
+                            ShowroomManager.Instance.SwitchUseCase(-2);
+                        else
+                            ShowroomManager.Instance.MoveToFixedPos(-1);
+
+                    }
+
+
+                });
+
+                Function backButtonOnClickFunction = new Function
+                {
+                    functionName = backButtonOnclick,
+                    functionDelay = 0f
+                };
+
+                generalMenuBackButton.buttonOnClickFunctions.Add(backButtonOnClickFunction);
+
                 #endregion
 
                 #region Drag Mode Toggle
@@ -385,6 +470,44 @@ namespace Showroom.UI
                     generalMenuDragModeToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
 
                 }
+
+                UnityEvent dragModeOnSetActive = new UnityEvent();
+
+                dragModeOnSetActive.AddListener(() =>
+                {
+
+                    ShowroomNavigation.Instance.dragModeActive = true;
+
+                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+
+                });
+
+                Function dragModeOnSetActiveFunction = new Function
+                {
+                    functionName = dragModeOnSetActive,
+                    functionDelay = 0f
+                };
+
+                generalMenuDragModeToggle.onSetActiveFunctions.Add(dragModeOnSetActiveFunction);
+
+                UnityEvent dragModeOnSetDeactive = new UnityEvent();
+
+                dragModeOnSetDeactive.AddListener(() =>
+                {
+
+                    ShowroomNavigation.Instance.dragModeActive = false;
+
+                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+
+                });
+
+                Function dragModeOnSetDeactiveFunction = new Function
+                {
+                    functionName = dragModeOnSetDeactive,
+                    functionDelay = 0f
+                };
+
+                generalMenuDragModeToggle.onSetDeactiveFunctions.Add(dragModeOnSetDeactiveFunction);
 
                 #endregion
 
@@ -435,6 +558,44 @@ namespace Showroom.UI
                     generalMenuTransparencyToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
 
                 }
+
+                UnityEvent transparencyOnSetActive = new UnityEvent();
+
+                transparencyOnSetActive.AddListener(() =>
+                {
+
+                    ShowroomManager.Instance.EnableTransparency();
+
+                    generalMenuTransparencyToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+
+                });
+
+                Function transparencyOnSetActiveFunction = new Function
+                {
+                    functionName = transparencyOnSetActive,
+                    functionDelay = 0f
+                };
+
+                generalMenuTransparencyToggle.onSetActiveFunctions.Add(transparencyOnSetActiveFunction);
+
+                UnityEvent transparencyOnSetDeactive = new UnityEvent();
+
+                transparencyOnSetDeactive.AddListener(() =>
+                {
+
+                    ShowroomManager.Instance.DisableTransparency();
+
+                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+
+                });
+
+                Function transparencyOnSetDeactiveFunction = new Function
+                {
+                    functionName = transparencyOnSetDeactive,
+                    functionDelay = 0f
+                };
+
+                generalMenuTransparencyToggle.onSetDeactiveFunctions.Add(transparencyOnSetDeactiveFunction);
 
                 #endregion
 
@@ -517,6 +678,29 @@ namespace Showroom.UI
 
                 }
 
+                UnityEvent homeButtonOnclick = new UnityEvent();
+
+                homeButtonOnclick.AddListener(() =>
+                {
+
+                    ShowroomManager.Instance.SwitchUseCase(-2);
+
+
+                    if (ShowroomManager.Instance.useCaseIndex != -1)
+                        ToggleGeneralMenu(true);
+
+                    //ShowroomManager.Instance.MoveToFixedPos(-2);
+
+                });
+
+                Function homeButtonOnclickFunction = new Function
+                {
+                    functionName = homeButtonOnclick,
+                    functionDelay = 0f
+                };
+
+                generalMenuHomeButton.buttonOnClickFunctions.Add(homeButtonOnclickFunction);
+
                 #endregion
 
                 #region Back Button
@@ -542,6 +726,48 @@ namespace Showroom.UI
 
                 }
 
+                UnityEvent backButtonOnclick = new UnityEvent();
+
+                backButtonOnclick.AddListener(() =>
+                {
+
+                    if (ShowroomManager.Instance.useCaseIndex != -1)
+                    {
+
+                        if (ShowroomManager.Instance.isAtUseCaseHomePos && !headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
+                            ShowroomManager.Instance.SwitchUseCase(-2);
+                        else if (!ShowroomManager.Instance.isAtUseCaseHomePos)
+                            ShowroomManager.Instance.MoveToFixedPos(-1);
+                        else if (ShowroomManager.Instance.isAtUseCaseHomePos && headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
+                        {
+
+                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.ResetSubButtons();
+                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarButtonObjectOnClick();
+
+                        }
+
+                    }
+                    else
+                    {
+
+                        if (ShowroomManager.Instance.isAtUseCaseHomePos)
+                            ShowroomManager.Instance.SwitchUseCase(-2);
+                        else
+                            ShowroomManager.Instance.MoveToFixedPos(-1);
+
+                    }
+
+
+                });
+
+                Function backButtonOnClickFunction = new Function
+                {
+                    functionName = backButtonOnclick,
+                    functionDelay = 0f
+                };
+
+                generalMenuBackButton.buttonOnClickFunctions.Add(backButtonOnClickFunction);
+
                 #endregion
 
                 #region Drag Mode Toggle
@@ -566,6 +792,44 @@ namespace Showroom.UI
                     generalMenuDragModeToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
 
                 }
+
+                UnityEvent dragModeOnSetActive = new UnityEvent();
+
+                dragModeOnSetActive.AddListener(() =>
+                {
+
+                    ShowroomNavigation.Instance.dragModeActive = true;
+
+                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+
+                });
+
+                Function dragModeOnSetActiveFunction = new Function
+                {
+                    functionName = dragModeOnSetActive,
+                    functionDelay = 0f
+                };
+
+                generalMenuDragModeToggle.onSetActiveFunctions.Add(dragModeOnSetActiveFunction);
+
+                UnityEvent dragModeOnSetDeactive = new UnityEvent();
+
+                dragModeOnSetDeactive.AddListener(() =>
+                {
+
+                    ShowroomNavigation.Instance.dragModeActive = false;
+
+                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+
+                });
+
+                Function dragModeOnSetDeactiveFunction = new Function
+                {
+                    functionName = dragModeOnSetDeactive,
+                    functionDelay = 0f
+                };
+
+                generalMenuDragModeToggle.onSetDeactiveFunctions.Add(dragModeOnSetDeactiveFunction);
 
                 #endregion
 
@@ -617,6 +881,44 @@ namespace Showroom.UI
 
                 }
 
+                UnityEvent transparencyOnSetActive = new UnityEvent();
+
+                transparencyOnSetActive.AddListener(() =>
+                {
+
+                    ShowroomManager.Instance.EnableTransparency();
+
+                    generalMenuTransparencyToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+
+                });
+
+                Function transparencyOnSetActiveFunction = new Function
+                {
+                    functionName = transparencyOnSetActive,
+                    functionDelay = 0f
+                };
+
+                generalMenuTransparencyToggle.onSetActiveFunctions.Add(transparencyOnSetActiveFunction);
+
+                UnityEvent transparencyOnSetDeactive = new UnityEvent();
+
+                transparencyOnSetDeactive.AddListener(() =>
+                {
+
+                    ShowroomManager.Instance.DisableTransparency();
+
+                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+
+                });
+
+                Function transparencyOnSetDeactiveFunction = new Function
+                {
+                    functionName = transparencyOnSetDeactive,
+                    functionDelay = 0f
+                };
+
+                generalMenuTransparencyToggle.onSetDeactiveFunctions.Add(transparencyOnSetDeactiveFunction);
+
                 #endregion
 
                 #region Camera Dropdown
@@ -648,12 +950,12 @@ namespace Showroom.UI
 
 
 
-            generalMenuPlayButton.SetUpBaseModuleButton(generalMenuPlayButton);          
-            generalMenuReplayButton.SetUpBaseModuleButton(generalMenuReplayButton);            
-            generalMenuCameraDropdown.SetUpBaseModuleButton(generalMenuCameraDropdown);           
-            generalMenuTransparencyToggle.SetUpBaseModuleButton(generalMenuTransparencyToggle);         
-            generalMenuDragModeToggle.SetUpBaseModuleButton(generalMenuDragModeToggle);          
-            generalMenuBackButton.SetUpBaseModuleButton(generalMenuBackButton);           
+            generalMenuPlayButton.SetUpBaseModuleButton(generalMenuPlayButton);
+            generalMenuReplayButton.SetUpBaseModuleButton(generalMenuReplayButton);
+            generalMenuCameraDropdown.SetUpBaseModuleButton(generalMenuCameraDropdown);
+            generalMenuTransparencyToggle.SetUpBaseModuleButton(generalMenuTransparencyToggle);
+            generalMenuDragModeToggle.SetUpBaseModuleButton(generalMenuDragModeToggle);
+            generalMenuBackButton.SetUpBaseModuleButton(generalMenuBackButton);
             generalMenuHomeButton.SetUpBaseModuleButton(generalMenuHomeButton);
 
 
@@ -690,7 +992,7 @@ namespace Showroom.UI
         void CreateSidebarButtons()
         {
 
-            for(int i = 0; i < ShowroomManager.Instance.useCases.Count; i++)
+            for (int i = 0; i < ShowroomManager.Instance.useCases.Count; i++)
             {
 
                 headButtons.Add(ShowroomManager.Instance.useCases[i].useCaseSidebarHeaderButton);
@@ -813,7 +1115,7 @@ namespace Showroom.UI
         void CreateCustomUIContainers()
         {
 
-            for(int i = 0; i < ShowroomManager.Instance.userInterfaceContainers.Count; i++)
+            for (int i = 0; i < ShowroomManager.Instance.userInterfaceContainers.Count; i++)
             {
 
                 UserInterfaceContainer newContainer = Instantiate(ShowroomManager.Instance.userInterfaceContainers[i]);
@@ -1257,7 +1559,7 @@ namespace Showroom.UI
             tooltipRect.gameObject.SetActive(true);
 
             tooltipTextbox.text = tooltipText;
-           
+
             LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipRect.GetChild(0).GetComponent<RectTransform>());
             LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipRect.GetChild(0).GetComponent<RectTransform>());
 
@@ -1369,7 +1671,7 @@ namespace Showroom.UI
         void UpdateSidebarButtons()
         {
 
-            for(int i = 0; i < headButtons.Count; i++)
+            for (int i = 0; i < headButtons.Count; i++)
             {
 
                 headButtons[i].UpdateButton();
@@ -1383,7 +1685,7 @@ namespace Showroom.UI
 
             DOTween.Kill(generalMenuContainerRect);
 
-            if(generalMenuIsOpen)
+            if (generalMenuIsOpen)
             {
 
                 generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuClosedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
