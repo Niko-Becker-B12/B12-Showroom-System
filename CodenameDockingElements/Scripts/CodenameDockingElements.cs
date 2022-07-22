@@ -286,122 +286,180 @@ namespace Showroom.UI
             if(ShowroomManager.Instance.useCaseIndex == -1)
             {
 
+                #region Play Button
+
+                CustomGeneralMenuButton tempButton;
+
+                tempButton = generalMenuPlayButton;
+
+                generalMenuPlayButton = ShowroomManager.Instance.generalMenuPlayButton;
+
+                if(tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuPlayButton.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuPlayButton.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuPlayButton.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuPlayButton.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuPlayButton.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
                 #region Home Button
 
-                UnityEvent homeButtonOnclick = new UnityEvent();
+                tempButton = generalMenuHomeButton;
 
-                homeButtonOnclick.AddListener(() =>
+                generalMenuHomeButton = ShowroomManager.Instance.generalMenuHomeButton;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuHomeButton.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
                 {
 
-                    ShowroomManager.Instance.SwitchUseCase(-2);
+                    generalMenuHomeButton.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuHomeButton.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
 
-
-                    if (ShowroomManager.Instance.useCaseIndex != -1)
-                        ToggleGeneralMenu(true);
-
-                    //ShowroomManager.Instance.MoveToFixedPos(-2);
-
-                });
-
-                Function homeButtonOnclickOnClickFunction = new Function
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
                 {
-                    functionName = homeButtonOnclick,
-                    functionDelay = 0f
-                };
 
-                //generalMenuHomeButton.buttonOnClickFunctions.AddRange(showroomManager.cameraButtons[i].cameraPositionButtonFunctions);
-                generalMenuHomeButton.buttonOnClickFunctions.Add(homeButtonOnclickOnClickFunction);
+                    generalMenuHomeButton.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuHomeButton.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
 
                 #endregion
 
                 #region Back Button
 
-                UnityEvent backButtonOnclick = new UnityEvent();
+                tempButton = generalMenuBackButton;
 
-                backButtonOnclick.AddListener(() =>
+                generalMenuBackButton = ShowroomManager.Instance.generalMenuBackButton;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuBackButton.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
                 {
 
-                    if(ShowroomManager.Instance.useCaseIndex != -1)
-                    {
+                    generalMenuBackButton.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuBackButton.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
 
-                        if (ShowroomManager.Instance.isAtUseCaseHomePos && !headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
-                            ShowroomManager.Instance.SwitchUseCase(-2);
-                        else if (!ShowroomManager.Instance.isAtUseCaseHomePos)
-                            ShowroomManager.Instance.MoveToFixedPos(-1);
-                        else if (ShowroomManager.Instance.isAtUseCaseHomePos && headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
-                        {
-
-                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.ResetSubButtons();
-                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarButtonObjectOnClick();
-
-                        }
-
-                    }
-                    else
-                    {
-
-                        if (ShowroomManager.Instance.isAtUseCaseHomePos)
-                            ShowroomManager.Instance.SwitchUseCase(-2);
-                        else
-                            ShowroomManager.Instance.MoveToFixedPos(-1);
-
-                    }
-                    
-
-                });
-
-                Function backButtonOnclickOnClickFunction = new Function
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
                 {
-                    functionName = backButtonOnclick,
-                    functionDelay = 0f
-                };
 
-                //generalMenuBackButton.buttonOnClickFunctions.AddRange(showroomManager.cameraButtons[i].cameraPositionButtonFunctions);
-                generalMenuBackButton.buttonOnClickFunctions.Add(backButtonOnclickOnClickFunction);
+                    generalMenuBackButton.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuBackButton.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
 
                 #endregion
 
                 #region Drag Mode Toggle
 
-                UnityEvent dragModeOnSetActive = new UnityEvent();
+                tempButton = generalMenuDragModeToggle;
 
-                dragModeOnSetActive.AddListener(() =>
+                generalMenuDragModeToggle = ShowroomManager.Instance.generalMenuDragModeToggle;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuDragModeToggle.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
                 {
 
-                    ShowroomNavigation.Instance.dragModeActive = true;
+                    generalMenuDragModeToggle.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuDragModeToggle.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
 
-                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
-
-                });
-
-                Function dragModeOnSetActiveFunction = new Function
-                {
-                    functionName = dragModeOnSetActive,
-                    functionDelay = 0f
-                };
-
-                //generalMenuBackButton.buttonOnClickFunctions.AddRange(showroomManager.cameraButtons[i].cameraPositionButtonFunctions);
-                generalMenuDragModeToggle.onSetActiveFunctions.Add(dragModeOnSetActiveFunction);
-
-                UnityEvent dragModeOnSetDeactive = new UnityEvent();
-
-                dragModeOnSetDeactive.AddListener(() =>
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
                 {
 
-                    ShowroomNavigation.Instance.dragModeActive = false;
+                    generalMenuDragModeToggle.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuDragModeToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
 
-                    generalMenuDragModeToggle.customGeneralMenuToggleObj.GeneralMenuButtonObjectOnClick();
+                }
 
-                });
+                #endregion
 
-                Function dragModeOnSetDeactiveFunction = new Function
+                #region Replay Button
+
+                tempButton = generalMenuReplayButton;
+
+                generalMenuReplayButton = ShowroomManager.Instance.generalMenuReplayButton;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuReplayButton.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
                 {
-                    functionName = dragModeOnSetDeactive,
-                    functionDelay = 0f
-                };
 
-                //generalMenuBackButton.buttonOnClickFunctions.AddRange(showroomManager.cameraButtons[i].cameraPositionButtonFunctions);
-                generalMenuDragModeToggle.onSetDeactiveFunctions.Add(dragModeOnSetDeactiveFunction);
+                    generalMenuReplayButton.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuReplayButton.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuReplayButton.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuReplayButton.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
+                #region Transparency Toggle
+
+                tempButton = generalMenuTransparencyToggle;
+
+                generalMenuTransparencyToggle = ShowroomManager.Instance.generalMenuTransparencyToggle;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuTransparencyToggle.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuTransparencyToggle.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuTransparencyToggle.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuTransparencyToggle.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuTransparencyToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
+                #region Camera Dropdown
+
+                tempButton = generalMenuCameraDropdown;
+
+                generalMenuCameraDropdown = ShowroomManager.Instance.generalMenuCameraDropdown;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuCameraDropdown.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuCameraDropdown.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuCameraDropdown.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuCameraDropdown.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuCameraDropdown.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
 
                 #endregion
 
@@ -409,7 +467,182 @@ namespace Showroom.UI
             else
             {
 
+                #region Play Button
 
+                CustomGeneralMenuButton tempButton;
+
+                tempButton = generalMenuPlayButton;
+
+                generalMenuPlayButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuPlayButton;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuPlayButton.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuPlayButton.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuPlayButton.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuPlayButton.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuPlayButton.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
+                #region Home Button
+
+                tempButton = generalMenuHomeButton;
+
+                generalMenuHomeButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuHomeButton;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuHomeButton.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuHomeButton.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuHomeButton.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuHomeButton.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuHomeButton.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
+                #region Back Button
+
+                tempButton = generalMenuBackButton;
+
+                generalMenuBackButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuBackButton;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuBackButton.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuBackButton.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuBackButton.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuBackButton.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuBackButton.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
+                #region Drag Mode Toggle
+
+                tempButton = generalMenuDragModeToggle;
+
+                generalMenuDragModeToggle = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuDragModeToggle;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuDragModeToggle.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuDragModeToggle.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuDragModeToggle.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuDragModeToggle.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuDragModeToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
+                #region Replay Button
+
+                tempButton = generalMenuReplayButton;
+
+                generalMenuReplayButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuReplayButton;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuReplayButton.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuReplayButton.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuReplayButton.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuReplayButton.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuReplayButton.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
+                #region Transparency Toggle
+
+                tempButton = generalMenuTransparencyToggle;
+
+                generalMenuTransparencyToggle = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuTransparencyToggle;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuTransparencyToggle.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuTransparencyToggle.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuTransparencyToggle.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuTransparencyToggle.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuTransparencyToggle.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
+
+                #region Camera Dropdown
+
+                tempButton = generalMenuCameraDropdown;
+
+                generalMenuCameraDropdown = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuCameraDropdown;
+
+                if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.button)
+                    generalMenuCameraDropdown.buttonSprite = tempButton.buttonSprite;
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle)
+                {
+
+                    generalMenuCameraDropdown.toggleActiveSprite = tempButton.toggleActiveSprite;
+                    generalMenuCameraDropdown.toggleDeactiveSprite = tempButton.toggleDeactiveSprite;
+
+                }
+                else if (tempButton.customButtonType == CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown)
+                {
+
+                    generalMenuCameraDropdown.dropdownSprite = tempButton.dropdownSprite;
+                    generalMenuCameraDropdown.dropdownChildSprite = tempButton.dropdownChildSprite;
+
+                }
+
+                #endregion
 
             }
 

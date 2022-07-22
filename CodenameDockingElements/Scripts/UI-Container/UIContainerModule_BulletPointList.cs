@@ -8,11 +8,11 @@ namespace Showroom.UI
 {
 
     [System.Serializable]
-    public class UIContainerModule_NumericList : UserInterfaceContainerModule
+    public class UIContainerModule_BulletPointList : UserInterfaceContainerModule
     {
 
         [Sirenix.OdinInspector.ReadOnly]
-        public UserInterfaceContainerModuleType userInterfaceContainerModuleType = UserInterfaceContainerModuleType.numericList;
+        public UserInterfaceContainerModuleType userInterfaceContainerModuleType = UserInterfaceContainerModuleType.bulletPoints;
 
         public List<UIContainerBlock_Button> containerModuleButtons = new List<UIContainerBlock_Button>();
 
@@ -41,7 +41,7 @@ namespace Showroom.UI
                 uIContainerBlockButton.data = containerModuleButtons[i];
                 uIContainerBlockButton.index = i;
 
-                uIContainerBlockButton.SetUpButton(string.Format("{0}. {1}", (i + 1), containerModuleButtons[i].buttonText));
+                uIContainerBlockButton.SetUpButton(string.Format("{0}<indent=5%>{1}", "•", containerModuleButtons[i].buttonText));
 
             }
 

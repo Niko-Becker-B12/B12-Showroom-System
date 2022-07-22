@@ -31,7 +31,7 @@ namespace Showroom.UI
         public List<Function> buttonOnExitFunctions = new List<Function>();
         public List<Function> buttonOnResetFunctions = new List<Function>();
 
-        public virtual void SetUpButton()
+        public virtual void SetUpButton(string buttonText)
         {
         
             if (ShowroomManager.Instance.showDebugMessages)
@@ -43,9 +43,9 @@ namespace Showroom.UI
             icon = this.transform.GetChild(0).GetComponent<Image>();
             text = this.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
-            //icon.sprite = generalButtonDataContainer.buttonSprite;
+            text.text = buttonText;
 
-            text.text = string.Format("{0}. {1}", index, data.buttonText);
+            //icon.sprite = generalButtonDataContainer.buttonSprite;
 
             buttonOnClickFunctions.AddRange(data.buttonOnClickFunctions);
             buttonOnEnterFunctions.AddRange(data.buttonOnEnterFunctions);
