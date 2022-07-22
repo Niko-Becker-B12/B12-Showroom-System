@@ -25,6 +25,8 @@ public class BaseUISkin : ScriptableObject
     [FoldoutGroup("Sidebar")] public Color sidebarBackgroundColor;
     [FoldoutGroup("Sidebar")] public RectOffset sidebarRoundness;
     [FoldoutGroup("Sidebar")] public RectOffset sidebarPadding;
+    [FoldoutGroup("Sidebar")] public bool sidebarHasScrollGradient = true;
+    [FoldoutGroup("Sidebar")] public Color sidebarScrollGradientColor;
     [FoldoutGroup("Sidebar/Header")] public Vector2 sidebarHeaderSize = Vector2.zero;
     [FoldoutGroup("Sidebar/Header")] public RectOffset sidebarHeaderRoundness;
 

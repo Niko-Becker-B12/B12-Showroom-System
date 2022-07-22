@@ -16,7 +16,8 @@ namespace Showroom.UI
         [ReadOnly]
         public SidebarHeadButton sidebarHeadButtonDataContainer;
 
-        bool isActive = false;
+        [ReadOnly]
+        public bool isActive = false;
 
 
         public override void SetUpButton()
@@ -119,6 +120,24 @@ namespace Showroom.UI
             base.SidebarButtonObjectOnReset();
 
             DisableSubButtons();
+
+        }
+
+        public bool SidebarSubButtonsAreActive()
+        {
+
+            for(int i = 0; i < subButtons.Count; i++)
+            {
+
+                if (subButtons[i].sidebarButtonBehavior.wasClicked)
+                {
+                    return true;
+                }
+                else continue;
+
+            }
+
+            return false;
 
         }
 

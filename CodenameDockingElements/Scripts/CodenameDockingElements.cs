@@ -1,15 +1,12 @@
-using System.Collections;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using ThisOtherThing.UI.Shapes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using Sirenix.OdinInspector;
-using DG.Tweening;
-using TMPro;
 using UnityEngine.InputSystem;
-using ThisOtherThing.UI.Shapes;
 using UnityEngine.UI;
-using Showroom;
-using Sirenix.Serialization;
 
 namespace Showroom.UI
 {
@@ -323,10 +320,33 @@ namespace Showroom.UI
 
                 backButtonOnclick.AddListener(() =>
                 {
-                    if (ShowroomManager.Instance.isAtUseCaseHomePos)
-                        ShowroomManager.Instance.SwitchUseCase(-2);
+
+                    if(ShowroomManager.Instance.useCaseIndex != -1)
+                    {
+
+                        if (ShowroomManager.Instance.isAtUseCaseHomePos && !headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
+                            ShowroomManager.Instance.SwitchUseCase(-2);
+                        else if (!ShowroomManager.Instance.isAtUseCaseHomePos)
+                            ShowroomManager.Instance.MoveToFixedPos(-1);
+                        else if (ShowroomManager.Instance.isAtUseCaseHomePos && headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarSubButtonsAreActive())
+                        {
+
+                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.ResetSubButtons();
+                            headButtons[ShowroomManager.Instance.useCaseIndex].sidebarHeadButtonObject.SidebarButtonObjectOnClick();
+
+                        }
+
+                    }
                     else
-                        ShowroomManager.Instance.MoveToFixedPos(-1);
+                    {
+
+                        if (ShowroomManager.Instance.isAtUseCaseHomePos)
+                            ShowroomManager.Instance.SwitchUseCase(-2);
+                        else
+                            ShowroomManager.Instance.MoveToFixedPos(-1);
+
+                    }
+                    
 
                 });
 
@@ -506,9 +526,11 @@ namespace Showroom.UI
 
             #region Sidebar
 
-            sidebarContainerRect.GetComponent<Image>().sprite = baseUISkin.sidebarBackground;
-            sidebarContainerRect.GetComponent<Image>().color = baseUISkin.sidebarBackgroundColor;
+            sidebarContainerRect.GetComponent<Rectangle>().Sprite = baseUISkin.sidebarBackground;
+            sidebarContainerRect.GetComponent<Rectangle>().color = baseUISkin.sidebarBackgroundColor;
 
+            sidebarContainerRect.transform.GetChild(1).GetChild(2).gameObject.SetActive(baseUISkin.sidebarHasScrollGradient);
+            sidebarContainerRect.transform.GetChild(1).GetChild(2).GetComponent<Image>().color = baseUISkin.sidebarScrollGradientColor;
 
             #endregion
 

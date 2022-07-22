@@ -54,20 +54,20 @@ MonoBehaviour:
     min: 0
   baseHeight:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 3.2
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 35.5
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 150
+    m_Value: 450
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   albedo:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0.8941177, b: 0.8941177, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
@@ -77,8 +77,8 @@ MonoBehaviour:
     min: 0
     max: 1
   depthExtent:
-    m_OverrideState: 0
-    m_Value: 64
+    m_OverrideState: 1
+    m_Value: 50
     min: 0.1
   denoisingMode:
     m_OverrideState: 0
@@ -153,11 +153,11 @@ MonoBehaviour:
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 0
-    m_Value: 3.933786
+    m_Value: 1.7749751
     min: 0
   upperHemisphereLuxColor:
     m_OverrideState: 0
-    m_Value: {x: 0.4827634, y: 0.48769277, z: 0.5}
+    m_Value: {x: 0.5, y: 0.5, z: 0.5}
   desiredLuxValue:
     m_OverrideState: 1
     m_Value: 1000
@@ -173,7 +173,7 @@ MonoBehaviour:
     m_Value: 0
   hdriSky:
     m_OverrideState: 1
-    m_Value: {fileID: 8900000, guid: 3a41b921a2f238c448f7ad6f9dfce8ee, type: 3}
+    m_Value: {fileID: 8900000, guid: f2d01ba3a9e2d7d418e4888302d1839f, type: 3}
   enableDistortion:
     m_OverrideState: 0
     m_Value: 0

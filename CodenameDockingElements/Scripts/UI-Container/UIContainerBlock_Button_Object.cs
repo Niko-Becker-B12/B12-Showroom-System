@@ -47,10 +47,10 @@ namespace Showroom.UI
 
             text.text = string.Format("{0}. {1}", index, data.buttonText);
 
-            buttonOnClickFunctions.AddRange(data.buttonOnResetFunctions);
-            buttonOnEnterFunctions.AddRange(data.buttonOnClickFunctions);
-            buttonOnExitFunctions.AddRange(data.buttonOnEnterFunctions);
-            buttonOnResetFunctions.AddRange(data.buttonOnExitFunctions);
+            buttonOnClickFunctions.AddRange(data.buttonOnClickFunctions);
+            buttonOnEnterFunctions.AddRange(data.buttonOnEnterFunctions);
+            buttonOnExitFunctions.AddRange(data.buttonOnExitFunctions);
+            buttonOnResetFunctions.AddRange(data.buttonOnResetFunctions);
 
             behavior.onButtonReset.AddRange(buttonOnResetFunctions);
             behavior.onMouseDown.AddRange(buttonOnClickFunctions);
@@ -158,16 +158,12 @@ namespace Showroom.UI
         public virtual void GeneralMenuButtonObjectOnExit()
         {
 
-            CodenameDockingElements.Instance.DisableTooltip();
-
             text.color = buttonTextColors.normalColor;
 
         }
 
         public virtual void GeneralMenuButtonObjectOnClick()
         {
-
-            CodenameDockingElements.Instance.DisableTooltip();
 
             text.color = buttonTextColors.selectedColor;
 
