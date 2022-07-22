@@ -8,6 +8,7 @@ using UnityEngine.Events;
 using UnityEditor;
 using Sirenix.OdinInspector;
 using UnityEngine.Playables;
+using Showroom.UI;
 
 namespace Showroom
 {
