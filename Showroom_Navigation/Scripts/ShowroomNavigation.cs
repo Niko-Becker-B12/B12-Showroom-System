@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using System;
 using UnityEngine.Events;
 using DG.Tweening;
+using Showroom.UI;
 
 namespace Showroom
 {

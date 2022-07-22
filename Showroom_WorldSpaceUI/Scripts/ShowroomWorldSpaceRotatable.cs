@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using Showroom.UI;
 
 namespace Showroom.WorldSpace
 {

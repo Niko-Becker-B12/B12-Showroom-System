@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ThisOtherThing.UI.Shapes;
 using DG.Tweening;
+using Showroom.UI;
 
 namespace Showroom.WorldSpace
 {
