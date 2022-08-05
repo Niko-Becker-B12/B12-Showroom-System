@@ -1,0 +1,4 @@
+<svg id="ic24-volume-mute" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="BB" width="24" height="24" fill="none"/>
+  <path id="volume_mute" data-name="volume mute" d="M5.8,16.029l5.19,4.006V3.94L5.8,8.029H2.006v8Zm.682-2H4.006v-4H6.491l2.5-1.97v7.905ZM20.293,7.793l1.414,1.414L18.914,12l2.793,2.793-1.414,1.414L17.5,13.414l-2.793,2.793-1.414-1.414L16.086,12,13.293,9.207l1.414-1.414L17.5,10.586Z" transform="translate(-0.008 0.059)" fill="#fff" fill-rule="evenodd"/>
+</svg>

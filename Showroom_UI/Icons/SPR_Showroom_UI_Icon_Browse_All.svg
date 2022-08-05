@@ -1,0 +1,11 @@
+<svg id="ic24-browse-all" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="BB" width="24" height="24" fill="none"/>
+  <g id="browse_all" data-name="browse all" transform="translate(2 5)">
+    <path id="Pfad_633" data-name="Pfad 633" d="M2,0H0V2H2Z" fill="#fff"/>
+    <path id="Pfad_634" data-name="Pfad 634" d="M20,0H4V2H20Z" fill="#fff"/>
+    <path id="Pfad_635" data-name="Pfad 635" d="M20,6H4V8H20Z" fill="#fff"/>
+    <path id="Pfad_636" data-name="Pfad 636" d="M4,12H20v2H4Z" fill="#fff"/>
+    <path id="Pfad_637" data-name="Pfad 637" d="M0,6H2V8H0Z" fill="#fff"/>
+    <path id="Pfad_638" data-name="Pfad 638" d="M2,12H0v2H2Z" fill="#fff"/>
+  </g>
+</svg>

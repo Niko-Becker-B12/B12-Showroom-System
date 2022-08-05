@@ -1,15 +1,9 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 62">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #fff;
-      }
-    </style>
-  </defs>
-  <g>
-    <path class="cls-1" d="M4.24,47.06h39.3V14.94H4.24Zm4.15-28h31V42.91h-31Z"/>
-    <polygon class="cls-1" points="46.64 24.58 46.64 37.42 57.76 43.84 57.76 31 57.76 18.16 46.64 24.58"/>
-    <rect class="cls-1" x="17.51" y="22" width="4.15" height="17.99"/>
-    <rect class="cls-1" x="26.12" y="22" width="4.15" height="17.99"/>
+<svg id="ic24-camera_pause" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Rechteck_14841" data-name="Rechteck 14841" width="24" height="24" fill="none"/>
+  <g id="Gruppe_9277" data-name="Gruppe 9277" transform="translate(18129.992 21885.051)">
+    <path id="Pfad_654" data-name="Pfad 654" d="M218.015,1.055v18h18v-18Zm16,16h-14v-14h14Z" transform="translate(-18347.008 -21883.105)" fill="#fff"/>
+    <path id="Pfad_655" data-name="Pfad 655" d="M238.015,6.054v8l2,2v-12Z" transform="translate(-18347.008 -21883.105)" fill="#fff"/>
+    <rect id="Rechteck_14833" data-name="Rechteck 14833" width="2" height="8" transform="translate(-18122.992 -21877.051)" fill="#fff"/>
+    <rect id="Rechteck_14834" data-name="Rechteck 14834" width="2" height="8" transform="translate(-18118.992 -21877.051)" fill="#fff"/>
   </g>
 </svg>

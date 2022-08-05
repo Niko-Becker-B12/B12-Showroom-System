@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de707f343259fb64d83e0870549cd8d0, type: 3}
-  m_Name: Test-Skin
+  m_Name: SKN_Siemens
   m_EditorClassIdentifier: 
   animationSpeed: 1
   animationEasingType: 19
@@ -110,24 +110,25 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  generalMenuPlayButtonIcon: {fileID: 3286163911610860551, guid: ed96209f9c77b444ca1d2edeb0559e11,
+  generalMenuPlayButtonIcon: {fileID: 3286163911610860551, guid: bef61db3da795d248911b8b4b651693b,
     type: 3}
-  generalMenuPauseButtonIcon: {fileID: 0}
-  generalMenuReplayButtonIcon: {fileID: 3286163911610860551, guid: be4061e7dd177a6408b64a48bfa02324,
+  generalMenuPauseButtonIcon: {fileID: 3286163911610860551, guid: 6b2dee4f98f8deb4eaf370af916d9507,
     type: 3}
-  generalMenuCameraDropdownIcon: {fileID: 3286163911610860551, guid: 2432c6cb37ee19d4ca8fbf2b6b07dbc0,
+  generalMenuReplayButtonIcon: {fileID: 3286163911610860551, guid: be977700c03654841ac2b8701d4fd230,
     type: 3}
-  generalMenuTransparencyToggleActiveIcon: {fileID: 3286163911610860551, guid: e2c3abff0de0be546bf7e3f3ef014297,
+  generalMenuCameraDropdownIcon: {fileID: 3286163911610860551, guid: 425bc2ae5c7722d47bc2963d18a2f960,
     type: 3}
-  generalMenuTransparencyToggleDeactiveIcon: {fileID: 3286163911610860551, guid: 5dd57325e29a0af4f95dbe9b83c77ba9,
+  generalMenuTransparencyToggleActiveIcon: {fileID: 3286163911610860551, guid: 6b446b4b282a9884dab4ad3bce2818ac,
     type: 3}
-  generalMenuDragModeToggleActiveIcon: {fileID: 3286163911610860551, guid: d5b0fe8e6dd3b26449f57cf8f1691f44,
+  generalMenuTransparencyToggleDeactiveIcon: {fileID: 3286163911610860551, guid: fc70bb5c6bb21e249a3bb9a9f7da1ab8,
     type: 3}
-  generalMenuDragModeToggleDeactiveIcon: {fileID: 3286163911610860551, guid: d385235ad0201c74e92a4bb9e1f29c43,
+  generalMenuDragModeToggleActiveIcon: {fileID: 3286163911610860551, guid: af4447d2ae8bf5f4f83dea92d0e6c335,
     type: 3}
-  generalMenuBackButtonIcon: {fileID: 3286163911610860551, guid: a150b26823b5f5e4d96ee638aa689224,
+  generalMenuDragModeToggleDeactiveIcon: {fileID: 3286163911610860551, guid: f2ea6cd6279489a46ba181d180a7696a,
     type: 3}
-  generalMenuHomeButtonIcon: {fileID: 3286163911610860551, guid: 9d8c3393eea7cf1429d531a37e812c9f,
+  generalMenuBackButtonIcon: {fileID: 3286163911610860551, guid: 6615efde456ab044c91abf76f397ce75,
+    type: 3}
+  generalMenuHomeButtonIcon: {fileID: 3286163911610860551, guid: 904bce056a167bc418a3fbaeff9b2acb,
     type: 3}
   generalMenuHasDivider: 0
   generalMenuButtonColors:
@@ -161,11 +162,11 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  focusMenuResetRotationButtonIcon: {fileID: 3286163911610860551, guid: 7c16dd151279ddd459b1170373dcdb15,
+  focusMenuResetRotationButtonIcon: {fileID: 3286163911610860551, guid: 7e4d252dacd79e94c9be6258fa4a402c,
     type: 3}
-  focusMenuActualResetRotationButtonIcon: {fileID: 3286163911610860551, guid: d3d4b09f29fcd1c42bda681a458237fc,
+  focusMenuActualResetRotationButtonIcon: {fileID: 3286163911610860551, guid: 24addb1f7e9386d4282a993136520127,
     type: 3}
-  focusMenuBackButtonIcon: {fileID: 3286163911610860551, guid: d956352457491db4992d37049f852760,
+  focusMenuBackButtonIcon: {fileID: 3286163911610860551, guid: 6615efde456ab044c91abf76f397ce75,
     type: 3}
   focusMenuButtonColors:
     m_NormalColor: {r: 0, g: 0, b: 0.15686275, a: 1}

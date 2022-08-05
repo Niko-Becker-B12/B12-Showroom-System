@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3823bdeefbd67d94fb2109e277e2dd69
+guid: 3c7ba0c7584578543848acfeb5d534b9
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -28,7 +28,7 @@ ScriptedImporter:
   maxTangentAngleEnabled: 0
   maxTangentAngle: 5
   keepTextureAspectRatio: 1
-  textureSize: 512
+  textureSize: 1024
   textureWidth: 256
   textureHeight: 256
   wrapMode: 0
@@ -50,6 +50,6 @@ ScriptedImporter:
         y: 0
         width: 0
         height: 0
-      spriteID: 8eb083918a0990b448ff99ebf6656baa
+      spriteID: 7b0e2246d6ce7af4c888eece0866a755
       internalID: 0
     PhysicsOutlines: []
