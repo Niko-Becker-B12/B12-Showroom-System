@@ -36,6 +36,7 @@ namespace Showroom.UI
         [ReadOnly]
         public bool wasClicked = false;
 
+        bool isResetting = false;
 
 
         private void Start()
@@ -122,10 +123,19 @@ namespace Showroom.UI
             if (!this.gameObject.activeSelf)
                 return;
 
-            for (int i = 0; i < onButtonReset.Count; i++)
+            if(!isResetting)
             {
 
-                StartCoroutine(Invoke(onButtonReset[i].functionName, onButtonReset[i].functionDelay));
+                isResetting = true;
+
+                for (int i = 0; i < onButtonReset.Count; i++)
+                {
+
+                    StartCoroutine(Invoke(onButtonReset[i].functionName, onButtonReset[i].functionDelay));
+
+                }
+
+                isResetting = false;
 
             }
 
