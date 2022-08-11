@@ -120,65 +120,121 @@ namespace Showroom
 
         [FoldoutGroup("General Menu Contents")] [ShowIf("subLevelHasGeneralMenu")] public bool hasDragModeButton;
 
-        [FoldoutGroup("General Menu Contents")][ShowIf("@this.subLevelHasGeneralMenu == true && hasPlayButton")] public CustomGeneralMenuButton generalMenuPlayButton = new CustomGeneralMenuButton
+
+        [FoldoutGroup("General Menu Contents")]
+        [BoxGroup("General Menu Contents/Play Button")]
+        [ShowIf("@this.subLevelHasGeneralMenu == true && hasPlayButton")]
+        [OdinSerialize]
+        public CustomGeneralMenuModule generalMenuPlayButton = new CustomGeneralMenuModule_Button
         {
 
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
             tooltipText = "Play Animation",
             isIndexed = false
-        
+
         };
-        [FoldoutGroup("General Menu Contents")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasRestartButton || this.subLevelHasGeneralMenu == true && playButtonIsRestartButton")] public CustomGeneralMenuButton generalMenuReplayButton = new CustomGeneralMenuButton
+
+        [FoldoutGroup("General Menu Contents")]
+        [BoxGroup("General Menu Contents/Replay Button")]
+        [ShowIf("@this.subLevelHasGeneralMenu == true && hasRestartButton || this.subLevelHasGeneralMenu == true && playButtonIsRestartButton")]
+        [OdinSerialize]
+        public CustomGeneralMenuModule generalMenuReplayButton = new CustomGeneralMenuModule_Button
         {
 
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
             tooltipText = "Restart Animation",
             isIndexed = false
-        
+
         };
-        [FoldoutGroup("General Menu Contents")] [ShowIf("@this.subLevelHasGeneralMenu == true && playButtonIsPauseButton")] public CustomGeneralMenuButton generalMenuPauseButton;
-        [FoldoutGroup("General Menu Contents")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasTransparencyButton")] public CustomGeneralMenuButton generalMenuTransparencyToggle = new CustomGeneralMenuButton
+
+        [FoldoutGroup("General Menu Contents")]
+        [BoxGroup("General Menu Contents/Pause Button")]
+        [ShowIf("@this.subLevelHasGeneralMenu == true && playButtonIsPauseButton")]
+        [OdinSerialize]
+        public CustomGeneralMenuModule generalMenuPauseButton;
+
+        [FoldoutGroup("General Menu Contents")]
+        [BoxGroup("General Menu Contents/Transparency Toggle")]
+        [ShowIf("@this.subLevelHasGeneralMenu == true && hasTransparencyButton")]
+        [OdinSerialize]
+        public CustomGeneralMenuModule generalMenuTransparencyToggle = new CustomGeneralMenuModule_Button
         {
 
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle,
             tooltipText = "Toggle Transparency Mode",
             isIndexed = false
 
         };
-        [FoldoutGroup("General Menu Contents")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasCameraPosButton")] public CustomGeneralMenuButton generalMenuCameraDropdown = new CustomGeneralMenuButton
+
+        [FoldoutGroup("General Menu Contents")]
+        [BoxGroup("General Menu Contents/Camera Dropdown")]
+        [ShowIf("@this.subLevelHasGeneralMenu == true && hasCameraPosButton")]
+        [OdinSerialize]
+        public CustomGeneralMenuButton generalMenuCameraDropdown = new CustomGeneralMenuButton
         {
 
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown,
-            tooltipText = "",
-            isIndexed = false
+            customGeneralMenuButton = new CustomGeneralMenuModule_Button
+            {
 
-        };
-        [FoldoutGroup("General Menu Contents")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasDragModeButton")] public CustomGeneralMenuButton generalMenuDragModeToggle = new CustomGeneralMenuButton
-        {
+                tooltipText = "",
+                isIndexed = false
 
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle,
-            tooltipText = "Toggle Drag Mode",
-            isIndexed = false
-
-        };
-        [FoldoutGroup("General Menu Contents")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasResetCameraButton")] public CustomGeneralMenuButton generalMenuBackButton = new CustomGeneralMenuButton
-        {
-
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
-            tooltipText = "Back",
-            isIndexed = false
-
-        };
-        [FoldoutGroup("General Menu Contents")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasResetCameraButton")] public CustomGeneralMenuButton generalMenuHomeButton = new CustomGeneralMenuButton
-        {
-
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
-            tooltipText = "Return to Home-Position",
-            isIndexed = false
+            }
 
         };
 
-        [FoldoutGroup("General Menu Contents")] [ShowIf("subLevelHasGeneralMenu")] [OdinSerialize] private List<CustomGeneralMenuButton> customGeneralMenuButtons = new List<CustomGeneralMenuButton>();
+        [FoldoutGroup("General Menu Contents")]
+        [BoxGroup("General Menu Contents/Dragmode Toggle")]
+        [ShowIf("@this.subLevelHasGeneralMenu == true && hasDragModeButton")] 
+        [OdinSerialize]
+        public CustomGeneralMenuButton generalMenuDragModeToggle = new CustomGeneralMenuButton
+        {
+
+            customGeneralMenuButton = new CustomGeneralMenuModule_Toggle
+            {
+
+                tooltipText = "Toggle Drag Mode",
+                isIndexed = false
+
+            }
+
+        };
+
+        [FoldoutGroup("General Menu Contents")]
+        [BoxGroup("General Menu Contents/Back Button")]
+        [ShowIf("@this.subLevelHasGeneralMenu == true && hasResetCameraButton")] 
+        [OdinSerialize]
+        public CustomGeneralMenuButton generalMenuBackButton = new CustomGeneralMenuButton
+        {
+
+            customGeneralMenuButton = new CustomGeneralMenuModule_Button
+            {
+
+                tooltipText = "Back",
+                isIndexed = false
+
+            }
+
+        };
+
+        [FoldoutGroup("General Menu Contents")]
+        [BoxGroup("General Menu Contents/Home Button")]
+        [ShowIf("@this.subLevelHasGeneralMenu == true && hasResetCameraButton")] 
+        [OdinSerialize]
+        public CustomGeneralMenuButton generalMenuHomeButton = new CustomGeneralMenuButton
+        {
+
+            customGeneralMenuButton = new CustomGeneralMenuModule_Button
+            {
+
+                tooltipText = "Return to Home-Position",
+                isIndexed = false
+
+            }
+
+        };
+
+        [FoldoutGroup("General Menu Contents")] 
+        [ShowIf("subLevelHasGeneralMenu")] 
+        [OdinSerialize] 
+        private List<CustomGeneralMenuButton> customGeneralMenuButtons = new List<CustomGeneralMenuButton>();
 
         //[FoldoutGroup("General Menu Contents/Camera Position Button")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasCameraPosButton")] public List<AdditionalCameraPositionButtons> cameraButtons = new List<AdditionalCameraPositionButtons>();
 
@@ -215,28 +271,42 @@ namespace Showroom
 
         [FoldoutGroup("Focus Menu Contents")] public bool hasFocusMenu = false;
 
-        [FoldoutGroup("Focus Menu Contents")] [ShowIf("hasRightSideMenu")] public Transform focusObjectPosition;
-        [FoldoutGroup("Focus Menu Contents")] [ShowIf("hasRightSideMenu")] public CustomGeneralMenuButton focusMenuBackButton = new CustomGeneralMenuButton
+        [FoldoutGroup("Focus Menu Contents")]
+        [ShowIf("hasFocusMenu")] 
+        public Transform focusObjectPosition;
+
+        [FoldoutGroup("Focus Menu Contents")]
+        [BoxGroup("Focus Menu Contents/Back Button")]
+        [ShowIf("hasFocusMenu")]
+        [OdinSerialize]
+        public CustomGeneralMenuModule focusMenuBackButton = new CustomGeneralMenuModule_Button
         {
 
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
+            tooltipText = "Reset Rotation",
+            isIndexed = false
+
+        };
+
+        [FoldoutGroup("Focus Menu Contents")]
+        [BoxGroup("Focus Menu Contents/Reset Rotation Button")]
+        [ShowIf("hasFocusMenu")] 
+        [OdinSerialize]
+        public CustomGeneralMenuModule focusMenuResetRotationButton = new CustomGeneralMenuModule_Button
+        {
+
             tooltipText = "Return Object",
             isIndexed = false
 
         };
-        [FoldoutGroup("Focus Menu Contents")] [ShowIf("hasRightSideMenu")] public CustomGeneralMenuButton focusMenuResetRotationButton = new CustomGeneralMenuButton
+
+        [FoldoutGroup("Focus Menu Contents")]
+        [BoxGroup("Focus Menu Contents/Rotation Button")]
+        [ShowIf("hasFocusMenu")]
+        [OdinSerialize]
+        public CustomGeneralMenuModule focusMenuRotationButton = new CustomGeneralMenuModule_Button
         {
 
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
-            tooltipText = "Reset Object Rotation",
-            isIndexed = false
-
-        };
-        [FoldoutGroup("Focus Menu Contents")] [ShowIf("hasRightSideMenu")] public CustomGeneralMenuButton focusMenuRotationButton = new CustomGeneralMenuButton
-        {
-
-            customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
-            tooltipText = "Return Object Rotation",
+            tooltipText = "Reset Rotation",
             isIndexed = false
 
         };
@@ -806,7 +876,7 @@ namespace Showroom
 
             }
 
-            showroomUI.generalMenuTransparencyToggle.customGeneralMenuButtonObj.UpdateButton();
+            //showroomUI.generalMenuTransparencyToggle.customGeneralMenuButtonObj.UpdateButton();
 
         }
 
@@ -828,7 +898,7 @@ namespace Showroom
 
             ToggleTransparency();
 
-            showroomUI.generalMenuTransparencyToggle.customGeneralMenuToggleObj.UpdateButton();
+            //showroomUI.generalMenuTransparencyToggle.customGeneralMenuToggleObj.UpdateButton();
 
         }
 
@@ -841,7 +911,7 @@ namespace Showroom
 
             ToggleTransparency();
 
-            showroomUI.generalMenuTransparencyToggle.customGeneralMenuButtonObj.UpdateButton();
+            //showroomUI.generalMenuTransparencyToggle.customGeneralMenuButtonObj.UpdateButton();
 
         }
 
@@ -1137,7 +1207,7 @@ namespace Showroom
             isDragMode = true;
 
             ToggleDragMode();
-            showroomUI.generalMenuDragModeToggle.customGeneralMenuButtonObj.UpdateButton();
+            //showroomUI.generalMenuDragModeToggle.customGeneralMenuButtonObj.UpdateButton();
 
         }
 
@@ -1200,106 +1270,133 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("hasPlayButton")]
-            public CustomGeneralMenuButton generalMenuPlayButton = new CustomGeneralMenuButton
+            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [OdinSerialize]
+            public CustomGeneralMenuModule generalMenuPlayButton = new CustomGeneralMenuModule_Button
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
                 tooltipText = "Play Animation",
                 isIndexed = false
 
             };
+
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("@this.hasRestartButton || this.playButtonIsRestartButton")]
-            public CustomGeneralMenuButton generalMenuReplayButton = new CustomGeneralMenuButton
+            [BoxGroup("$useCaseName/General Menu Contents/Replay Button")]
+            [OdinSerialize]
+            public CustomGeneralMenuModule generalMenuReplayButton = new CustomGeneralMenuModule_Button
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
                 tooltipText = "Restart Animation",
                 isIndexed = false
 
             };
-            [FoldoutGroup("$useCaseName/General Menu Contents")] [ShowIf("playButtonIsPauseButton")] public CustomGeneralMenuButton generalMenuPauseButton;
-            [FoldoutGroup("$useCaseName/General Menu Contents")] [ShowIf("hasTransparencyButton")] public CustomGeneralMenuButton generalMenuTransparencyToggle = new CustomGeneralMenuButton
+
+            [FoldoutGroup("$useCaseName/General Menu Contents")]
+            [ShowIf("playButtonIsPauseButton")]
+            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [OdinSerialize]
+            public CustomGeneralMenuButton generalMenuPauseButton;
+
+            [FoldoutGroup("$useCaseName/General Menu Contents")] 
+            [ShowIf("hasTransparencyButton")]
+            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [OdinSerialize]
+            public CustomGeneralMenuModule generalMenuTransparencyToggle = new CustomGeneralMenuModule_Toggle
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle,
                 tooltipText = "Toggle Transparency Mode",
                 isIndexed = false
 
             };
-            [FoldoutGroup("$useCaseName/General Menu Contents")] [ShowIf("hasCameraPosButton")] public CustomGeneralMenuButton generalMenuCameraDropdown = new CustomGeneralMenuButton
+
+            [FoldoutGroup("$useCaseName/General Menu Contents")] 
+            [ShowIf("hasCameraPosButton")]
+            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [OdinSerialize]
+            public CustomGeneralMenuModule generalMenuCameraDropdown = new CustomGeneralMenuModule_Button
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.dropdown,
                 tooltipText = "",
                 isIndexed = false
 
             };
+
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("hasDragModeButton")]
-            public CustomGeneralMenuButton generalMenuDragModeToggle = new CustomGeneralMenuButton
+            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [OdinSerialize]
+            public CustomGeneralMenuModule generalMenuDragModeToggle = new CustomGeneralMenuModule_Toggle
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.toggle,
                 tooltipText = "Toggle Drag Mode",
                 isIndexed = false
 
             };
+
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("hasResetCameraButton")]
-            public CustomGeneralMenuButton generalMenuBackButton = new CustomGeneralMenuButton
+            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [OdinSerialize]
+            public CustomGeneralMenuModule generalMenuBackButton = new CustomGeneralMenuModule_Button
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
                 tooltipText = "Back",
                 isIndexed = false
 
             };
+
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("hasResetCameraButton")]
-            public CustomGeneralMenuButton generalMenuHomeButton = new CustomGeneralMenuButton
+            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [OdinSerialize]
+            public CustomGeneralMenuModule generalMenuHomeButton = new CustomGeneralMenuModule_Button
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
                 tooltipText = "Return to Home-Position",
                 isIndexed = false
 
             };
 
-            [FoldoutGroup("$useCaseName/General Menu Contents")] [OdinSerialize] private List<CustomGeneralMenuButton> customGeneralMenuButtons = new List<CustomGeneralMenuButton>();
+            [FoldoutGroup("$useCaseName/General Menu Contents")]
+            [OdinSerialize]
+            private List<CustomGeneralMenuModule> customGeneralMenuButtons = new List<CustomGeneralMenuModule>();
 
 
             [FoldoutGroup("$useCaseName/Focus Menu Contents")] public bool hasFocusMenu = false;
 
-            [FoldoutGroup("$useCaseName/Focus Menu Contents")] [ShowIf("hasRightSideMenu")] public Transform focusObjectPosition;
+            [FoldoutGroup("$useCaseName/Focus Menu Contents")] [ShowIf("hasFocusMenu")] public Transform focusObjectPosition;
 
             [FoldoutGroup("$useCaseName/Focus Menu Contents")]
-            [ShowIf("hasRightSideMenu")]
-            public CustomGeneralMenuButton focusMenuBackButton = new CustomGeneralMenuButton
+            [BoxGroup("$useCaseName/Focus Menu Contents/Back Button")]
+            [OdinSerialize]
+            [ShowIf("hasFocusMenu")]
+            public CustomGeneralMenuModule focusMenuBackButton = new CustomGeneralMenuModule_Button
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
+                tooltipText = "Reset Rotation",
+                isIndexed = false
+
+            };
+            [FoldoutGroup("$useCaseName/Focus Menu Contents")]
+            [BoxGroup("$useCaseName/Focus Menu Contents/Reset Rotation Button")]
+            [OdinSerialize]
+            [ShowIf("hasFocusMenu")]
+            public CustomGeneralMenuModule focusMenuResetRotationButton = new CustomGeneralMenuModule_Button
+            {
+
                 tooltipText = "Return Object",
                 isIndexed = false
 
             };
             [FoldoutGroup("$useCaseName/Focus Menu Contents")]
-            [ShowIf("hasRightSideMenu")]
-            public CustomGeneralMenuButton focusMenuResetRotationButton = new CustomGeneralMenuButton
+            [BoxGroup("$useCaseName/Focus Menu Contents/Rotation Button")]
+            [OdinSerialize]
+            [ShowIf("hasFocusMenu")]
+            public CustomGeneralMenuModule focusMenuRotationButton = new CustomGeneralMenuModule_Button
             {
 
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
-                tooltipText = "Reset Object Rotation",
-                isIndexed = false
-
-            };
-            [FoldoutGroup("$useCaseName/Focus Menu Contents")]
-            [ShowIf("hasRightSideMenu")]
-            public CustomGeneralMenuButton focusMenuRotationButton = new CustomGeneralMenuButton
-            {
-
-                customButtonType = CustomGeneralMenuButton.CustomGeneralMenuButtonType.button,
-                tooltipText = "Return Object Rotation",
+                tooltipText = "Reset Rotation",
                 isIndexed = false
 
             };

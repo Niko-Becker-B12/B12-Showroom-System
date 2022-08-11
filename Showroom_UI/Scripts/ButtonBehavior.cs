@@ -268,13 +268,4 @@ namespace Showroom.UI
 
     }
 
-    [System.Serializable]
-    public class Function
-    {
-        [SerializeField]
-        [FoldoutGroup("Function Block")] public UnityEvent functionName;
-        [FoldoutGroup("Function Block")] public float functionDelay;
-    }
-
-
 }
