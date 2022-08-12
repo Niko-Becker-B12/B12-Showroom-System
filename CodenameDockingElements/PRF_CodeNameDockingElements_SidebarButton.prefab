@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 8421859583434197554}
   - component: {fileID: 8279228566329394822}
   - component: {fileID: 6258048300974583675}
-  - component: {fileID: 3631293622488553315}
+  - component: {fileID: 6485396204897307177}
   m_Layer: 5
   m_Name: PRF_CodeNameDockingElements_SidebarButton
   m_TagString: Untagged
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &3631293622488553315
+--- !u!114 &6485396204897307177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -734,14 +734,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8357698758915580312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d53a8618a91ebd44291acf89a4e382d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 817389b6a4085c449899a5209a9333d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sidebarButtonColors:
-    m_NormalColor: {r: 0, g: 0, b: 0.15686275, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.9019608, b: 0.8627451, a: 1}
-    m_PressedColor: {r: 0, g: 0, b: 0.15686275, a: 1}
-    m_SelectedColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -775,13 +775,13 @@ MonoBehaviour:
     sidebarButtonOnEnterFunctions: []
     sidebarButtonOnExitFunctions: []
     sidebarButtonOnResetFunctions: []
-  sidebarButtonBehavior: {fileID: 8421859583434197554}
-  sidebarButton: {fileID: 2561083332165428008}
-  sidebarButtonText: {fileID: 7890350790025222614}
-  sidebarButtonIcon: {fileID: 5632915634507819410}
-  sidebarButtonChevron: {fileID: 968404159639226513}
-  pixelLineTop: {fileID: 8271017670527102725}
-  pixelLineBottom: {fileID: 2126220829418987952}
+  sidebarButtonBehavior: {fileID: 0}
+  sidebarButton: {fileID: 0}
+  sidebarButtonText: {fileID: 0}
+  sidebarButtonIcon: {fileID: 0}
+  sidebarButtonChevron: {fileID: 0}
+  pixelLineTop: {fileID: 0}
+  pixelLineBottom: {fileID: 0}
 --- !u!1 &8810046918826016419
 GameObject:
   m_ObjectHideFlags: 0
