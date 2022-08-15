@@ -88,8 +88,8 @@ GameObject:
   - component: {fileID: 8012914681806838669}
   - component: {fileID: 5064228832670624881}
   - component: {fileID: 4654401392018991911}
-  - component: {fileID: -2871678805682375055}
   - component: {fileID: -3295101537780708937}
+  - component: {fileID: -2251436929913231077}
   m_Layer: 5
   m_Name: PRF_CodeNameDockingElements_GeneralMenuButton
   m_TagString: Untagged
@@ -216,64 +216,6 @@ MonoBehaviour:
   onButtonReset: []
   clickableOnce: 0
   wasClicked: 0
---- !u!114 &-2871678805682375055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8973384611122027027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3cc9ddd62bf90143b2260104f65082d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generalMenuButtonColors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  generalMenuButtonIconColors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  onButtonDown: []
-  onButtonEnter: []
-  onButtonExit: []
-  onButtonReset: []
-  generalButtonDataContainer:
-    customButtonType: 0
-    tooltipText: 
-    isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
-  generalMenuButtonBehavior: {fileID: 0}
-  generalMenuButton: {fileID: 0}
-  generalMenuButtonIcon: {fileID: 0}
-  generalMenuButtonRectangle: {fileID: 0}
 --- !u!114 &-3295101537780708937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,3 +260,40 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-2251436929913231077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973384611122027027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64939ad699050c4cbccc9a63cebd32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: 
+    isIndexed: 0
+  generalMenuButtonColors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  generalMenuButtonIconColors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  onButtonDown: []
+  onButtonEnter: []
+  onButtonExit: []
+  onButtonReset: []
