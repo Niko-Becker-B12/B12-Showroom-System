@@ -10,12 +10,12 @@ namespace Showroom
         static void CreateShowroomManager(MenuCommand menuCommand)
         {
 
-            Object showroomManagerPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Manager/--- Showroom Manager ---.prefab", typeof(GameObject));
+            Object showroomManagerPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Manager/--- Showroom Manager ---.prefab", typeof(Object));
 
             if (showroomManagerPrefab != null)
             {
 
-                PrefabUtility.InstantiatePrefab(showroomManagerPrefab);
+                Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(showroomManagerPrefab);
 
             }
 
@@ -25,17 +25,17 @@ namespace Showroom
         static void CreateDockingElements(MenuCommand menuCommand)
         {
 
-            Object dockingElementsPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/CodenameDockingElements/PRF_CodeNameDockingElements.prefab", typeof(GameObject));
+            Object dockingElementsPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/CodenameDockingElements/PRF_CodeNameDockingElements.prefab", typeof(Object));
 
-            GameObject parent = GameObject.Find("/--- User Interfaces ---");
+            GameObject parent = GameObject.Find("/--- User Interface ---");
 
             if (parent == null)
-                parent = new GameObject("--- User Interfaces ---");
+                parent = new GameObject("--- User Interface ---");
 
             if (dockingElementsPrefab != null)
             {
 
-                PrefabUtility.InstantiatePrefab(dockingElementsPrefab, parent.transform);
+                Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(dockingElementsPrefab, parent.transform);
 
             }
 
@@ -45,12 +45,12 @@ namespace Showroom
         static void CreatePlayer(MenuCommand menuCommand)
         {
 
-            Object playerPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Navigation/PRF_ShowroomNavigation.prefab", typeof(GameObject));
+            Object playerPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Navigation/PRF_ShowroomNavigation.prefab", typeof(Object));
 
             if (playerPrefab != null)
             {
 
-                PrefabUtility.InstantiatePrefab(playerPrefab);
+                Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(playerPrefab);
 
             }
 
@@ -60,7 +60,7 @@ namespace Showroom
         static void CreateEnviroment(MenuCommand menuCommand)
         {
 
-            Object enviromentPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Enviroment/PRF_Background.prefab", typeof(GameObject));
+            Object enviromentPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Enviroment/PRF_Background.prefab", typeof(Object));
 
             GameObject parent = GameObject.Find("/--- Enviroment ---");
 
@@ -70,7 +70,7 @@ namespace Showroom
             if (enviromentPrefab != null)
             {
 
-                PrefabUtility.InstantiatePrefab(enviromentPrefab, parent.transform);
+                Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(enviromentPrefab, parent.transform);
 
             }
 
@@ -80,7 +80,7 @@ namespace Showroom
         static void CreateInteractButton(MenuCommand menuCommand)
         {
 
-            Object interactButtonPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_InteractButton.prefab", typeof(GameObject));
+            Object interactButtonPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_InteractButton.prefab", typeof(Object));
 
             if (interactButtonPrefab != null)
             {
@@ -88,7 +88,7 @@ namespace Showroom
                 if (Selection.activeGameObject != null)
                     PrefabUtility.InstantiatePrefab(interactButtonPrefab, Selection.activeGameObject.transform);
                 else
-                    PrefabUtility.InstantiatePrefab(interactButtonPrefab);
+                    Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(interactButtonPrefab);
 
             }
 
@@ -98,15 +98,15 @@ namespace Showroom
         static void CreateInteractButtonLabel(MenuCommand menuCommand)
         {
 
-            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_InteractButton_Label Variant.prefab", typeof(GameObject));
+            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_InteractButton_Label Variant.prefab", typeof(Object));
 
             if (prefab != null)
             {
 
                 if (Selection.activeGameObject != null)
-                    PrefabUtility.InstantiatePrefab(prefab, Selection.activeGameObject.transform);
+                    PrefabUtility.InstantiatePrefab(prefab as GameObject, Selection.activeGameObject.transform);
                 else
-                    PrefabUtility.InstantiatePrefab(prefab);
+                    Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(prefab as GameObject);
 
             }
 
@@ -116,7 +116,7 @@ namespace Showroom
         static void CreateLabel(MenuCommand menuCommand)
         {
 
-            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Standard_Label.prefab", typeof(GameObject));
+            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Standard_Label.prefab", typeof(Object));
 
             if (prefab != null)
             {
@@ -124,7 +124,7 @@ namespace Showroom
                 if (Selection.activeGameObject != null)
                     PrefabUtility.InstantiatePrefab(prefab, Selection.activeGameObject.transform);
                 else
-                    PrefabUtility.InstantiatePrefab(prefab);
+                    Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
 
             }
 
@@ -134,7 +134,7 @@ namespace Showroom
         static void CreateStandardObj(MenuCommand menuCommand)
         {
 
-            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Standard_Object.prefab", typeof(GameObject));
+            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Standard_Object.prefab", typeof(Object));
 
             if (prefab != null)
             {
@@ -142,7 +142,7 @@ namespace Showroom
                 if (Selection.activeGameObject != null)
                     PrefabUtility.InstantiatePrefab(prefab, Selection.activeGameObject.transform);
                 else
-                    PrefabUtility.InstantiatePrefab(prefab);
+                    Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
 
             }
 
@@ -152,7 +152,7 @@ namespace Showroom
         static void Create3DTooltip(MenuCommand menuCommand)
         {
 
-            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Tooltip3D.prefab", typeof(GameObject));
+            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Tooltip3D.prefab", typeof(Object));
 
             if (prefab != null)
             {
@@ -160,7 +160,7 @@ namespace Showroom
                 if (Selection.activeGameObject != null)
                     PrefabUtility.InstantiatePrefab(prefab, Selection.activeGameObject.transform);
                 else
-                    PrefabUtility.InstantiatePrefab(prefab);
+                    Selection.activeGameObject = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
 
             }
 

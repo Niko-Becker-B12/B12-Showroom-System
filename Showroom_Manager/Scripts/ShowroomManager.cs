@@ -155,7 +155,7 @@ namespace Showroom
         [BoxGroup("General Menu Contents/Transparency Toggle")]
         [ShowIf("@this.subLevelHasGeneralMenu == true && hasTransparencyButton")]
         [OdinSerialize]
-        public CustomGeneralMenuModule generalMenuTransparencyToggle = new CustomGeneralMenuModule_Button
+        public CustomGeneralMenuModule generalMenuTransparencyToggle = new CustomGeneralMenuModule_Toggle
         {
 
             tooltipText = "Toggle Transparency Mode",
@@ -167,16 +167,11 @@ namespace Showroom
         [BoxGroup("General Menu Contents/Camera Dropdown")]
         [ShowIf("@this.subLevelHasGeneralMenu == true && hasCameraPosButton")]
         [OdinSerialize]
-        public CustomGeneralMenuButton generalMenuCameraDropdown = new CustomGeneralMenuButton
+        public CustomGeneralMenuModule generalMenuCameraDropdown = new CustomGeneralMenuModule_Dropdown
         {
 
-            customGeneralMenuButton = new CustomGeneralMenuModule_Button
-            {
-
-                tooltipText = "",
-                isIndexed = false
-
-            }
+            tooltipText = "",
+            isIndexed = false
 
         };
 
@@ -184,16 +179,11 @@ namespace Showroom
         [BoxGroup("General Menu Contents/Dragmode Toggle")]
         [ShowIf("@this.subLevelHasGeneralMenu == true && hasDragModeButton")] 
         [OdinSerialize]
-        public CustomGeneralMenuButton generalMenuDragModeToggle = new CustomGeneralMenuButton
+        public CustomGeneralMenuModule generalMenuDragModeToggle = new CustomGeneralMenuModule_Toggle
         {
 
-            customGeneralMenuButton = new CustomGeneralMenuModule_Toggle
-            {
-
-                tooltipText = "Toggle Drag Mode",
-                isIndexed = false
-
-            }
+            tooltipText = "Toggle Drag Mode",
+            isIndexed = false
 
         };
 
@@ -201,16 +191,11 @@ namespace Showroom
         [BoxGroup("General Menu Contents/Back Button")]
         [ShowIf("@this.subLevelHasGeneralMenu == true && hasResetCameraButton")] 
         [OdinSerialize]
-        public CustomGeneralMenuButton generalMenuBackButton = new CustomGeneralMenuButton
+        public CustomGeneralMenuModule generalMenuBackButton = new CustomGeneralMenuModule_Button
         {
 
-            customGeneralMenuButton = new CustomGeneralMenuModule_Button
-            {
-
-                tooltipText = "Back",
-                isIndexed = false
-
-            }
+            tooltipText = "Back",
+            isIndexed = false
 
         };
 
@@ -218,23 +203,18 @@ namespace Showroom
         [BoxGroup("General Menu Contents/Home Button")]
         [ShowIf("@this.subLevelHasGeneralMenu == true && hasResetCameraButton")] 
         [OdinSerialize]
-        public CustomGeneralMenuButton generalMenuHomeButton = new CustomGeneralMenuButton
+        public CustomGeneralMenuModule generalMenuHomeButton = new CustomGeneralMenuModule_Button
         {
 
-            customGeneralMenuButton = new CustomGeneralMenuModule_Button
-            {
-
-                tooltipText = "Return to Home-Position",
-                isIndexed = false
-
-            }
+            tooltipText = "Return to Home-Position",
+            isIndexed = false
 
         };
 
         [FoldoutGroup("General Menu Contents")] 
         [ShowIf("subLevelHasGeneralMenu")] 
         [OdinSerialize] 
-        private List<CustomGeneralMenuButton> customGeneralMenuButtons = new List<CustomGeneralMenuButton>();
+        private List<CustomGeneralMenuModule> CustomGeneralMenuModules = new List<CustomGeneralMenuModule>();
 
         //[FoldoutGroup("General Menu Contents/Camera Position Button")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasCameraPosButton")] public List<AdditionalCameraPositionButtons> cameraButtons = new List<AdditionalCameraPositionButtons>();
 
@@ -350,7 +330,10 @@ namespace Showroom
         [FoldoutGroup("Use Cases")] [ShowIf("hasUseCases")] [ReadOnly] [SerializeField] public int useCaseIndex = -1;
         [FoldoutGroup("Use Cases")] [ShowIf("hasUseCases")] [SerializeField] public bool hasStandardUseCase;
         [FoldoutGroup("Use Cases")] [ShowIf("hasStandardUseCase")] [SerializeField] public int standardUseCaseIndex = 0;
-        [FoldoutGroup("Use Cases")] public List<UseCase> useCases = new List<UseCase>();
+
+        [FoldoutGroup("Use Cases")] 
+        //[SerializeField, OdinSerialize]
+        public List<UseCase> useCases = new List<UseCase>();
 
 
         bool hasUseCases()
@@ -876,7 +859,7 @@ namespace Showroom
 
             }
 
-            //showroomUI.generalMenuTransparencyToggle.customGeneralMenuButtonObj.UpdateButton();
+            //showroomUI.generalMenuTransparencyToggle.CustomGeneralMenuModuleObj.UpdateButton();
 
         }
 
@@ -911,7 +894,7 @@ namespace Showroom
 
             ToggleTransparency();
 
-            //showroomUI.generalMenuTransparencyToggle.customGeneralMenuButtonObj.UpdateButton();
+            //showroomUI.generalMenuTransparencyToggle.CustomGeneralMenuModuleObj.UpdateButton();
 
         }
 
@@ -1207,7 +1190,7 @@ namespace Showroom
             isDragMode = true;
 
             ToggleDragMode();
-            //showroomUI.generalMenuDragModeToggle.customGeneralMenuButtonObj.UpdateButton();
+            //showroomUI.generalMenuDragModeToggle.CustomGeneralMenuModuleObj.UpdateButton();
 
         }
 
@@ -1218,7 +1201,7 @@ namespace Showroom
 
         }
 
-        [System.Serializable]
+        [ShowOdinSerializedPropertiesInInspector]
         public class UseCase
         {
             [InfoBox("There is no Use Case Name set!", InfoMessageType.Error, "hasNoUseCaseName")]
@@ -1234,14 +1217,19 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/General Settings")]
             [InfoBox("There is no Home Camera Set!", InfoMessageType.Error, "hasNoHomeCamera")]
-            [FoldoutGroup("$useCaseName/General Settings")] public Camera useCaseHomeCamera;
+            [FoldoutGroup("$useCaseName/General Settings")]
+            [OdinSerialize, SerializeField, SerializeReference]
+            [SceneObjectsOnly]
+            public Camera useCaseHomeCamera;
 
             bool hasNoHomeCamera()
             {
                 return !useCaseHomeCamera;
             }
 
-            [FoldoutGroup("$useCaseName/General Settings")] public List<Camera> useCaseCameras = new List<Camera>();
+            [FoldoutGroup("$useCaseName/General Settings")]
+            [SceneObjectsOnly]
+            public List<Camera> useCaseCameras = new List<Camera>();
 
             bool hasNoTransparentObjects()
             {
@@ -1294,13 +1282,13 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("playButtonIsPauseButton")]
-            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [BoxGroup("$useCaseName/General Menu Contents/Pause Button")]
             [OdinSerialize]
-            public CustomGeneralMenuButton generalMenuPauseButton;
+            public CustomGeneralMenuModule generalMenuPauseButton;
 
             [FoldoutGroup("$useCaseName/General Menu Contents")] 
             [ShowIf("hasTransparencyButton")]
-            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [BoxGroup("$useCaseName/General Menu Contents/Transparency Mode Toggle")]
             [OdinSerialize]
             public CustomGeneralMenuModule generalMenuTransparencyToggle = new CustomGeneralMenuModule_Toggle
             {
@@ -1312,7 +1300,7 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/General Menu Contents")] 
             [ShowIf("hasCameraPosButton")]
-            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [BoxGroup("$useCaseName/General Menu Contents/Camera Position Dropdown")]
             [OdinSerialize]
             public CustomGeneralMenuModule generalMenuCameraDropdown = new CustomGeneralMenuModule_Button
             {
@@ -1324,7 +1312,7 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("hasDragModeButton")]
-            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [BoxGroup("$useCaseName/General Menu Contents/Drag Mode Toggle")]
             [OdinSerialize]
             public CustomGeneralMenuModule generalMenuDragModeToggle = new CustomGeneralMenuModule_Toggle
             {
@@ -1336,7 +1324,7 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("hasResetCameraButton")]
-            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [BoxGroup("$useCaseName/General Menu Contents/Back Button")]
             [OdinSerialize]
             public CustomGeneralMenuModule generalMenuBackButton = new CustomGeneralMenuModule_Button
             {
@@ -1348,7 +1336,7 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [ShowIf("hasResetCameraButton")]
-            [BoxGroup("$useCaseName/General Menu Contents/Play Button")]
+            [BoxGroup("$useCaseName/General Menu Contents/Home Button")]
             [OdinSerialize]
             public CustomGeneralMenuModule generalMenuHomeButton = new CustomGeneralMenuModule_Button
             {
@@ -1360,7 +1348,7 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/General Menu Contents")]
             [OdinSerialize]
-            private List<CustomGeneralMenuModule> customGeneralMenuButtons = new List<CustomGeneralMenuModule>();
+            private List<CustomGeneralMenuModule> CustomGeneralMenuModules = new List<CustomGeneralMenuModule>();
 
 
             [FoldoutGroup("$useCaseName/Focus Menu Contents")] public bool hasFocusMenu = false;
@@ -1369,7 +1357,7 @@ namespace Showroom
 
             [FoldoutGroup("$useCaseName/Focus Menu Contents")]
             [BoxGroup("$useCaseName/Focus Menu Contents/Back Button")]
-            [OdinSerialize]
+            [OdinSerialize, ShowInInspector]
             [ShowIf("hasFocusMenu")]
             public CustomGeneralMenuModule focusMenuBackButton = new CustomGeneralMenuModule_Button
             {
@@ -1436,16 +1424,6 @@ namespace Showroom
             public List<Material> materials = new List<Material>();
 
         }
-    }
-
-    [System.Serializable]
-    public class UseCaseButtonEvent
-    {
-
-        public string useCaseButtonName;
-        public Sprite useCaseButtonSprite;
-        public List<Function> useCaseButtonFunctions = new List<Function>();
-
     }
 
 }
