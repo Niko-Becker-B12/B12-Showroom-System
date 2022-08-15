@@ -33,7 +33,17 @@ namespace Showroom.UI
         public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer = null, int buttonIndex = -1, int useCaseIndex = -1)
         {
 
-            base.SetUpButton();
+            //base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex);
+
+            Debug.Log("Generating Button Module");
+
+            GameObject newButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuButtonPrefab, CodenameDockingElements.Instance.generalMenuButtonParent);
+
+
+            generalMenuModuleObject = newButton.GetComponent<GeneralMenuModuleObject_Button>();
+            generalMenuModuleObject.data = this as CustomGeneralMenuModule_Button;
+
+            generalMenuModuleObject.SetUp();
 
         }
 

@@ -29,10 +29,10 @@ namespace Showroom.UI
         [BoxGroup("Dropdown")]
         public List<Function> dropdownFunctions = new List<Function>();
 
-        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer = null, int buttonIndex = -1, int useCaseIndex = -1)
+        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer, int buttonIndex = -1, int useCaseIndex = -1)
         {
 
-            base.SetUpButton();
+            base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex);
 
         }
 

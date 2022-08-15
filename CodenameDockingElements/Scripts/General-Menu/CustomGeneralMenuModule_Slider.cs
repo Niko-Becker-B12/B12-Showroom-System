@@ -26,11 +26,9 @@ namespace Showroom.UI
         [BoxGroup("Slider")]
         public List<Function> sliderFunctions = new List<Function>();
 
-        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer = null, int buttonIndex = -1, int useCaseIndex = -1)
+        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer, int buttonIndex = -1, int useCaseIndex = -1)
         {
-
-            base.SetUpButton();
-
+            base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex);
         }
 
         public override void Update(CustomGeneralMenuModule customGeneralMenuDataContainer = null)
