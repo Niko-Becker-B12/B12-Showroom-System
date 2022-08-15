@@ -46,7 +46,6 @@ namespace Showroom.UI
 
             //base.SetUp();
 
-
             data.generalMenuModuleObject = this.gameObject.GetComponent<GeneralMenuModuleObject>();
 
             Debug.Log($"Setting up General Menu Button {data.GetType()}");
@@ -61,6 +60,10 @@ namespace Showroom.UI
             generalMenuButtonIconColors = CodenameDockingElements.Instance.baseUISkin.generalMenuButtonIconColors;
 
             button.colors = generalMenuButtonColors;
+
+            onButtonDown.AddRange((data as CustomGeneralMenuModule_Button).buttonOnClickFunctions);
+            onButtonEnter.AddRange((data as CustomGeneralMenuModule_Button).buttonOnEnterFunctions);
+            onButtonExit.AddRange((data as CustomGeneralMenuModule_Button).buttonOnExitFunctions);
 
             #region onHover
 
@@ -81,7 +84,7 @@ namespace Showroom.UI
             };
 
             behavior.onMouseEnter.Add(onHoverFunction);
-
+            behavior.onMouseEnter.AddRange(onButtonEnter);
 
             #endregion
 
@@ -104,6 +107,7 @@ namespace Showroom.UI
             };
 
             behavior.onMouseExit.Add(onExitFunction);
+            behavior.onMouseExit.AddRange(onButtonExit);
 
 
             #endregion
@@ -127,6 +131,7 @@ namespace Showroom.UI
             };
 
             behavior.onMouseDown.Add(onClickFunction);
+            behavior.onMouseDown.AddRange(onButtonDown);
 
 
             #endregion
@@ -153,6 +158,13 @@ namespace Showroom.UI
 
 
             #endregion
+
+            for (int i = 0; i < onButtonDown.Count; i++)
+            {
+
+                Debug.Log(onButtonDown[i].functionName + " " + i);
+
+            }
 
         }
 
