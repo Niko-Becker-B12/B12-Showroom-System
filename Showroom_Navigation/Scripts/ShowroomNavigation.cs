@@ -318,9 +318,9 @@ namespace Showroom
 
             float distance = Vector3.Distance(pos, this.transform.position);
 
-            this.transform.DOMove(pos, (distance * .25f)).SetEase(Ease.InOutQuad);
-            this.transform.DORotate(playerRot, (distance * .25f)).SetEase(Ease.InOutQuad).SetOptions(true);
-            playerCamera.transform.DORotate(-cameraRot, (distance * .25f)).SetEase(Ease.InOutQuad)
+            this.transform.DOMove(pos, distance < 20f ? 2f : (distance * .25f)).SetEase(Ease.InOutQuad);
+            this.transform.DORotate(playerRot, distance < 20f ? 2f : (distance * .25f)).SetEase(Ease.InOutQuad).SetOptions(true);
+            playerCamera.transform.DORotate(-cameraRot, distance < 20f ? 2f : (distance * .25f)).SetEase(Ease.InOutQuad)
             .OnComplete(() => 
             {
 
@@ -333,7 +333,7 @@ namespace Showroom
 
             teleportPosition = pos;
 
-            playerCamera.DOFieldOfView(camera.fieldOfView, (distance * .25f)).SetEase(Ease.InOutQuad);
+            playerCamera.DOFieldOfView(camera.fieldOfView, distance < 20f ? 2f : (distance * .25f)).SetEase(Ease.InOutQuad);
 
         }
 
