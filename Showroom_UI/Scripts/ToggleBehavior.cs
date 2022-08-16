@@ -40,13 +40,15 @@ namespace Showroom.UI
 
         public bool isActive = false;
 
+        bool startValue;
+
         bool isResetting = false;
 
 
         private void Start()
         {
 
-
+            startValue = isActive;
 
         }
 
@@ -179,6 +181,7 @@ namespace Showroom.UI
                 }
 
                 isResetting = false;
+                isActive = startValue;
 
             }
 

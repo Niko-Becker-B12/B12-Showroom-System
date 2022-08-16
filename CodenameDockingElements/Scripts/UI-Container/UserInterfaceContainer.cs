@@ -91,7 +91,7 @@ namespace Showroom.UI
 
             uiContainerHeadlineObj = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerHeadlinePrefab, uiContainerObj.transform);
 
-            uiContainerHeadlineObj.GetComponent<TextMeshProUGUI>().text = uiContainerLongName;
+            uiContainerHeadlineObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = uiContainerLongName;
 
             uiModule.Create(uiContainerObj.transform);
 
