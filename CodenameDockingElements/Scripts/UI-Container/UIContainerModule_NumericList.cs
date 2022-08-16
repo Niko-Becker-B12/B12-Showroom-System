@@ -41,7 +41,7 @@ namespace Showroom.UI
                 uIContainerBlockButton.data = containerModuleButtons[i];
                 uIContainerBlockButton.index = i;
 
-                uIContainerBlockButton.SetUpButton(string.Format("{0}. {1}", (i + 1), containerModuleButtons[i].buttonText));
+                uIContainerBlockButton.SetUpButton(string.Format("{0}.    {1}", (i + 1), containerModuleButtons[i].buttonText));
 
             }
 

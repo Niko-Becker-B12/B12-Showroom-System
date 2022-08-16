@@ -95,6 +95,8 @@ namespace Showroom.UI
 
             uiModule.Create(uiContainerObj.transform);
 
+            LayoutRebuilder.ForceRebuildLayoutImmediate(uiContainerObj.GetComponent<RectTransform>());
+
             ApplyBaseSkin();
 
         }

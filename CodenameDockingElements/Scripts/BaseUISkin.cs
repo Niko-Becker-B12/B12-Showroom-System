@@ -130,5 +130,9 @@ public class BaseUISkin : ScriptableObject
     [BoxGroup("Custom UI Containers/Buttons/Button Text Colors")]
     public ColorBlock customUIContainerButtonTextColors = ColorBlock.defaultColorBlock;
 
+    [FoldoutGroup("Custom UI Containers/Buttons")]
+    [BoxGroup("Custom UI Containers/Buttons/Button Additional Colors")]
+    public ColorBlock customUIContainerAdditionalColors = ColorBlock.defaultColorBlock;
+
 
 }

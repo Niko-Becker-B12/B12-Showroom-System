@@ -637,8 +637,9 @@ MonoBehaviour:
   behavior: {fileID: 0}
   button: {fileID: 0}
   backgroundRect: {fileID: 0}
-  icon: {fileID: 0}
-  text: {fileID: 0}
+  icons:
+  - {fileID: 968404159639226513}
+  text: {fileID: 7890350790025222614}
   data:
     buttonText: 
     buttonOnClickFunctions: []
@@ -655,6 +656,14 @@ MonoBehaviour:
     m_ColorMultiplier: 0
     m_FadeDuration: 0
   buttonTextColors:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  buttonAdditionalColors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
     m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
@@ -689,7 +698,7 @@ MonoBehaviour:
   ShapeProperties:
     FillColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4280811520
     DrawFill: 1
     DrawFillShadow: 1
     DrawOutline: 0

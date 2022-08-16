@@ -17,7 +17,7 @@ namespace Showroom.UI
         public ButtonBehavior behavior;
         public Button button;
         public Rectangle backgroundRect;
-        public Image icon;
+        public List<Image> icons = new List<Image>();
         public TextMeshProUGUI text;
 
         public UIContainerBlock_Button data;
@@ -25,6 +25,7 @@ namespace Showroom.UI
 
         public ColorBlock buttonColors;
         public ColorBlock buttonTextColors;
+        public ColorBlock buttonAdditionalColors;
 
         public List<Function> buttonOnClickFunctions = new List<Function>();
         public List<Function> buttonOnEnterFunctions = new List<Function>();
@@ -40,8 +41,8 @@ namespace Showroom.UI
             behavior = this.GetComponent<ButtonBehavior>();
             button = this.GetComponent<Button>();
             backgroundRect = this.GetComponent<Rectangle>();
-            icon = this.transform.GetChild(1).GetChild(0).GetComponent<Image>();
-            text = this.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            //icon = this.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+            //text = this.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
             text.text = buttonText;
 
@@ -67,6 +68,7 @@ namespace Showroom.UI
 
             buttonColors = CodenameDockingElements.Instance.baseUISkin.customUIContainerButtonColors;
             buttonTextColors = CodenameDockingElements.Instance.baseUISkin.customUIContainerButtonTextColors;
+            buttonAdditionalColors = CodenameDockingElements.Instance.baseUISkin.customUIContainerAdditionalColors;
 
             button.colors = buttonColors;
 
@@ -153,6 +155,13 @@ namespace Showroom.UI
 
             text.color = buttonTextColors.highlightedColor;
 
+            for(int i = 0; i < icons.Count; i++)
+            {
+
+                icons[i].color = buttonAdditionalColors.highlightedColor;
+
+            }
+
         }
 
         public virtual void GeneralMenuButtonObjectOnExit()
@@ -160,12 +169,26 @@ namespace Showroom.UI
 
             text.color = buttonTextColors.normalColor;
 
+            for (int i = 0; i < icons.Count; i++)
+            {
+
+                icons[i].color = buttonAdditionalColors.normalColor;
+
+            }
+
         }
 
         public virtual void GeneralMenuButtonObjectOnClick()
         {
 
             text.color = buttonTextColors.selectedColor;
+
+            for (int i = 0; i < icons.Count; i++)
+            {
+
+                icons[i].color = buttonAdditionalColors.selectedColor;
+
+            }
 
         }
 
