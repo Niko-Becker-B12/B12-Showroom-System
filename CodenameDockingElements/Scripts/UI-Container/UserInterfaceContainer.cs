@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using ThisOtherThing.UI.Shapes;
-
+using TMPro;
 
 namespace Showroom.UI
 {
@@ -35,7 +35,12 @@ namespace Showroom.UI
         [OdinSerialize]
         private UserInterfaceContainerModule uiModule;
 
+        [ReadOnly]
         public GameObject uiContainerObj;
+
+        [ReadOnly]
+        public GameObject uiContainerHeadlineObj;
+
 
         public virtual void CreateUIContainer()
         {
@@ -83,6 +88,10 @@ namespace Showroom.UI
             uiContainerRect.anchoredPosition = uiContainerClosedPosition;
 
             uiContainerRect.sizeDelta = uiContainerSize;
+
+            uiContainerHeadlineObj = GameObject.Instantiate(CodenameDockingElements.Instance.uiContainerHeadlinePrefab, uiContainerObj.transform);
+
+            uiContainerHeadlineObj.GetComponent<TextMeshProUGUI>().text = uiContainerLongName;
 
             uiModule.Create(uiContainerObj.transform);
 

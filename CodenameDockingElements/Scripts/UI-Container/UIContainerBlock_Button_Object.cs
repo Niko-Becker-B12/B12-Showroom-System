@@ -40,7 +40,7 @@ namespace Showroom.UI
             behavior = this.GetComponent<ButtonBehavior>();
             button = this.GetComponent<Button>();
             backgroundRect = this.GetComponent<Rectangle>();
-            icon = this.transform.GetChild(0).GetComponent<Image>();
+            icon = this.transform.GetChild(1).GetChild(0).GetComponent<Image>();
             text = this.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
             text.text = buttonText;

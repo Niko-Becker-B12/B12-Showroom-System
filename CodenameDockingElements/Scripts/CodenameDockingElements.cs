@@ -176,6 +176,7 @@ namespace Showroom.UI
         [BoxGroup("Custom UI Containers")] public Transform uiContainerParent;
 
         [BoxGroup("Custom UI Containers")] public GameObject uiContainerButtonPrefab;
+        [BoxGroup("Custom UI Containers")] public GameObject uiContainerHeadlinePrefab;
 
 
         private void Start()

@@ -210,16 +210,16 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   uiContainerPadding:
-    m_Left: 56
-    m_Right: 56
-    m_Top: 56
-    m_Bottom: 20
+    m_Left: 64
+    m_Right: 64
+    m_Top: 72
+    m_Bottom: 94
   customUIContainerButtonColors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_PressedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_SelectedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}
+    m_DisabledColor: {r: 0, g: 0, b: 0.15686275, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   customUIContainerButtonTextColors:
