@@ -3169,10 +3169,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d051aafb39d1e2247b1ee2a245eabbc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: generalMenuPlayButton
+      Entry: 7
+      Data: 0|Showroom.UI.CustomGeneralMenuModule, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Play Animation
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
   baseUISkin: {fileID: 11400000, guid: 23de06546937426488d90f3c85c30dda, type: 2}
   uiContainers: []
   headButtons: []
-  customGeneralMenuButtons: []
+  CustomGeneralMenuModules: []
   spawnedStepperButtons: []
   screenScaleValue: 24
   showroomUICanvasScaler: {fileID: 3021365804593360733}
@@ -3197,159 +3224,40 @@ MonoBehaviour:
   generalMenuOneButtonActive: 0
   generalMenuIsOpen: 0
   generalMenuPlayButton:
-    customButtonType: 0
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Play Animation
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   generalMenuReplayButton:
-    customButtonType: 0
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Restart Animation
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   generalMenuCameraDropdown:
-    customButtonType: 3
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: 
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   generalMenuTransparencyToggle:
-    customButtonType: 1
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Toggle Transparency Mode
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   generalMenuDragModeToggle:
-    customButtonType: 1
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Toggle Drag Mode
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   generalMenuBackButton:
-    customButtonType: 0
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Back
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   generalMenuHomeButton:
-    customButtonType: 0
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Return to Home-Position
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   generalMenuButtonPrefab: {fileID: 8973384611122027027, guid: 953e3b88dfc957a49959db5a2ac2ad14,
     type: 3}
   generalMenuTogglePrefab: {fileID: 8973384611122027027, guid: 436748063e3484f48aa30994f0f2df75,
@@ -3363,75 +3271,26 @@ MonoBehaviour:
   tooltipTextbox: {fileID: 4144334972213160863}
   focusMenuContainerRect: {fileID: 7983812430954364584}
   focusMenuResetRotationButton:
-    customButtonType: 0
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Reset Rotation
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   focusMenuBackButton:
-    customButtonType: 0
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Return Object
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   focusMenuResetRotationButtonNoRotationButton:
-    customButtonType: 0
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
     tooltipText: Reset Rotation
     isIndexed: 0
-    customGeneralMenuToggleObj: {fileID: 0}
-    toggleActiveSprite: {fileID: 0}
-    toggleDeactiveSprite: {fileID: 0}
-    toggleIsActive: 0
-    onSetActiveFunctions: []
-    onSetDeactiveFunctions: []
-    customGeneralMenuButtonObj: {fileID: 0}
-    buttonSprite: {fileID: 0}
-    buttonOnClickFunctions: []
-    buttonOnEnterFunctions: []
-    buttonOnExitFunctions: []
-    customGeneralMenuDropdownObj: {fileID: 0}
-    dropdownSprite: {fileID: 0}
-    dropdownChildSprite: {fileID: 0}
-    dropdownFunctions: []
-    customGeneralMenuSliderObj: {fileID: 0}
-    sliderMinMaxValues: {x: 0, y: 0}
-    sliderFunctions: []
   uiContainerPrefab: {fileID: 8300457148842777120, guid: b9c2a3133732a0e4d823437daefc86a3,
     type: 3}
   uiContainerParent: {fileID: 8376622498126844698}
   uiContainerButtonPrefab: {fileID: 8357698758915580312, guid: e7a6dfaed5192504a8e976993bc2909d,
+    type: 3}
+  uiContainerHeadlinePrefab: {fileID: 8357698758915580312, guid: 6d28c68bab9485b4f9250123e55b3c05,
     type: 3}
 --- !u!1 &4677101257719404996
 GameObject:
@@ -5798,7 +5657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 238, y: 200.00006}
+  m_AnchoredPosition: {x: 238, y: 200.00003}
   m_SizeDelta: {x: 364, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1013535863599676983
