@@ -58,6 +58,7 @@ namespace Showroom.UI
             behavior.onMouseEnter.AddRange(buttonOnEnterFunctions);
             behavior.onMouseExit.AddRange(buttonOnExitFunctions);
 
+            LayoutRebuilder.ForceRebuildLayoutImmediate(this.GetComponent<RectTransform>());
 
             ButtonHighlight();
         
