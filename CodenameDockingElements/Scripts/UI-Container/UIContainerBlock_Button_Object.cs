@@ -67,6 +67,8 @@ namespace Showroom.UI
         public virtual void ButtonHighlight()
         {
 
+            backgroundRect.color = CodenameDockingElements.Instance.baseUISkin.customUIContainerButtonBackgroundColor;
+
             buttonColors = CodenameDockingElements.Instance.baseUISkin.customUIContainerButtonColors;
             buttonTextColors = CodenameDockingElements.Instance.baseUISkin.customUIContainerButtonTextColors;
             buttonAdditionalColors = CodenameDockingElements.Instance.baseUISkin.customUIContainerAdditionalColors;

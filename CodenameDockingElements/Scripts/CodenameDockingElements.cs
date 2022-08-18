@@ -230,7 +230,8 @@ namespace Showroom.UI
 
             ToggleSidebar(true);
 
-            ToggleGeneralMenu(true);
+            if(ShowroomManager.Instance.subLevelHasGeneralMenu)
+                ToggleGeneralMenu(true);
 
         }
 
@@ -630,6 +631,8 @@ namespace Showroom.UI
             generalMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.TRRadius = baseUISkin.generalMenuRoundness.top;
             generalMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.BRRadius = baseUISkin.generalMenuRoundness.bottom;
 
+            generalMenuContainerRect.GetComponent<HorizontalOrVerticalLayoutGroup>().padding = baseUISkin.generalMenuPadding;
+
             //generalMenuPlayButton.buttonSprite = baseUISkin.generalMenuPlayButtonIcon;
             //generalMenuReplayButton.buttonSprite = baseUISkin.generalMenuReplayButtonIcon;
             //generalMenuCameraDropdown.dropdownSprite = baseUISkin.generalMenuCameraDropdownIcon;
@@ -701,7 +704,7 @@ namespace Showroom.UI
             for (int i = 0; i < ShowroomManager.Instance.userInterfaceContainers.Count; i++)
             {
 
-                UserInterfaceContainer newContainer = Instantiate(ShowroomManager.Instance.userInterfaceContainers[i]);
+                UserInterfaceContainer newContainer = ShowroomManager.Instance.userInterfaceContainers[i];//Instantiate(ShowroomManager.Instance.userInterfaceContainers[i]);
 
                 uiContainers.Add(newContainer);
 

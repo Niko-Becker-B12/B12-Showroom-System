@@ -56,6 +56,8 @@ namespace Showroom.UI
 
             icon.sprite = (data as CustomGeneralMenuModule_Button).buttonSprite;
 
+            icon.color = CodenameDockingElements.Instance.baseUISkin.generalMenuButtonIconColors.normalColor;
+
             generalMenuButtonColors = CodenameDockingElements.Instance.baseUISkin.generalMenuButtonColors;
             generalMenuButtonIconColors = CodenameDockingElements.Instance.baseUISkin.generalMenuButtonIconColors;
 

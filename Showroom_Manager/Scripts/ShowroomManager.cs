@@ -323,7 +323,9 @@ namespace Showroom
         [FoldoutGroup("Timeline Stepper")] [ShowIf("hasTimelineStepper")] public List<ShowroomTimelineStep> timelineSteps = new List<ShowroomTimelineStep>();
 
 
-        [FoldoutGroup("Custom UI Containers")] public List<UserInterfaceContainer> userInterfaceContainers = new List<UserInterfaceContainer>();
+        [FoldoutGroup("Custom UI Containers")]
+        [OdinSerialize]
+        public List<UserInterfaceContainer> userInterfaceContainers = new List<UserInterfaceContainer>();
 
 
         [InfoBox("There are no Use Cases! Please add atleast one Use Case!", InfoMessageType.Error, "hasNoUseCases")]

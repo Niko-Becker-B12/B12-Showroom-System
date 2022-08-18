@@ -12,8 +12,8 @@ namespace Showroom.UI
 
     [System.Serializable]
     [Sirenix.OdinInspector.InlineEditor]
-    [CreateAssetMenu(fileName = "UI-Container", menuName = "Showroom/UI-Container")]
-    public class UserInterfaceContainer : SerializedScriptableObject
+    //[CreateAssetMenu(fileName = "UI-Container", menuName = "Showroom/UI-Container")]
+    public class UserInterfaceContainer
     {
 
         public string uiContainerShortName;

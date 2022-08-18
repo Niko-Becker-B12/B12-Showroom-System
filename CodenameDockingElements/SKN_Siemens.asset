@@ -214,6 +214,7 @@ MonoBehaviour:
     m_Right: 64
     m_Top: 32
     m_Bottom: 94
+  customUIContainerButtonBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
   customUIContainerButtonColors:
     m_NormalColor: {r: 0, g: 0, b: 0.15686275, a: 1}
     m_HighlightedColor: {r: 0, g: 0.12156863, b: 0.22352941, a: 1}

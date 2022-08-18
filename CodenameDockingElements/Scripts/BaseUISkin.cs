@@ -125,6 +125,9 @@ public class BaseUISkin : ScriptableObject
     [FoldoutGroup("Custom UI Containers")] public RectOffset uiContainerPadding;
 
     [FoldoutGroup("Custom UI Containers/Buttons")]
+    public Color customUIContainerButtonBackgroundColor;
+
+    [FoldoutGroup("Custom UI Containers/Buttons")]
     [BoxGroup("Custom UI Containers/Buttons/Button Colors")]
     public ColorBlock customUIContainerButtonColors = ColorBlock.defaultColorBlock;
 
