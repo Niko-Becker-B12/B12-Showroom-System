@@ -1344,25 +1344,164 @@ namespace Showroom.UI
 
             DOTween.Kill(generalMenuContainerRect);
 
-            if (generalMenuIsOpen)
+            if (ShowroomManager.Instance.useCaseIndex == -1)
             {
 
-                generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuClosedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
-                .OnStart(() =>
+                if (generalMenuIsOpen)
                 {
 
-
-
-                })
-                .OnComplete(() =>
-                {
-
-                    generalMenuIsOpen = false;
-
-                    if (reOpenAfter)
+                    generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuClosedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                    .OnStart(() =>
                     {
 
-                        UpdateGeneralMenuModules();
+
+
+                    })
+                    .OnComplete(() =>
+                    {
+
+                        generalMenuIsOpen = false;
+
+                        if (reOpenAfter)
+                        {
+
+                            UpdateGeneralMenuModules();
+
+                            if(ShowroomManager.Instance.subLevelHasGeneralMenu)
+                            {
+
+                                if (ShowroomManager.Instance.hasPlayButton
+                                || ShowroomManager.Instance.hasResetCameraButton
+                                || ShowroomManager.Instance.hasRestartButton
+                                || ShowroomManager.Instance.hasCameraPosButton
+                                || ShowroomManager.Instance.hasDragModeButton
+                                || ShowroomManager.Instance.hasTransparencyButton)
+                                {
+
+                                    generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                                    .OnStart(() =>
+                                    {
+
+
+
+                                    })
+                                    .OnComplete(() =>
+                                    {
+
+                                        generalMenuIsOpen = true;
+
+                                    });
+
+                                }
+
+                            }
+
+                                
+
+                        }
+
+                    });
+
+                }
+                else
+                {
+
+                    if (ShowroomManager.Instance.subLevelHasGeneralMenu)
+                    {
+
+                        if (ShowroomManager.Instance.hasPlayButton
+                        || ShowroomManager.Instance.hasResetCameraButton
+                        || ShowroomManager.Instance.hasRestartButton
+                        || ShowroomManager.Instance.hasCameraPosButton
+                        || ShowroomManager.Instance.hasDragModeButton
+                        || ShowroomManager.Instance.hasTransparencyButton)
+                        {
+
+                            generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                            .OnStart(() =>
+                            {
+
+
+
+                            })
+                            .OnComplete(() =>
+                            {
+
+                                generalMenuIsOpen = true;
+
+                            });
+
+                        }
+
+                    }
+
+                }
+
+            }
+            else
+            {
+
+                if (generalMenuIsOpen)
+                {
+
+                    generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuClosedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                    .OnStart(() =>
+                    {
+
+
+
+                    })
+                    .OnComplete(() =>
+                    {
+
+                        generalMenuIsOpen = false;
+
+                        if (reOpenAfter)
+                        {
+
+                            UpdateGeneralMenuModules();
+
+                            if (ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasPlayButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasResetCameraButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasRestartButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasCameraPosButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasDragModeButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasTransparencyButton)
+                            {
+
+                                generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                                .OnStart(() =>
+                                {
+
+
+
+                                })
+                                .OnComplete(() =>
+                                {
+
+                                    generalMenuIsOpen = true;
+
+                                });
+
+                            }
+
+                        }
+
+                    });
+
+                }
+                else
+                {
+
+                    UpdateGeneralMenuModules();
+
+                    if (ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasPlayButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasResetCameraButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasRestartButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasCameraPosButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasDragModeButton
+                                || ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasTransparencyButton)
+                    {
 
                         generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
                         .OnStart(() =>
@@ -1378,27 +1517,9 @@ namespace Showroom.UI
 
                         });
 
-                    }
+                    } 
 
-                });
-
-            }
-            else
-            {
-
-                generalMenuContainerRect.DOAnchorPos(baseUISkin.generalMenuOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
-                .OnStart(() =>
-                {
-
-                    UpdateGeneralMenuModules();
-
-                })
-                .OnComplete(() =>
-                {
-
-                    generalMenuIsOpen = true;
-
-                });
+                }
 
             }
 
