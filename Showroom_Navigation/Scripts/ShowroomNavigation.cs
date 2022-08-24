@@ -390,14 +390,16 @@ namespace Showroom
         void RotateCamera()
         {
 
-            if (EventSystem.current.IsPointerOverGameObject())
-                return;
+            //if (EventSystem.current.IsPointerOverGameObject())
+            //    return;
 
             if (inputLookRotationVector.x > 0.01f || inputLookRotationVector.y > 0.01f || inputLookRotationVector.x < -0.01f || inputLookRotationVector.y < -0.01f)
             {
 
                 //ShowroomManager.Instance.showroomUI.SwitchActiveCameraButton(-1);
                 ShowroomManager.Instance.isAtUseCaseHomePos = false;
+
+                Debug.Log("rotate");
 
             }
 
@@ -543,36 +545,36 @@ namespace Showroom
 
             if (context.started)
             {
-
-                if (EventSystem.current.IsPointerOverGameObject())
-                    return;
-
+            
+                //if (EventSystem.current.IsPointerOverGameObject())
+                //    return;
+            
                 if (ShowroomManager.Instance.showDebugMessages)
                     Debug.Log("DragControl Pressed Down Event - called once when button pressed");
-
+            
                 inputLookRotationVector = mouseDragInputRef.action.ReadValue<Vector2>();
-
+            
             }
             else if (context.performed)
             {
-
-                if (EventSystem.current.IsPointerOverGameObject())
-                    return;
-
+            
+                //if (EventSystem.current.IsPointerOverGameObject())
+                //    return;
+            
                 if (ShowroomManager.Instance.showDebugMessages)
                     Debug.Log("DragControl Hold Down - called continously till the button is released");
-
+            
                 inputLookRotationVector = mouseDragInputRef.action.ReadValue<Vector2>();
-
+            
             }
             else if (context.canceled)
             {
-
+            
                 if (ShowroomManager.Instance.showDebugMessages)
                     Debug.Log("DragControl released");
-
+            
                 inputLookRotationVector = mouseDragInputRef.action.ReadValue<Vector2>();
-
+            
             }
 
         }
@@ -634,52 +636,52 @@ namespace Showroom
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            tempZoomValue = zoomInputRef.action.ReadValue<float>();
-
-            if (tempZoomValue == 0f)
-                return;
-
-            Debug.Log("Started Zooming");
-
-            zoomFactor += tempZoomValue;// * 50f;
-
-            zoomFactor = Mathf.Clamp(zoomFactor, 0f, 1f);
-
-            //playerCamera.fieldOfView -= zoomFactor;
-            //playerCamera.fieldOfView = Mathf.Clamp(playerCamera.fieldOfView, 20f, 60f);
-
-            Ray ray = playerCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            RaycastHit hit;
-            Vector3 desiredPosition = transform.position;
-
-
-            if (zoomFactor < 1f && zoomFactor > 0f)
-            {
-
-                if (Physics.Raycast(ray, out hit, 100))
-                {
-
-                    desiredPosition = hit.point;
-                    Debug.DrawLine(ray.origin, hit.point, Color.green);
-
-                }
-                else
-                {
-
-                    desiredPosition = transform.position;
-
-                }
-
-            }
-            else if (zoomFactor == 0)
-                return;
-
-            float distance = Vector3.Distance(desiredPosition, transform.position);
-            Vector3 direction = Vector3.Normalize(desiredPosition - transform.position) * (distance * tempZoomValue);
-
-            playerController.Move(direction);
-
-            Debug.Log("Finished Zooming");
+            //tempZoomValue = zoomInputRef.action.ReadValue<float>();
+            //
+            //if (tempZoomValue == 0f)
+            //    return;
+            //
+            //Debug.Log("Started Zooming");
+            //
+            //zoomFactor += tempZoomValue;// * 50f;
+            //
+            //zoomFactor = Mathf.Clamp(zoomFactor, 0f, 1f);
+            //
+            ////playerCamera.fieldOfView -= zoomFactor;
+            ////playerCamera.fieldOfView = Mathf.Clamp(playerCamera.fieldOfView, 20f, 60f);
+            //
+            //Ray ray = playerCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            //RaycastHit hit;
+            //Vector3 desiredPosition = transform.position;
+            //
+            //
+            //if (zoomFactor < 1f && zoomFactor > 0f)
+            //{
+            //
+            //    if (Physics.Raycast(ray, out hit, 100))
+            //    {
+            //
+            //        desiredPosition = hit.point;
+            //        Debug.DrawLine(ray.origin, hit.point, Color.green);
+            //
+            //    }
+            //    else
+            //    {
+            //
+            //        desiredPosition = transform.position;
+            //
+            //    }
+            //
+            //}
+            //else if (zoomFactor == 0)
+            //    return;
+            //
+            //float distance = Vector3.Distance(desiredPosition, transform.position);
+            //Vector3 direction = Vector3.Normalize(desiredPosition - transform.position) * (distance * tempZoomValue);
+            //
+            //playerController.Move(direction);
+            //
+            //Debug.Log("Finished Zooming");
 
         }
 

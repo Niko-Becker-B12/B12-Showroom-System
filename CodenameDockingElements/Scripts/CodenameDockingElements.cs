@@ -209,7 +209,7 @@ namespace Showroom.UI
 
             ApplyBaseSkin();
 
-            //CreateGeneralMenuBaseModules();
+            CreateGeneralMenuBaseModules();
 
             UpdateSidebarHeader();
 
