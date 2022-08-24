@@ -26,7 +26,7 @@ MonoBehaviour:
     m_Bottom: 0
   useSidebarSettings: 1
   sidebarClosedPos: {x: -445, y: 0}
-  sidebarOpenedPos: {x: 40, y: 0}
+  sidebarOpenedPos: {x: 2.5, y: 0}
   sidebarBackground: {fileID: 0}
   sidebarBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
   sidebarRoundness:
