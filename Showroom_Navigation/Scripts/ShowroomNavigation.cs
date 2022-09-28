@@ -8,6 +8,9 @@ using System;
 using UnityEngine.Events;
 using DG.Tweening;
 using Showroom.UI;
+using UnityEngine.InputSystem.EnhancedTouch;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
 namespace Showroom
 {
@@ -110,7 +113,8 @@ namespace Showroom
             float yRot = this.transform.localRotation.eulerAngles.y;
             float xRot = playerCamera.transform.localRotation.eulerAngles.x;
 
-            TurnCameraTowards(new Vector2(xRot, yRot));
+            
+            //TurnCameraTowards(new Vector2(xRot, yRot));
 
 
             teleportPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -122,6 +126,8 @@ namespace Showroom
             GetInput();
 
             GenerateDefaultEvents();
+
+            EnhancedTouchSupport.Enable();
 
         }
 
@@ -412,24 +418,63 @@ namespace Showroom
 
             if (temp < -2f)
             {
-                lookRotation.y += inputLookRotationVector.x * ((sensitivity / Mathf.Abs(temp)));
-                lookRotation.x += -inputLookRotationVector.y * ((sensitivity / Mathf.Abs(temp)));
-                lookRotation.x = Mathf.Clamp(lookRotation.x, -yAxisClamp.x, yAxisClamp.y);
-                transform.eulerAngles = new Vector2(0, lookRotation.y);
-                playerCamera.transform.localRotation = Quaternion.Euler(lookRotation.x, 0, 0);
+                //lookRotation.y += inputLookRotationVector.x * ((sensitivity / Mathf.Abs(temp)));
+                //lookRotation.x += -inputLookRotationVector.y * ((sensitivity / Mathf.Abs(temp)));
+                //lookRotation.x = Mathf.Clamp(lookRotation.x, -yAxisClamp.x, yAxisClamp.y);
+                //transform.eulerAngles = new Vector2(0, lookRotation.y);
+                //playerCamera.transform.localRotation = Quaternion.Euler(lookRotation.x, 0, 0);
             }
             else
             {
-                lookRotation.y += inputLookRotationVector.x * ((sensitivity));
-                lookRotation.x += -inputLookRotationVector.y * ((sensitivity));
-                lookRotation.x = Mathf.Clamp(lookRotation.x, -yAxisClamp.x, yAxisClamp.y);
-                transform.eulerAngles = new Vector2(0, lookRotation.y);
-                playerCamera.transform.localRotation = Quaternion.Euler(lookRotation.x, 0, 0);
+                //lookRotation.y += inputLookRotationVector.x * ((sensitivity));
+                //lookRotation.x += -inputLookRotationVector.y * ((sensitivity));
+                //lookRotation.x = Mathf.Clamp(lookRotation.x, -yAxisClamp.x, yAxisClamp.y);
+                //transform.eulerAngles = new Vector2(0, lookRotation.y);
+                //playerCamera.transform.localRotation = Quaternion.Euler(lookRotation.x, 0, 0);
+                //Debug.Log("Delta " + Touch.activeTouches[0].delta.x);
+
+
+                //Touch
+
+                lookRotation.y += (this.transform.eulerAngles.x - Touch.activeTouches[0].delta.x) * ((sensitivity));
+                lookRotation.x += (-playerCamera.transform.eulerAngles.y - Touch.activeTouches[0].delta.y) * ((sensitivity));
+                //lookRotation.x = Mathf.Clamp(lookRotation.x, -yAxisClamp.x, yAxisClamp.y);
+
+                //Debug.Log(lookRotation.y +" "+ lookRotation.x);
+
+
+                if (Touch.activeTouches[0].delta.y > 0)
+                {
+                    Debug.Log("Up");
+                    playerCamera.transform.rotation = Quaternion.Euler(lookRotation.x, 0, 0);
+                    //playerCamera.transform.eulerAngles = new Vector2(lookRotation.x, 0);
+                }
+                else if (Touch.activeTouches[0].delta.y < 0)
+                {
+                    Debug.Log("Down");
+                    playerCamera.transform.rotation = Quaternion.Euler(lookRotation.x, 0, 0);
+                    //playerCamera.transform.eulerAngles = new Vector2(lookRotation.x, 0);
+                }
+                else if (Touch.activeTouches[0].delta.x > 0)
+                {
+                    Debug.Log("Right");
+                    transform.eulerAngles = new Vector2(0, lookRotation.y);
+                }
+                else if (Touch.activeTouches[0].delta.x < 0)
+                {
+                    Debug.Log("Left");
+                    transform.eulerAngles = new Vector2(0, lookRotation.y);
+                }
+
+
+
             }
 
         }
 
-        public void DragMovement()
+ 
+
+            public void DragMovement()
         {
 
             if (inputLookRotationVector.x > 0.01f || inputLookRotationVector.y > 0.01f || inputLookRotationVector.x < -0.01f || inputLookRotationVector.y < -0.01f)
@@ -545,22 +590,20 @@ namespace Showroom
 
             if (context.started)
             {
-            
                 //if (EventSystem.current.IsPointerOverGameObject())
                 //    return;
-            
+
                 if (ShowroomManager.Instance.showDebugMessages)
                     Debug.Log("DragControl Pressed Down Event - called once when button pressed");
             
-                inputLookRotationVector = mouseDragInputRef.action.ReadValue<Vector2>();
+                inputLookRotationVector = mouseDragInputRef.action.ReadValue<Vector2>() - inputLookRotationVector;
             
             }
             else if (context.performed)
             {
-            
                 //if (EventSystem.current.IsPointerOverGameObject())
                 //    return;
-            
+
                 if (ShowroomManager.Instance.showDebugMessages)
                     Debug.Log("DragControl Hold Down - called continously till the button is released");
             
@@ -569,7 +612,7 @@ namespace Showroom
             }
             else if (context.canceled)
             {
-            
+
                 if (ShowroomManager.Instance.showDebugMessages)
                     Debug.Log("DragControl released");
             
