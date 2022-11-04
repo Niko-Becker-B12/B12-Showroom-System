@@ -15,7 +15,7 @@ namespace Showroom.UI
     {
 
         [Sirenix.OdinInspector.ReadOnly]
-        public CustomGeneralMenuButtonType customGeneralMenuModuleType = CustomGeneralMenuButtonType.dropdown;
+        new public CustomGeneralMenuButtonType customGeneralMenuModuleType = CustomGeneralMenuButtonType.dropdown;
 
         //[BoxGroup("Dropdown"), ReadOnly]
         //public CustomGeneralMenuDropdownObject customGeneralMenuDropdownObj;
@@ -29,10 +29,22 @@ namespace Showroom.UI
         [BoxGroup("Dropdown")]
         public List<Function> dropdownFunctions = new List<Function>();
 
-        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer, int buttonIndex = -1, int useCaseIndex = -1)
+        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer, int buttonIndex = -1, int useCaseIndex = -1, Transform parent = null)
         {
 
-            base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex);
+            //base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex);
+
+            Debug.Log("Generating Button Module");
+
+            GameObject newButton;
+
+            newButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuDropdownPrefab, parent);
+
+
+            generalMenuModuleObject = newButton.GetComponent<GeneralMenuModuleObject_Dropdown>();
+            generalMenuModuleObject.data = this as CustomGeneralMenuModule_Dropdown;
+
+            generalMenuModuleObject.SetUp();
 
         }
 

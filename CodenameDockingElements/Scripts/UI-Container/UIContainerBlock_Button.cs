@@ -19,6 +19,8 @@ namespace Showroom.UI
 
         public string buttonText;
 
+        public string sspPosNumber;
+
         public List<Function> buttonOnClickFunctions = new List<Function>();
         public List<Function> buttonOnEnterFunctions = new List<Function>();
         public List<Function> buttonOnExitFunctions = new List<Function>();

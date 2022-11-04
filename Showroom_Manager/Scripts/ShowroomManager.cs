@@ -12,6 +12,10 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using Showroom.UI;
 using Sirenix.Serialization;
+#if UNITY_EDITOR
+using System.IO;
+using UnityEditor;
+#endif
 
 namespace Showroom
 {
@@ -214,7 +218,7 @@ namespace Showroom
         [FoldoutGroup("General Menu Contents")] 
         [ShowIf("subLevelHasGeneralMenu")] 
         [OdinSerialize] 
-        private List<CustomGeneralMenuModule> CustomGeneralMenuModules = new List<CustomGeneralMenuModule>();
+        public List<CustomGeneralMenuModule> CustomGeneralMenuModules = new List<CustomGeneralMenuModule>();
 
         //[FoldoutGroup("General Menu Contents/Camera Position Button")] [ShowIf("@this.subLevelHasGeneralMenu == true && hasCameraPosButton")] public List<AdditionalCameraPositionButtons> cameraButtons = new List<AdditionalCameraPositionButtons>();
 
@@ -323,6 +327,14 @@ namespace Showroom
         [FoldoutGroup("Timeline Stepper")] [ShowIf("hasTimelineStepper")] public List<ShowroomTimelineStep> timelineSteps = new List<ShowroomTimelineStep>();
 
 
+        [FoldoutGroup("Custom Extensions")]
+        [ReadOnly]
+        public List<ShowroomManagerExtension> showroomManagerExtensions = new List<ShowroomManagerExtension>();
+
+        [FoldoutGroup("Custom Extensions")]
+        public ShowroomProductGroupManager productGroupManager;
+
+
         [FoldoutGroup("Custom UI Containers")]
         [OdinSerialize]
         public List<UserInterfaceContainer> userInterfaceContainers = new List<UserInterfaceContainer>();
@@ -379,6 +391,83 @@ namespace Showroom
 
         }
 
+        [FoldoutGroup("Fairtouch")]
+        [Button]
+        void ExportDataForFairtouch()
+        {
+
+            if (subLevelID == "" || string.IsNullOrEmpty(subLevelID))
+                return;
+
+            string filePath = Application.dataPath + $"/External/B12/Sublevel/{subLevelID}.csv";
+
+            TextWriter writer = new StreamWriter(filePath, false);
+
+            writer.WriteLine($"Sub-Level ID:; {subLevelID}");
+
+            writer.Close();
+            writer = new StreamWriter(filePath, true);
+
+            writer.WriteLine($"Sub-Level Title:; {subLevelName}", true);
+            writer.WriteLine($"Sub-Level Sub-Title:; {subLevelSubTitle}", true);
+
+            writer.WriteLine("UseCases:", true);
+
+
+            if(showroomManagerExtensions.Count > 0)
+            {
+
+                Debug.Log($"Writing... Showroom Manager Extensions ... to Sub-Level CSV file");
+
+                for (int i = 0; i < showroomManagerExtensions.Count; i++)
+                {
+
+                    Debug.Log($"Writing... {showroomManagerExtensions[i]} ... to Sub-Level CSV file");
+
+
+                    List<string> extensionData = showroomManagerExtensions[i].GetAllTextData();
+
+                    for(int j = 0; j < extensionData.Count; j++)
+                    {
+
+                        writer.WriteLine($"{extensionData[j]}", true);
+
+                    }
+
+                }
+
+            }
+
+            for (int i = 0; i < useCases.Count; i++)
+            {
+
+                Debug.Log($"Writing... {useCases[i].useCaseSidebarHeaderButton.sidebarHeadButtonText} ... to Sub-Level CSV file");
+
+                writer.WriteLine($"Use-Case-{i:00};{useCases[i].useCaseSidebarHeaderButton.sidebarHeadButtonText}", true);
+
+                for(int j = 0; j < useCases[i].useCaseSidebarHeaderButton.sidebarHeadButtonSubButtons.Count; j++)
+                {
+
+                    Debug.Log($"Writing... {useCases[i].useCaseSidebarHeaderButton.sidebarHeadButtonSubButtons[j].sidebarButtonText} ... to Sub-Level CSV file");
+
+                    writer.WriteLine($"    Use-Case-{i:00}-Sub-Button-{j:00};{useCases[i].useCaseSidebarHeaderButton.sidebarHeadButtonSubButtons[j].sidebarButtonText}", true);
+
+                }
+
+                writer.WriteLine("", true);
+
+            }
+
+            writer.Close();
+
+            Debug.Log($"CSV file written to \"{filePath}\"");
+
+#if UNITY_EDITOR
+            AssetDatabase.Refresh();
+#endif
+
+        }
+
 
         [ReadOnly]
         public bool isTransparent;
@@ -396,8 +485,16 @@ namespace Showroom
 
         private void Start()
         {
-            
-            if(!isOnlyLevelInBuild && ShowroomLoadingScreen.Instance == null)
+
+            for (int i = 0; i < showroomManagerExtensions.Count; i++)
+            {
+
+                List<string> extensionGroupData = showroomManagerExtensions[i].GetGroupData();
+                List<string> extensionProductData = showroomManagerExtensions[i].GetSubGroupData();
+
+            }
+
+            if (!isOnlyLevelInBuild && ShowroomLoadingScreen.Instance == null)
             {
 
                 StartLevel();
@@ -679,24 +776,27 @@ namespace Showroom
 
                 useCaseIndex = -1;
 
+                if (index != -1 && useCaseIndex != -1)
+                    CodenameDockingElements.Instance.SelectSidebarButton();
+
                 MoveToFixedPos(-2);
                 SetPlayerProperties();
 
-                CodenameDockingElements.Instance.SelectSidebarButton();
-
-                if(!wasHomeAlready)
+                if (!wasHomeAlready)
                     CodenameDockingElements.Instance.ToggleGeneralMenu(true);
 
                 return;
             }
             else if (index == -1)
             {
+                if (index != -1 && useCaseIndex != -1)
+                    CodenameDockingElements.Instance.SelectSidebarButton();
+
                 useCaseIndex = index;
 
                 MoveToFixedPos(-1);
                 SetPlayerProperties();
 
-                CodenameDockingElements.Instance.SelectSidebarButton();
 
                 CodenameDockingElements.Instance.ToggleGeneralMenu(true);
 
@@ -932,6 +1032,13 @@ namespace Showroom
             showroomUI.ToggleSidebar(false);
             showroomUI.ToggleGeneralMenu(false);
 
+            if(productGroupManager != null)
+            {
+
+                productGroupManager.lastSelectedGroup = productGroupManager.currentSelectedGroup;
+                productGroupManager.lastSelectedProduct = productGroupManager.currentSelectedProduct;
+
+            }
 
             if (useCaseIndex == -1)
             {
@@ -945,6 +1052,8 @@ namespace Showroom
 
                 });
 
+                currentlyFocusedObj.transform.DORotate(focusObjectPosition.rotation.eulerAngles, 1f);
+
             }
             else
             {
@@ -957,6 +1066,8 @@ namespace Showroom
                     currentlyFocusedObj.GetComponent<BoxCollider>().enabled = true;
 
                 });
+
+                currentlyFocusedObj.transform.DORotate(useCases[useCaseIndex].focusObjectPosition.rotation.eulerAngles, 1f);
 
             }
 
@@ -979,7 +1090,7 @@ namespace Showroom
 
                     currentlyFocusedObj = null;
                     Showroom.ShowroomNavigation.Instance.focusVolumeObj.SetActive(false);
-                    Showroom.ShowroomNavigation.Instance.playerCamera.GetComponent<UnityEngine.EventSystems.PhysicsRaycaster>().enabled = false;
+                    //Showroom.ShowroomNavigation.Instance.playerCamera.GetComponent<UnityEngine.EventSystems.PhysicsRaycaster>().enabled = false;
 
                     if (useCaseIndex == -1)
                     {
@@ -1007,7 +1118,10 @@ namespace Showroom
         public void ResetFocusedObjRotation()
         {
 
-            currentlyFocusedObj.transform.DOLocalRotate(Vector3.zero, .5f);
+            if(useCaseIndex == -1)
+                currentlyFocusedObj.transform.DORotate(focusObjectPosition.rotation.eulerAngles, .5f);
+            else
+                currentlyFocusedObj.transform.DORotate(useCases[useCaseIndex].focusObjectPosition.rotation.eulerAngles, .5f);
 
         }
 

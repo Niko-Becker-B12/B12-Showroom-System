@@ -85,7 +85,7 @@ namespace Showroom.UI
         };
         [BoxGroup("General Menu Settings")]
         [SerializeField]
-        public CustomGeneralMenuModule generalMenuCameraDropdown = new CustomGeneralMenuModule
+        public CustomGeneralMenuModule generalMenuCameraDropdown = new CustomGeneralMenuModule_Dropdown
         {
 
             tooltipText = "",
@@ -141,7 +141,13 @@ namespace Showroom.UI
         [BoxGroup("General Menu Settings/Tooltip")][SerializeField] public TextMeshProUGUI tooltipTextbox;
 
 
+        [BoxGroup("Home Menu Settings")][SerializeField] public RectTransform homeMenuContainerRect;
+        [BoxGroup("Home Menu Settings")][SerializeField] public RectTransform homeMenuButtonParent;
+        [BoxGroup("Home Menu Settings")][ReadOnly] public bool homeMenuIsOpen = false;
+
         [BoxGroup("Focus Menu Settings")][SerializeField] public RectTransform focusMenuContainerRect;
+        [BoxGroup("Focus Menu Settings")][SerializeField] public RectTransform focusMenuButtonParent;
+        [BoxGroup("Focus Menu Settings")][ReadOnly] public bool focusMenuIsOpen = false;
 
         [BoxGroup("Focus Menu Settings")]
         [SerializeField]
@@ -170,6 +176,11 @@ namespace Showroom.UI
             isIndexed = false
 
         };
+
+        [BoxGroup("Focus Menu Settings/Header")][SerializeField] public RectTransform focusMenuHeaderContainerRect;
+
+        [BoxGroup("Focus Menu Settings/Header")][SerializeField] public TextMeshProUGUI focusMenuHeaderTitle;
+        [BoxGroup("Focus Menu Settings/Header")][SerializeField] public TextMeshProUGUI focusMenuHeaderSubtitle;
 
 
         [BoxGroup("Custom UI Containers")] public GameObject uiContainerPrefab;
@@ -213,6 +224,8 @@ namespace Showroom.UI
 
             UpdateSidebarHeader();
 
+            GenerateShowroomExtensions();
+
             CreateSidebarButtons();
 
             GenerateCustomGeneralMenuModules();
@@ -254,7 +267,7 @@ namespace Showroom.UI
 
                     Debug.Log("Generating Play Button");
 
-                    generalMenuPlayButton.SetUpButton(generalMenuPlayButton, -1, -1);
+                    generalMenuPlayButton.SetUpButton(generalMenuPlayButton, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.hasRestartButton)
@@ -262,7 +275,7 @@ namespace Showroom.UI
 
                     generalMenuReplayButton = ShowroomManager.Instance.generalMenuReplayButton;
 
-                    generalMenuReplayButton.SetUpButton(generalMenuReplayButton, -1, -1);
+                    generalMenuReplayButton.SetUpButton(generalMenuReplayButton, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.hasTransparencyButton)
@@ -270,7 +283,7 @@ namespace Showroom.UI
 
                     generalMenuTransparencyToggle = ShowroomManager.Instance.generalMenuTransparencyToggle;
 
-                    generalMenuTransparencyToggle.SetUpButton(generalMenuTransparencyToggle, -1, -1);
+                    generalMenuTransparencyToggle.SetUpButton(generalMenuTransparencyToggle, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.hasCameraPosButton)
@@ -278,7 +291,7 @@ namespace Showroom.UI
 
                     generalMenuCameraDropdown = ShowroomManager.Instance.generalMenuCameraDropdown;
 
-                    generalMenuCameraDropdown.SetUpButton(generalMenuCameraDropdown, -1, -1);
+                    generalMenuCameraDropdown.SetUpButton(generalMenuCameraDropdown, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.hasDragModeButton)
@@ -286,7 +299,7 @@ namespace Showroom.UI
 
                     generalMenuDragModeToggle = ShowroomManager.Instance.generalMenuDragModeToggle;
 
-                    generalMenuDragModeToggle.SetUpButton(generalMenuDragModeToggle, -1, -1);
+                    generalMenuDragModeToggle.SetUpButton(generalMenuDragModeToggle, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.hasResetCameraButton)
@@ -384,8 +397,8 @@ namespace Showroom.UI
 
                     (generalMenuHomeButton as CustomGeneralMenuModule_Button).buttonOnClickFunctions.Add(homeButtonOnclickFunction);
 
-                    generalMenuBackButton.SetUpButton(generalMenuBackButton, -1, -1);
-                    generalMenuHomeButton.SetUpButton(generalMenuHomeButton, -1, -1);
+                    generalMenuBackButton.SetUpButton(generalMenuBackButton, -1, -1, homeMenuButtonParent);
+                    generalMenuHomeButton.SetUpButton(generalMenuHomeButton, -1, -1, homeMenuButtonParent);
 
                 }
 
@@ -413,7 +426,7 @@ namespace Showroom.UI
 
                     generalMenuPlayButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuPlayButton;
 
-                    generalMenuPlayButton.SetUpButton(generalMenuPlayButton, -1, -1);
+                    generalMenuPlayButton.SetUpButton(generalMenuPlayButton, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasRestartButton)
@@ -421,7 +434,7 @@ namespace Showroom.UI
 
                     generalMenuReplayButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuReplayButton;
 
-                    generalMenuReplayButton.SetUpButton(generalMenuReplayButton, -1, -1);
+                    generalMenuReplayButton.SetUpButton(generalMenuReplayButton, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasTransparencyButton)
@@ -429,7 +442,7 @@ namespace Showroom.UI
 
                     generalMenuTransparencyToggle = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuTransparencyToggle;
 
-                    generalMenuTransparencyToggle.SetUpButton(generalMenuTransparencyToggle, -1, -1);
+                    generalMenuTransparencyToggle.SetUpButton(generalMenuTransparencyToggle, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasCameraPosButton)
@@ -437,7 +450,7 @@ namespace Showroom.UI
 
                     generalMenuCameraDropdown = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuCameraDropdown;
 
-                    generalMenuCameraDropdown.SetUpButton(generalMenuCameraDropdown, -1, -1);
+                    generalMenuCameraDropdown.SetUpButton(generalMenuCameraDropdown, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasDragModeButton)
@@ -445,7 +458,7 @@ namespace Showroom.UI
 
                     generalMenuDragModeToggle = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].generalMenuDragModeToggle;
 
-                    generalMenuDragModeToggle.SetUpButton(generalMenuDragModeToggle, -1, -1);
+                    generalMenuDragModeToggle.SetUpButton(generalMenuDragModeToggle, -1, -1, generalMenuButtonParent);
 
                 }
                 if (ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].hasResetCameraButton)
@@ -544,8 +557,8 @@ namespace Showroom.UI
 
                     (generalMenuHomeButton as CustomGeneralMenuModule_Button).buttonOnClickFunctions.Add(homeButtonOnclickFunction);
 
-                    generalMenuBackButton.SetUpButton(generalMenuBackButton, -1, -1);
-                    generalMenuHomeButton.SetUpButton(generalMenuHomeButton, -1, -1);
+                    generalMenuBackButton.SetUpButton(generalMenuBackButton, -1, -1, homeMenuButtonParent);
+                    generalMenuHomeButton.SetUpButton(generalMenuHomeButton, -1, -1, homeMenuButtonParent);
 
                 }
 
@@ -569,7 +582,109 @@ namespace Showroom.UI
         void GenerateBaseFocusMenuModules()
         {
 
+            if(ShowroomManager.Instance.useCaseIndex == -1)
+            {
 
+                Debug.Log("Generating Focus Menu, No Use Case Selected");
+
+                focusMenuBackButton = ShowroomManager.Instance.focusMenuBackButton;
+                focusMenuBackButton.SetUpButton(focusMenuBackButton, -1, -1, focusMenuButtonParent);
+
+                UnityEvent focusMenuBackButtonOnclick = new UnityEvent();
+
+                focusMenuBackButtonOnclick.AddListener(() =>
+                {
+
+                    ShowroomManager.Instance.UnfocusObject();
+
+                    ToggleFocusMenu(false);
+
+                });
+
+                Function focusMenuBackButtonOnClickFunction = new Function
+                {
+                    functionName = focusMenuBackButtonOnclick,
+                    functionDelay = 0f
+                };
+
+                (focusMenuBackButton as CustomGeneralMenuModule_Button).buttonOnClickFunctions.Add(focusMenuBackButtonOnClickFunction);
+
+                UnityEvent focusMenuBackButtonOnclick2 = new UnityEvent();
+
+                focusMenuBackButtonOnclick2.AddListener(() =>
+                {
+
+                    ToggleSidebar(true);
+
+                });
+
+                Function focusMenuBackButtonOnClickFunction2 = new Function
+                {
+                    functionName = focusMenuBackButtonOnclick2,
+                    functionDelay = 2f
+                };
+
+                (focusMenuBackButton as CustomGeneralMenuModule_Button).buttonOnClickFunctions.Add(focusMenuBackButtonOnClickFunction2);
+
+                focusMenuResetRotationButton = ShowroomManager.Instance.focusMenuResetRotationButton;
+                focusMenuResetRotationButton.SetUpButton(focusMenuResetRotationButton, -1, -1, focusMenuButtonParent);
+
+                UnityEvent focusMenuResetRotButtonOnclick = new UnityEvent();
+
+                focusMenuResetRotButtonOnclick.AddListener(() =>
+                {
+
+                    ShowroomManager.Instance.ResetFocusedObjRotation();
+
+                    focusMenuResetRotationButton.generalMenuModuleObject.gameObject.SetActive(false);
+                    focusMenuResetRotationButtonNoRotationButton.generalMenuModuleObject.gameObject.SetActive(true);
+
+                });
+
+                Function focusMenuResetRotButtonOnclickFunction = new Function
+                {
+                    functionName = focusMenuResetRotButtonOnclick,
+                    functionDelay = 0f
+                };
+
+                (focusMenuResetRotationButton as CustomGeneralMenuModule_Button).buttonOnClickFunctions.Add(focusMenuResetRotButtonOnclickFunction);
+
+                focusMenuResetRotationButtonNoRotationButton = ShowroomManager.Instance.focusMenuRotationButton;
+                focusMenuResetRotationButtonNoRotationButton.SetUpButton(focusMenuResetRotationButtonNoRotationButton, -1, -1, focusMenuButtonParent);
+
+                focusMenuResetRotationButton.generalMenuModuleObject.gameObject.SetActive(false);
+
+            }
+            else
+            {
+
+                Debug.Log($"Generating Focus Menu, Use Case {ShowroomManager.Instance.useCaseIndex} Selected");
+
+                focusMenuBackButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].focusMenuBackButton;
+                focusMenuBackButton.SetUpButton(focusMenuBackButton, -1, -1, focusMenuButtonParent);
+
+                focusMenuResetRotationButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].focusMenuResetRotationButton;
+                focusMenuResetRotationButton.SetUpButton(focusMenuResetRotationButton, -1, -1, focusMenuButtonParent);
+
+                focusMenuResetRotationButtonNoRotationButton = ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].focusMenuRotationButton;
+                focusMenuResetRotationButtonNoRotationButton.SetUpButton(focusMenuResetRotationButtonNoRotationButton, -1, -1, focusMenuButtonParent);
+
+                focusMenuResetRotationButton.generalMenuModuleObject.gameObject.SetActive(false);
+
+            }
+
+        }
+
+        void GenerateShowroomExtensions()
+        {
+
+            for(int i = 0; i < ShowroomManager.Instance.showroomManagerExtensions.Count; i++)
+            {
+
+                List<string> extensionGroupData = ShowroomManager.Instance.showroomManagerExtensions[i].GetGroupData();
+                List<string> extensionProductData = ShowroomManager.Instance.showroomManagerExtensions[i].GetSubGroupData();
+
+            }
 
         }
 
@@ -606,11 +721,32 @@ namespace Showroom.UI
         void GenerateCustomGeneralMenuModules()
         {
 
-            for (int i = CustomGeneralMenuModules.Count; i > 0; i--)
+            if(ShowroomManager.Instance.useCaseIndex == -1)
             {
-                Debug.Log(i - 1);
 
-                CustomGeneralMenuModules[i - 1].SetUpButton(CustomGeneralMenuModules[i], i - 1);
+                CustomGeneralMenuModules.AddRange(ShowroomManager.Instance.CustomGeneralMenuModules);
+
+                for (int i = CustomGeneralMenuModules.Count; i > 0; i--)
+                {
+                    Debug.Log(i - 1);
+
+                    CustomGeneralMenuModules[i - 1].SetUpButton(CustomGeneralMenuModules[i], i - 1);
+
+                }
+
+            }
+            else
+            {
+
+                //CustomGeneralMenuModules.AddRange(ShowroomManager.Instance.useCases[ShowroomManager.Instance.useCaseIndex].CustomGeneralMenuModules);
+                //
+                //for (int i = CustomGeneralMenuModules.Count; i > 0; i--)
+                //{
+                //    Debug.Log(i - 1);
+                //
+                //    CustomGeneralMenuModules[i - 1].SetUpButton(CustomGeneralMenuModules[i], i - 1);
+                //
+                //}
 
             }
 
@@ -655,6 +791,26 @@ namespace Showroom.UI
 
             #endregion
 
+            #region Home Menu
+
+            homeMenuContainerRect.GetComponent<Rectangle>().Sprite = baseUISkin.homeMenuBackground;
+            homeMenuContainerRect.GetComponent<Rectangle>().color = baseUISkin.homeMenuBackgroundColor;
+
+            homeMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.Type = ThisOtherThing.UI.ShapeUtils.RoundedRects.RoundedProperties.RoundedType.Individual;
+
+            homeMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.BLRadius = baseUISkin.homeMenuRoundness.left;
+            homeMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.TLRadius = baseUISkin.homeMenuRoundness.right;
+            homeMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.TRRadius = baseUISkin.homeMenuRoundness.top;
+            homeMenuContainerRect.GetComponent<Rectangle>().RoundedProperties.BRRadius = baseUISkin.homeMenuRoundness.bottom;
+
+
+
+            //focusMenuBackButton.buttonSprite = baseUISkin.focusMenuBackButtonIcon;
+            //focusMenuResetRotationButton.buttonSprite = baseUISkin.focusMenuActualResetRotationButtonIcon;
+            //focusMenuResetRotationButtonNoRotationButton.buttonSprite = baseUISkin.focusMenuResetRotationButtonIcon;
+
+            #endregion
+
             #region Focus Menu
 
             focusMenuContainerRect.GetComponent<Rectangle>().Sprite = baseUISkin.focusMenuBackground;
@@ -670,6 +826,28 @@ namespace Showroom.UI
             //focusMenuBackButton.buttonSprite = baseUISkin.focusMenuBackButtonIcon;
             //focusMenuResetRotationButton.buttonSprite = baseUISkin.focusMenuActualResetRotationButtonIcon;
             //focusMenuResetRotationButtonNoRotationButton.buttonSprite = baseUISkin.focusMenuResetRotationButtonIcon;
+
+
+
+            #endregion
+
+            #region Focus Menu Header
+
+            focusMenuHeaderContainerRect.GetComponent<Rectangle>().Sprite = baseUISkin.focusMenuHeaderBackground;
+            focusMenuHeaderContainerRect.GetComponent<Rectangle>().color = baseUISkin.focusMenuHeaderBackgroundColor;
+
+            focusMenuHeaderContainerRect.GetComponent<Rectangle>().RoundedProperties.Type = ThisOtherThing.UI.ShapeUtils.RoundedRects.RoundedProperties.RoundedType.Individual;
+
+            focusMenuHeaderContainerRect.GetComponent<Rectangle>().RoundedProperties.BLRadius = baseUISkin.focusMenuHeaderRoundness.left;
+            focusMenuHeaderContainerRect.GetComponent<Rectangle>().RoundedProperties.TLRadius = baseUISkin.focusMenuHeaderRoundness.right;
+            focusMenuHeaderContainerRect.GetComponent<Rectangle>().RoundedProperties.TRRadius = baseUISkin.focusMenuHeaderRoundness.top;
+            focusMenuHeaderContainerRect.GetComponent<Rectangle>().RoundedProperties.BRRadius = baseUISkin.focusMenuHeaderRoundness.bottom;
+
+            //focusMenuBackButton.buttonSprite = baseUISkin.focusMenuBackButtonIcon;
+            //focusMenuResetRotationButton.buttonSprite = baseUISkin.focusMenuActualResetRotationButtonIcon;
+            //focusMenuResetRotationButtonNoRotationButton.buttonSprite = baseUISkin.focusMenuResetRotationButtonIcon;
+
+
 
             #endregion
 
@@ -1343,6 +1521,7 @@ namespace Showroom.UI
         {
 
             DOTween.Kill(generalMenuContainerRect);
+            DOTween.Kill(homeMenuContainerRect);
 
             if (ShowroomManager.Instance.useCaseIndex == -1)
             {
@@ -1354,7 +1533,7 @@ namespace Showroom.UI
                     .OnStart(() =>
                     {
 
-
+                        ToggleHomeMenu(false);
 
                     })
                     .OnComplete(() =>
@@ -1382,7 +1561,7 @@ namespace Showroom.UI
                                     .OnStart(() =>
                                     {
 
-
+                                        homeMenuContainerRect.DOAnchorPos(baseUISkin.homeMenuOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType);
 
                                     })
                                     .OnComplete(() =>
@@ -1421,7 +1600,7 @@ namespace Showroom.UI
                             .OnStart(() =>
                             {
 
-
+                                //ToggleHomeMenu(true);
 
                             })
                             .OnComplete(() =>
@@ -1448,7 +1627,7 @@ namespace Showroom.UI
                     .OnStart(() =>
                     {
 
-
+                        ToggleHomeMenu(false);
 
                     })
                     .OnComplete(() =>
@@ -1473,7 +1652,7 @@ namespace Showroom.UI
                                 .OnStart(() =>
                                 {
 
-
+                                    ToggleHomeMenu(true);
 
                                 })
                                 .OnComplete(() =>
@@ -1507,7 +1686,7 @@ namespace Showroom.UI
                         .OnStart(() =>
                         {
 
-
+                            ToggleHomeMenu(true);
 
                         })
                         .OnComplete(() =>
@@ -1520,6 +1699,123 @@ namespace Showroom.UI
                     } 
 
                 }
+
+            }
+
+        }
+
+        public void ToggleHomeMenu(bool isOpen)
+        {
+
+            if (ShowroomManager.Instance.showDebugMessages)
+                Debug.Log(string.Format("Home Menu is toggling to: {0}!", isOpen));
+
+            if (isOpen)
+            {
+
+                foreach (Transform child in homeMenuButtonParent)
+                {
+
+                    Destroy(child.gameObject);
+
+                }
+
+                homeMenuContainerRect.DOAnchorPos(baseUISkin.homeMenuOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                .OnStart(() =>
+                {
+
+
+
+                })
+                .OnComplete(() =>
+                {
+
+                    homeMenuIsOpen = true;
+
+                });
+
+            }
+            else
+            {
+
+                homeMenuContainerRect.DOAnchorPos(baseUISkin.homeMenuClosedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                .OnStart(() =>
+                {
+
+
+
+                })
+                .OnComplete(() =>
+                {
+
+                    homeMenuIsOpen = false;
+
+                });
+
+            }
+
+        }
+
+        public void ToggleFocusMenu(bool isOpen)
+        {
+
+            if(isOpen)
+            {
+
+                foreach (Transform child in focusMenuButtonParent)
+                {
+
+                    Destroy(child.gameObject);
+
+                }
+
+                GenerateBaseFocusMenuModules();
+
+                focusMenuContainerRect.DOAnchorPos(baseUISkin.focusMenuOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType).SetDelay(baseUISkin.animationSpeed)
+                .OnStart(() =>
+                {
+
+                    ToggleGeneralMenu(false);
+                    ToggleHomeMenu(false);
+
+                    if(baseUISkin.useFocusMenuHeaderSettings)
+                    {
+
+                        focusMenuHeaderTitle.text = ShowroomManager.Instance.currentlyFocusedObj.GetComponent<ShowroomProduct>().productName;
+                        focusMenuHeaderSubtitle.text = ShowroomManager.Instance.currentlyFocusedObj.GetComponent<ShowroomProduct>().productSubtitle;
+
+                        focusMenuHeaderContainerRect.DOAnchorPos(baseUISkin.focusMenuHeaderOpenedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType);
+
+                    }
+
+                })
+                .OnComplete(() =>
+                {
+
+                    focusMenuIsOpen = true;
+
+                });
+
+            }
+            else
+            {
+
+                focusMenuContainerRect.DOAnchorPos(baseUISkin.focusMenuClosedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType)
+                .OnStart(() =>
+                {
+
+                    focusMenuHeaderContainerRect.DOAnchorPos(baseUISkin.focusMenuHeaderClosedPos, baseUISkin.animationSpeed).SetEase(baseUISkin.animationEasingType);
+
+                })
+                .OnComplete(() =>
+                {
+
+                    focusMenuIsOpen = false;
+
+                    ToggleGeneralMenu(true);
+                    ToggleHomeMenu(true);
+
+                });
 
             }
 

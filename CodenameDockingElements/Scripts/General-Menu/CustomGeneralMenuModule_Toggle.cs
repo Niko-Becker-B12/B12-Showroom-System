@@ -15,7 +15,7 @@ namespace Showroom.UI
     {
 
         [Sirenix.OdinInspector.ReadOnly]
-        public CustomGeneralMenuButtonType customGeneralMenuModuleType = CustomGeneralMenuButtonType.toggle;
+        new public CustomGeneralMenuButtonType customGeneralMenuModuleType = CustomGeneralMenuButtonType.toggle;
 
         //[BoxGroup("Toggle"), ReadOnly]
         //public CustomGeneralMenuToggleObject customGeneralMenuToggleObj;
@@ -34,10 +34,10 @@ namespace Showroom.UI
         [BoxGroup("Toggle")]
         public List<Function> onSetDeactiveFunctions = new List<Function>();
 
-        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer, int buttonIndex = -1, int useCaseIndex = -1)
+        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer, int buttonIndex = -1, int useCaseIndex = -1, Transform parent = null)
         {
 
-            base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex);
+            base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex, parent);
 
         }
 

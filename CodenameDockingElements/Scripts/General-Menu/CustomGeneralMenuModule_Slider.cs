@@ -15,7 +15,7 @@ namespace Showroom.UI
     {
 
         [Sirenix.OdinInspector.ReadOnly]
-        public CustomGeneralMenuButtonType customGeneralMenuModuleType = CustomGeneralMenuButtonType.slider;
+        new public CustomGeneralMenuButtonType customGeneralMenuModuleType = CustomGeneralMenuButtonType.slider;
 
         //[BoxGroup("Slider"), ReadOnly]
         //public CustomGeneralMenuSliderObject customGeneralMenuSliderObj;
@@ -26,9 +26,9 @@ namespace Showroom.UI
         [BoxGroup("Slider")]
         public List<Function> sliderFunctions = new List<Function>();
 
-        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer, int buttonIndex = -1, int useCaseIndex = -1)
+        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer, int buttonIndex = -1, int useCaseIndex = -1, Transform parent = null)
         {
-            base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex);
+            base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex, parent);
         }
 
         public override void Update(CustomGeneralMenuModule customGeneralMenuDataContainer = null)

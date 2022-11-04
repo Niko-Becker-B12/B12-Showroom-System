@@ -23,7 +23,7 @@ namespace Showroom.UI
 
         public bool isIndexed = false;
 
-        public virtual void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer = null, int buttonIndex = -1, int useCaseIndex = -1)
+        public virtual void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer = null, int buttonIndex = -1, int useCaseIndex = -1, Transform parent = null)
         {
 
             if (customGeneralMenuDataContainer == null)
@@ -39,7 +39,9 @@ namespace Showroom.UI
 
             tooltipText = customGeneralMenuDataContainer.tooltipText;
 
-            GameObject newButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuButtonPrefab, CodenameDockingElements.Instance.generalMenuButtonParent);
+            GameObject newButton;
+
+            newButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuButtonPrefab, parent);
 
             generalMenuModuleObject = newButton.GetComponent<GeneralMenuModuleObject>();
             generalMenuModuleObject.data = customGeneralMenuDataContainer;

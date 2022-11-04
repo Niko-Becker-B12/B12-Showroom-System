@@ -73,8 +73,6 @@ public class BaseUISkin : ScriptableObject
     [FoldoutGroup("General Menu/Icons")] public Sprite generalMenuTransparencyToggleDeactiveIcon;
     [FoldoutGroup("General Menu/Icons")] public Sprite generalMenuDragModeToggleActiveIcon;
     [FoldoutGroup("General Menu/Icons")] public Sprite generalMenuDragModeToggleDeactiveIcon;
-    [FoldoutGroup("General Menu/Icons")] public Sprite generalMenuBackButtonIcon;
-    [FoldoutGroup("General Menu/Icons")] public Sprite generalMenuHomeButtonIcon;
     [FoldoutGroup("General Menu")] public bool generalMenuHasDivider;
 
 
@@ -85,6 +83,26 @@ public class BaseUISkin : ScriptableObject
     [FoldoutGroup("General Menu/General Menu Buttons")]
     [BoxGroup("General Menu/General Menu Buttons/General Menu Button Icon Colors")]
     public ColorBlock generalMenuButtonIconColors = ColorBlock.defaultColorBlock;
+
+
+    [FoldoutGroup("Home Menu")] public bool useHomeMenuSettings = true;
+    [FoldoutGroup("Home Menu")] public Vector2 homeMenuClosedPos = Vector2.zero;
+    [FoldoutGroup("Home Menu")] public Vector2 homeMenuOpenedPos = Vector2.zero;
+    [FoldoutGroup("Home Menu")] public Sprite homeMenuBackground;
+    [FoldoutGroup("Home Menu")] public Color homeMenuBackgroundColor;
+    [FoldoutGroup("Home Menu")] public RectOffset homeMenuRoundness;
+    [FoldoutGroup("Home Menu")] public RectOffset homeMenuPadding;
+
+    [FoldoutGroup("Home Menu/Icons")] public Sprite generalMenuBackButtonIcon;
+    [FoldoutGroup("Home Menu/Icons")] public Sprite generalMenuHomeButtonIcon;
+
+    [FoldoutGroup("Home Menu/Home Menu Buttons")]
+    [BoxGroup("Home Menu/Home Menu Buttons/Home Menu Button Colors")]
+    public ColorBlock homeMenuButtonColors = ColorBlock.defaultColorBlock;
+
+    [FoldoutGroup("Home Menu/Home Menu Buttons")]
+    [BoxGroup("Home Menu/Home Menu Buttons/Home Menu Button Icon Colors")]
+    public ColorBlock homeMenuButtonIconColors = ColorBlock.defaultColorBlock;
 
 
     [FoldoutGroup("Focus Menu")] public bool useFocusMenuSettings = true;
@@ -99,13 +117,14 @@ public class BaseUISkin : ScriptableObject
     [FoldoutGroup("Focus Menu/Icons")] public Sprite focusMenuActualResetRotationButtonIcon;
     [FoldoutGroup("Focus Menu/Icons")] public Sprite focusMenuBackButtonIcon;
 
-    [FoldoutGroup("Focus Menu/Focus Menu Buttons")]
-    [BoxGroup("Focus Menu/Focus Menu Buttons/Focus Menu Button Colors")]
-    public ColorBlock focusMenuButtonColors = ColorBlock.defaultColorBlock;
+    [FoldoutGroup("Focus Menu/Header")] public bool useFocusMenuHeaderSettings = true;
+    [FoldoutGroup("Focus Menu/Header")] public Vector2 focusMenuHeaderClosedPos = Vector2.zero;
+    [FoldoutGroup("Focus Menu/Header")] public Vector2 focusMenuHeaderOpenedPos = Vector2.zero;
+    [FoldoutGroup("Focus Menu/Header")] public Sprite focusMenuHeaderBackground;
+    [FoldoutGroup("Focus Menu/Header")] public Color focusMenuHeaderBackgroundColor;
+    [FoldoutGroup("Focus Menu/Header")] public RectOffset focusMenuHeaderRoundness;
+    [FoldoutGroup("Focus Menu/Header")] public RectOffset focusMenuHeaderPadding;
 
-    [FoldoutGroup("Focus Menu/Focus Menu Buttons")]
-    [BoxGroup("Focus Menu/Focus Menu Buttons/Focus Menu Button Icon Colors")]
-    public ColorBlock focusMenuButtonIconColors = ColorBlock.defaultColorBlock;
 
     [FoldoutGroup("Tooltip")] public Sprite tooltipBackground;
     [FoldoutGroup("Tooltip")] public Color tooltipBackgroundColor;

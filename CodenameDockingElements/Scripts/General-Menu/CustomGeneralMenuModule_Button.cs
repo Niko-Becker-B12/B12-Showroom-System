@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using ThisOtherThing.UI.Shapes;
+using UnityEngine.InputSystem;
 
 
 namespace Showroom.UI
@@ -30,14 +31,16 @@ namespace Showroom.UI
         [BoxGroup("Button")]
         public List<Function> buttonOnExitFunctions = new List<Function>();
 
-        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer = null, int buttonIndex = -1, int useCaseIndex = -1)
+        public override void SetUpButton(CustomGeneralMenuModule customGeneralMenuDataContainer = null, int buttonIndex = -1, int useCaseIndex = -1, Transform parent = null)
         {
 
             //base.SetUpButton(customGeneralMenuDataContainer, buttonIndex, useCaseIndex);
 
             Debug.Log("Generating Button Module");
 
-            GameObject newButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuButtonPrefab, CodenameDockingElements.Instance.generalMenuButtonParent);
+            GameObject newButton;
+
+            newButton = GameObject.Instantiate(CodenameDockingElements.Instance.generalMenuButtonPrefab, parent);
 
 
             generalMenuModuleObject = newButton.GetComponent<GeneralMenuModuleObject_Button>();
