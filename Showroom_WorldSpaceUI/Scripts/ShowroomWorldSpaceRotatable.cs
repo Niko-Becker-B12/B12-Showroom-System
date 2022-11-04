@@ -37,6 +37,8 @@ namespace Showroom.WorldSpace
 
         public bool onlyYAxis = false;
 
+        public bool changeResetRotationButton = true;
+
 
         void Start()
         {
@@ -46,7 +48,13 @@ namespace Showroom.WorldSpace
             onRotatedClickEvent.AddListener(() =>
             {
 
+                if(changeResetRotationButton)
+                {
 
+                    CodenameDockingElements.Instance.focusMenuResetRotationButton.generalMenuModuleObject.gameObject.SetActive(true);
+                    CodenameDockingElements.Instance.focusMenuResetRotationButtonNoRotationButton.generalMenuModuleObject.gameObject.SetActive(false);
+
+                }
 
             });
 
