@@ -73,10 +73,10 @@ namespace Showroom
         public void GetFairtouchData()
         {
 
-            uid = "ok2acav52ziachb26frthq77krumksdz3fedo";
+            //uid = "ok2acav52ziachb26frthq77krumksdz3fedo";
 
-            //if (Application.isPlaying && ShowroomManager.Instance.showDebugMessages)
-            //    Debug.Log("Downloading and assigning Fairtouch Data");
+            if (Application.isPlaying && ShowroomManager.Instance.showDebugMessages)
+                Debug.Log("Downloading and assigning Fairtouch Data");
 
 
             SSPContentVO startNodeVO = SSPContentExt.Instance.GetContentRootModel();
@@ -108,6 +108,8 @@ namespace Showroom
                 CreateSSPHandlerUseCaseData(i);
 
             }
+
+            //if()
 
         }
 
@@ -149,7 +151,7 @@ namespace Showroom
         public void SetFairtouchData()
         {
 
-            if (ShowroomManager.Instance.downloadFairtouchData)
+            if (ShowroomManager.Instance.downloadSSPData)
             {
 
                 ShowroomManager.Instance.subLevelName = subLevelName;
@@ -229,6 +231,8 @@ namespace Showroom
             }
 
             Debug.Log("Finished Setting Data");
+
+            ShowroomManager.Instance.StartLevel();
 
         }
 

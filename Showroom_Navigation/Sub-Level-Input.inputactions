@@ -49,7 +49,7 @@
                     "name": "MouseDrag",
                     "type": "Value",
                     "id": "e1fa2ae1-ec37-4268-8e12-6d64ea27fc8c",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": ""
                 },
@@ -357,9 +357,9 @@
                 {
                     "name": "GestureDrag",
                     "id": "a9e4da91-4eb7-4236-a1a1-287cc2414c07",
-                    "path": "MouseDrag",
+                    "path": "MouseDragVector3",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=0.01,y=0.01)",
                     "groups": "",
                     "action": "MouseDrag",
                     "isComposite": true,
@@ -377,7 +377,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Axis1",
+                    "name": "X",
                     "id": "3eb04083-5c26-4395-ae2a-277add7244d1",
                     "path": "<Touchscreen>/delta/y",
                     "interactions": "",
@@ -388,12 +388,23 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Axis2",
+                    "name": "Y",
                     "id": "5e7f587c-07ae-4073-a5ee-eb9ac084cf1a",
                     "path": "<Touchscreen>/delta/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touch",
+                    "action": "MouseDrag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Z",
+                    "id": "d6ab3e88-2193-428e-872c-f56e668913a8",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "MouseDrag",
                     "isComposite": false,
                     "isPartOfComposite": true

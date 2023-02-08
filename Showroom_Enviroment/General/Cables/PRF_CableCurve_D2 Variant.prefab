@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7267166057003766092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2600212530256511404, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[0].point.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[1].point.x
+      value: 0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[1].point.y
+      value: 0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[2].point.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[3].point.x
+      value: 0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[3].point.y
+      value: -0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[4].point.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[5].point.x
+      value: -0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[5].point.y
+      value: -0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[6].point.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[7].point.x
+      value: -0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[7].point.y
+      value: 0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[0].normal.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[1].normal.x
+      value: 0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[1].normal.y
+      value: 0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[2].normal.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[3].normal.x
+      value: 0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[3].normal.y
+      value: -0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[4].normal.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[5].normal.x
+      value: -0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[5].normal.y
+      value: -0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[6].normal.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[7].normal.x
+      value: -0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830796, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: shapeVertices.Array.data[7].normal.y
+      value: 0.00701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830797, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095894592247830802, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_Name
+      value: PRF_CableCurve_D2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460847993675136688, guid: d0ffed71ca2e7e1458bca6ee3eb34e77,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0ffed71ca2e7e1458bca6ee3eb34e77, type: 3}

@@ -57,12 +57,12 @@ namespace Showroom
                
 
             }
-            else if(!isOnlyLevelInBuild && ShowroomLoadingScreen.Instance == null && downloadFairtouchData)
-            {
-
-                ShowroomSSPDataHandler.Instance.StartDownloadingFairtouchData();
-
-            }
+            //else if(!isOnlyLevelInBuild && ShowroomLoadingScreen.Instance == null && downloadSSPData)
+            //{
+            //
+            //    ShowroomSSPDataHandler.Instance.StartDownloadingFairtouchData();
+            //
+            //}
 
         }
 
@@ -295,7 +295,8 @@ namespace Showroom
 
         };
 
-
+        [FoldoutGroup("Bullet Points")]
+        [InfoBox("Bullet Points will be deprecated in the near future. Please use a Custom UI Container (type Bullet-Point-List or similar). Read the Documentation for more infos!", InfoMessageType.Error)]
         [FoldoutGroup("Bullet Points")] [ReadOnly] public int activeBulletPointIndex = -1; //== -1 => No active BulletPoint
         [FoldoutGroup("Bullet Points")] public List<BulletPoint> bulletPoints = new List<BulletPoint>();
 
@@ -375,14 +376,14 @@ namespace Showroom
         }
 
 
-        [FoldoutGroup("Fairtouch"), InfoBox("You're using Fairtouch Data and prefering it over the entered Data inside the Showroom Manager. This might not achieve the desired result!",
-            InfoMessageType.Warning, "downloadFairtouchData")]
+        [FoldoutGroup("SSP"), InfoBox("You're using SSP Data and prefering it over the entered Data inside the Showroom Manager. This might not achieve the desired result!",
+            InfoMessageType.Warning, "downloadSSPData")]
 
-        [FoldoutGroup("Fairtouch")]
-        public bool downloadFairtouchData = false;
+        [FoldoutGroup("SSP")]
+        public bool downloadSSPData = false;
 
-        [FoldoutGroup("Fairtouch")]
-        void GetFairtouchData()
+        [FoldoutGroup("SSP")]
+        void GetSSPData()
         {
 
             ShowroomSSPDataHandler newHandler = new ShowroomSSPDataHandler();
@@ -391,9 +392,9 @@ namespace Showroom
 
         }
 
-        [FoldoutGroup("Fairtouch")]
+        [FoldoutGroup("SSP")]
         [Button]
-        void ExportDataForFairtouch()
+        void ExportDataForSSP()
         {
 
             if (subLevelID == "" || string.IsNullOrEmpty(subLevelID))
@@ -494,10 +495,16 @@ namespace Showroom
 
             }
 
-            if (!isOnlyLevelInBuild && ShowroomLoadingScreen.Instance == null)
+            if (!isOnlyLevelInBuild && ShowroomLoadingScreen.Instance == null && !downloadSSPData)
             {
 
                 StartLevel();
+
+            }
+            else if (!isOnlyLevelInBuild && ShowroomLoadingScreen.Instance == null && downloadSSPData)
+            {
+
+                ShowroomSSPDataHandler.Instance.StartDownloadingFairtouchData();
 
             }
 
@@ -517,6 +524,15 @@ namespace Showroom
 
         public void StartLevel()
         {
+
+            for(int i = 0; i < onLevelLoaded.Count; i++)
+            {
+
+                Invoke(onLevelLoaded[i].functionName, onLevelLoaded[i].functionDelay);
+
+            }
+
+
 
             if (hasStandardUseCase)
             {
