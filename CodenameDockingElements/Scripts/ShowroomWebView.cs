@@ -67,7 +67,7 @@ namespace Showroom.UI
             //    closeButtons[i].interactable = false;
             //}
 
-            LoadWebPage("https://d2vdrxov3sh01c.cloudfront.net/webplayer/index.html?device=HM22We_0&uid=hrswn5almozhpg2xcl26o7xc52tearreou6oy&lccc=de-DE&langswitch=false");
+            //LoadWebPage("https://d2vdrxov3sh01c.cloudfront.net/webplayer/index.html?device=HM22We_0&uid=hrswn5almozhpg2xcl26o7xc52tearreou6oy&lccc=de-DE&langswitch=false");
 
         }
 

@@ -8,6 +8,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
+using Random = UnityEngine.Random;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Showroom.UI
 {
@@ -188,6 +193,7 @@ namespace Showroom.UI
 
         [BoxGroup("Custom UI Containers")] public GameObject uiContainerButtonPrefab;
         [BoxGroup("Custom UI Containers")] public GameObject uiContainerHeadlinePrefab;
+        [BoxGroup("Custom UI Containers")] public GameObject uiContainerTextBoxPrefab;
 
 
         private void Start()
@@ -195,7 +201,7 @@ namespace Showroom.UI
 
             currentResolution = new Vector2(Screen.width, Screen.height);
 
-            if (!ShowroomManager.Instance.isOnlyLevelInBuild && !ShowroomManager.Instance.downloadFairtouchData)
+            if (!ShowroomManager.Instance.isOnlyLevelInBuild && !ShowroomManager.Instance.downloadSSPData)
             {
 
                 GetData();
@@ -1600,7 +1606,7 @@ namespace Showroom.UI
                             .OnStart(() =>
                             {
 
-                                //ToggleHomeMenu(true);
+                                ToggleHomeMenu(true);
 
                             })
                             .OnComplete(() =>
@@ -2089,6 +2095,209 @@ namespace Showroom.UI
             #endregion
         }
 
+        [Button]
+        private void OnDrawGizmosSelected()
+        {
+
+            List<UserInterfaceContainer> containers = new List<UserInterfaceContainer>();
+            ShowroomManager showroomManager = GameObject.Find("/--- Showroom Manager ---").GetComponent<ShowroomManager>();
+            containers.AddRange(showroomManager.userInterfaceContainers);
+
+
+            for (int i = 0; i < containers.Count; i++)
+            {
+
+                Random.seed = i;
+                Color randomColor = Random.ColorHSV();
+
+                Handles.color = randomColor;
+                GUI.color = Handles.color;
+
+                DrawContainerRect(containers[i], true, i);
+                DrawContainerRect(containers[i], false, i);
+
+            }
+
+        }
+
+        float UnitIntervalRange(float stageStartRange, float stageFinishRange, float newStartRange, float newFinishRange, float floatingValue)
+        {
+            float outRange = Math.Abs(newFinishRange - newStartRange);
+            float inRange = Math.Abs(stageFinishRange - stageStartRange);
+            float range = (outRange / inRange);
+            return (newStartRange + (range * (floatingValue - stageStartRange)));
+        }
+
+        void DrawContainerRect(UserInterfaceContainer container, bool isClosed, int index)
+        {
+
+            Rect RectInOwnSpace;
+            
+            RectInOwnSpace = (isClosed) ? new Rect(container.uiContainerClosedPosition, new Vector2(container.uiContainerSize.x, container.uiContainerSize.y * 1.25f)) 
+                : new Rect(container.uiContainerOpenedPosition, new Vector2(container.uiContainerSize.x, container.uiContainerSize.y * 1.25f));
+
+
+            Rect RectInParentSpace = RectInOwnSpace;
+
+            Transform parentSpace = uiContainerParent;
+            RectTransform guiParent = null;
+
+            Vector2 displacementPos = Vector2.zero;
+
+            if(isClosed)
+            {
+
+                switch (container.uiContainerDockingPosition)
+                {
+
+                    case DockingPositions.center:
+                        displacementPos = new Vector2(container.uiContainerClosedPosition.x - container.uiContainerSize.x / 2,
+                            container.uiContainerClosedPosition.y - container.uiContainerSize.y / 2);
+                        break;
+                    case DockingPositions.rightCenter:
+                        displacementPos = new Vector2(container.uiContainerClosedPosition.x - container.uiContainerSize.x,
+                            container.uiContainerClosedPosition.y - container.uiContainerSize.y / 2);
+                        break;
+                    case DockingPositions.bottomRight:
+                        displacementPos = new Vector2(container.uiContainerClosedPosition.x - container.uiContainerSize.x,
+                            container.uiContainerClosedPosition.y);
+                        break;
+                    case DockingPositions.bottomCenter:
+                        displacementPos = new Vector2(container.uiContainerClosedPosition.x - container.uiContainerSize.x / 2,
+                            container.uiContainerClosedPosition.y);
+                        break;
+                    case DockingPositions.bottomLeft:
+                        displacementPos = container.uiContainerClosedPosition;
+                        break;
+                    case DockingPositions.leftCenter:
+                        displacementPos = new Vector2(container.uiContainerClosedPosition.x,
+                            container.uiContainerClosedPosition.y - container.uiContainerSize.y / 2);
+                        break;
+                    case DockingPositions.topLeft:
+                        displacementPos = new Vector2(container.uiContainerClosedPosition.x,
+                            container.uiContainerClosedPosition.y - container.uiContainerSize.y);
+                        break;
+                    case DockingPositions.topCenter:
+                        displacementPos = new Vector2(container.uiContainerClosedPosition.x - container.uiContainerSize.x / 2,
+                            container.uiContainerClosedPosition.y - container.uiContainerSize.y);
+                        break;
+                    case DockingPositions.topRight:
+                        displacementPos = new Vector2(container.uiContainerClosedPosition.x - container.uiContainerSize.x,
+                            container.uiContainerClosedPosition.y - container.uiContainerSize.y);
+                        break;
+
+                }
+
+            }
+            else
+            {
+
+                switch (container.uiContainerDockingPosition)
+                {
+
+                    case DockingPositions.center:
+                        displacementPos = new Vector2(container.uiContainerOpenedPosition.x - container.uiContainerSize.x / 2,
+                            container.uiContainerOpenedPosition.y - container.uiContainerSize.y / 2);
+                        break;
+                    case DockingPositions.rightCenter:
+                        displacementPos = new Vector2(container.uiContainerOpenedPosition.x - container.uiContainerSize.x,
+                            container.uiContainerOpenedPosition.y - container.uiContainerSize.y / 2);
+                        break;
+                    case DockingPositions.bottomRight:
+                        displacementPos = new Vector2(container.uiContainerOpenedPosition.x - container.uiContainerSize.x,
+                            container.uiContainerOpenedPosition.y);
+                        break;
+                    case DockingPositions.bottomCenter:
+                        displacementPos = new Vector2(container.uiContainerOpenedPosition.x - container.uiContainerSize.x / 2,
+                            container.uiContainerOpenedPosition.y);
+                        break;
+                    case DockingPositions.bottomLeft:
+                        displacementPos = container.uiContainerOpenedPosition;
+                        break;
+                    case DockingPositions.leftCenter:
+                        displacementPos = new Vector2(container.uiContainerOpenedPosition.x,
+                            container.uiContainerOpenedPosition.y - container.uiContainerSize.y / 2);
+                        break;
+                    case DockingPositions.topLeft:
+                        displacementPos = new Vector2(container.uiContainerOpenedPosition.x,
+                            container.uiContainerOpenedPosition.y - container.uiContainerSize.y);
+                        break;
+                    case DockingPositions.topCenter:
+                        displacementPos = new Vector2(container.uiContainerOpenedPosition.x - container.uiContainerSize.x / 2,
+                            container.uiContainerOpenedPosition.y - container.uiContainerSize.y);
+                        break;
+                    case DockingPositions.topRight:
+                        displacementPos = new Vector2(container.uiContainerOpenedPosition.x - container.uiContainerSize.x,
+                            container.uiContainerOpenedPosition.y - container.uiContainerSize.y);
+                        break;
+
+                }
+
+            }
+
+            RectInParentSpace.position = displacementPos;
+
+            DrawRect(RectInParentSpace, parentSpace, !isClosed);
+
+            //Vector2 closed = rectInParentSpace.position;
+
+            Vector2 FinalPos = new Vector2(currentResolution.x / 2 + container.uiContainerSize.x / 2 + RectInParentSpace.position.x,
+                currentResolution.y / 2 + container.uiContainerSize.y / 2 + RectInParentSpace.position.y / 2);
+
+
+            //Vector2 FinalPos = new Vector2(UnitIntervalRange(0, 1920, -960, 960,currentResolution.x / 2 + container.uiContainerSize.x / 2 + displacementPos.x),
+            //    UnitIntervalRange(-960, 960, 0, 1920, currentResolution.y / 2 + container.uiContainerSize.y / 2 + displacementPos.y));
+
+
+            if (IsSceneViewCameraInRange(FinalPos, 10000f))
+            {
+
+                GUIStyle newStyle = new GUIStyle("Tooltip");
+
+                newStyle.alignment = TextAnchor.MiddleCenter;
+
+                if (!isClosed)
+                    Handles.Label(FinalPos, $"{container.uiContainerShortName} + Index: {index} Opened-Pos");
+                else
+                    Handles.Label(FinalPos, $"{container.uiContainerShortName} + Index: {index} Closed-Pos", newStyle);
+
+            }
+
+        }
+
+        void DrawRect(Rect rect, Transform space, bool dotted)
+        {
+            Vector3 p0 = space.TransformPoint(new Vector2(rect.x, rect.y));
+            Vector3 p1 = space.TransformPoint(new Vector2(rect.x, rect.yMax));
+            Vector3 p2 = space.TransformPoint(new Vector2(rect.xMax, rect.yMax));
+            Vector3 p3 = space.TransformPoint(new Vector2(rect.xMax, rect.y));
+            if (!dotted)
+            {
+                Handles.DrawLine(p0, p1);
+                Handles.DrawLine(p1, p2);
+                Handles.DrawLine(p2, p3);
+                Handles.DrawLine(p3, p0);
+            }
+            else
+            {
+                Handles.DrawDottedLine(p0, p1, 5f);
+                Handles.DrawDottedLine(p1, p2, 5f);
+                Handles.DrawDottedLine(p2, p3, 5f);
+                Handles.DrawDottedLine(p3, p0, 5f);
+            }
+        }
+
+        public static bool IsSceneViewCameraInRange(Vector3 position, float distance)
+        {
+            Vector3 cameraPos = Camera.current.WorldToScreenPoint(position);
+            return ((cameraPos.x >= 0) &&
+            (cameraPos.x <= Camera.current.pixelWidth) &&
+            (cameraPos.y >= 0) &&
+            (cameraPos.y <= Camera.current.pixelHeight) &&
+            (cameraPos.z > 0) &&
+            (cameraPos.z < distance));
+        }
+
     }
 
     public enum DockingPositions
@@ -2116,6 +2325,8 @@ namespace Showroom.UI
 
         [ReadOnly]
         public int sidebarHeadButtonUseCaseIndex = -1;      //Just as a fallback
+
+        public string sspPosNumber;
 
         [ReadOnly]
         public SidebarHeaderButtonObject sidebarHeadButtonObject;
@@ -2180,6 +2391,8 @@ namespace Showroom.UI
 
         [ReadOnly]
         public int sidebarButtonSiblingIndex = -1;
+
+        public string sspPosNumber;
 
         [ReadOnly]
         public SidebarButtonObject sidebarButtonObj;

@@ -129,15 +129,15 @@ MonoBehaviour:
   m_text: Tool Tip Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78e5966ffe46e5147a98be630bd1ae00, type: 2}
-  m_sharedMaterial: {fileID: -6927846038298232336, guid: 78e5966ffe46e5147a98be630bd1ae00,
+  m_sharedMaterial: {fileID: -2696968327907700078, guid: 78e5966ffe46e5147a98be630bd1ae00,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -327,7 +327,7 @@ MonoBehaviour:
   ShapeProperties:
     FillColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4280811520
     DrawFill: 1
     DrawFillShadow: 1
     DrawOutline: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
     Shadows: []
     Offset: {x: 0, y: -0}
   AntiAliasingProperties:
-    AntiAliasing: 1.25
+    AntiAliasing: 0
   Sprite: {fileID: 0}
 --- !u!114 &5606750524722996502
 MonoBehaviour:
