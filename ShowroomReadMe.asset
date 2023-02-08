@@ -22,13 +22,13 @@ MonoBehaviour:
   - heading: Documentation
     text: Learn about all the systems making up the Showroom-System.
     linkText: Documentation
-    url: https://github.com/Niko-Becker-B12/B12-Showroom-System-Documentation/wiki/Documentation
+    url: https://studiob12.atlassian.net/wiki/spaces/SHOW/pages/1022951450/Documentation
   - heading: Tutorials
     text: Learn how to use the Showroom-System.
     linkText: Tutorials
-    url: https://github.com/Niko-Becker-B12/B12-Showroom-System-Documentation/wiki/Tutorials
+    url: https://studiob12.atlassian.net/wiki/spaces/SHOW/pages/1023279105/Tutorials
   - heading: Report bugs
     text: 
     linkText: Submit a report
     url: https://github.com/Niko-Becker-B12/B12-Showroom-System-Documentation/issues
-  loadedLayout: 1
+  loadedLayout: 0
