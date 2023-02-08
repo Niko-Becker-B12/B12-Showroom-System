@@ -1,8 +1,9 @@
 {
     "name": "Vuplex",
-    "rootNamespace": "",
+    "rootNamespace": "Vuplex",
     "references": [
-        "Unity.InputSystem"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:efd93379a4de59143acfffe0e7e179c0"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
