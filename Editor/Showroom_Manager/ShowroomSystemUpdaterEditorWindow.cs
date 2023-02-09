@@ -134,9 +134,7 @@ namespace Showroom
         static void LoadCurrentVersionFile()
         {
 
-            TextAsset t = (TextAsset)AssetDatabase.LoadAssetAtPath("Assets/External/B12/Showroom/package.json", typeof(TextAsset));
-
-            string path = Application.dataPath + "/External/B12/Showroom/package.json";//AssetDatabase.GetAssetPath(t);
+            TextAsset t = (TextAsset)AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/package.json", typeof(TextAsset));
 
             packageInfo = JsonUtility.FromJson<ShowroomSystemPackageInfo>(t.text);
 
@@ -179,9 +177,9 @@ namespace Showroom
             if (packageInfo == null)
                 return;
 
-            TextAsset t = (TextAsset)AssetDatabase.LoadAssetAtPath("Assets/External/B12/Showroom/package.json", typeof(TextAsset));
+            TextAsset t = (TextAsset)AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/package.json", typeof(TextAsset));
 
-            string path = Application.dataPath + "/External/B12/Showroom/package.json";//AssetDatabase.GetAssetPath(t);
+            string path = AssetDatabase.GetAssetPath(t);
 
             //string jsonString = JsonUtility.ToJson(new ShowroomSystemPackageInfo
             //{
@@ -244,11 +242,13 @@ namespace Showroom
         public string version;
         public string displayName;
         public string description;
+        public string type;
         public string unity;
+        public bool hideInEditor = false;
         public string documentationUrl;
         public string changelogUrl;
         public string licensesUrl;
-        public string[] dependencies;
+        Dictionary<string, string> dependencies = new Dictionary<string, string>();
         public string[] keywords = new string[]
         {
 

@@ -1,5 +1,5 @@
 {
-    "name": "B12.ShowroomSystem",
+    "name": "b12.showroomsystem",
     "rootNamespace": "Showroom",
     "references": [
         "Unity.TextMeshPro",

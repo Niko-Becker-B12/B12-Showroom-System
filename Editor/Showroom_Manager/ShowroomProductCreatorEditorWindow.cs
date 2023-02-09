@@ -24,7 +24,7 @@ namespace Showroom
         public List<GameObject> highlightableObjects = new List<GameObject>();
 
 
-        Showroom.ShowroomProduct showroomProduct;
+        ShowroomProduct showroomProduct;
 
 
         [MenuItem("Window/Showroom/Product Creator")]
