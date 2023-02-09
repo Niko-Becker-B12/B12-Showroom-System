@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2983039133289699940}
-  - component: {fileID: 1622317335564429468}
+  - component: {fileID: 2220039730330829475}
   m_Layer: 0
   m_Name: --- Showroom Manager ---
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1622317335564429468
+--- !u!114 &2220039730330829475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,11 +43,671 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c05f0c7c308b548b604646a2204c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subLevelUI: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: generalMenuPlayButton
+      Entry: 7
+      Data: 0|Showroom.UI.CustomGeneralMenuModule_Button, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Play Animation
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Button+customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: buttonSprite
+      Entry: 6
+      Data: 
+    - Name: buttonOnClickFunctions
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnEnterFunctions
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnExitFunctions
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: generalMenuReplayButton
+      Entry: 7
+      Data: 4|Showroom.UI.CustomGeneralMenuModule_Button, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Restart Animation
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Button+customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: buttonSprite
+      Entry: 6
+      Data: 
+    - Name: buttonOnClickFunctions
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnEnterFunctions
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnExitFunctions
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: generalMenuPauseButton
+      Entry: 7
+      Data: 8|Showroom.UI.CustomGeneralMenuModule, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 6
+      Data: 
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: generalMenuTransparencyToggle
+      Entry: 7
+      Data: 9|Showroom.UI.CustomGeneralMenuModule_Toggle, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Toggle Transparency Mode
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Toggle+customGeneralMenuModuleType
+      Entry: 3
+      Data: 1
+    - Name: toggleActiveSprite
+      Entry: 6
+      Data: 
+    - Name: toggleDeactiveSprite
+      Entry: 6
+      Data: 
+    - Name: toggleIsActive
+      Entry: 5
+      Data: false
+    - Name: onSetActiveFunctions
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: onSetDeactiveFunctions
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: generalMenuCameraDropdown
+      Entry: 7
+      Data: 12|Showroom.UI.CustomGeneralMenuModule_Dropdown, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: 
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Dropdown+customGeneralMenuModuleType
+      Entry: 3
+      Data: 3
+    - Name: dropdownSprite
+      Entry: 6
+      Data: 
+    - Name: dropdownChildSprite
+      Entry: 6
+      Data: 
+    - Name: dropdownFunctions
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: generalMenuDragModeToggle
+      Entry: 7
+      Data: 14|Showroom.UI.CustomGeneralMenuModule_Toggle, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Toggle Drag Mode
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Toggle+customGeneralMenuModuleType
+      Entry: 3
+      Data: 1
+    - Name: toggleActiveSprite
+      Entry: 6
+      Data: 
+    - Name: toggleDeactiveSprite
+      Entry: 6
+      Data: 
+    - Name: toggleIsActive
+      Entry: 5
+      Data: false
+    - Name: onSetActiveFunctions
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: onSetDeactiveFunctions
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: generalMenuBackButton
+      Entry: 7
+      Data: 17|Showroom.UI.CustomGeneralMenuModule_Button, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Back
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Button+customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: buttonSprite
+      Entry: 6
+      Data: 
+    - Name: buttonOnClickFunctions
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnEnterFunctions
+      Entry: 7
+      Data: 19|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnExitFunctions
+      Entry: 7
+      Data: 20|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: generalMenuHomeButton
+      Entry: 7
+      Data: 21|Showroom.UI.CustomGeneralMenuModule_Button, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Return to Home-Position
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Button+customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: buttonSprite
+      Entry: 6
+      Data: 
+    - Name: buttonOnClickFunctions
+      Entry: 7
+      Data: 22|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnEnterFunctions
+      Entry: 7
+      Data: 23|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnExitFunctions
+      Entry: 7
+      Data: 24|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: CustomGeneralMenuModules
+      Entry: 7
+      Data: 25|System.Collections.Generic.List`1[[Showroom.UI.CustomGeneralMenuModule,
+        B12.ShowroomSystem]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: focusMenuBackButton
+      Entry: 7
+      Data: 26|Showroom.UI.CustomGeneralMenuModule_Button, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Reset Rotation
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Button+customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: buttonSprite
+      Entry: 6
+      Data: 
+    - Name: buttonOnClickFunctions
+      Entry: 7
+      Data: 27|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnEnterFunctions
+      Entry: 7
+      Data: 28|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnExitFunctions
+      Entry: 7
+      Data: 29|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: focusMenuResetRotationButton
+      Entry: 7
+      Data: 30|Showroom.UI.CustomGeneralMenuModule_Button, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Return Object
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Button+customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: buttonSprite
+      Entry: 6
+      Data: 
+    - Name: buttonOnClickFunctions
+      Entry: 7
+      Data: 31|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnEnterFunctions
+      Entry: 7
+      Data: 32|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnExitFunctions
+      Entry: 7
+      Data: 33|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: focusMenuRotationButton
+      Entry: 7
+      Data: 34|Showroom.UI.CustomGeneralMenuModule_Button, B12.ShowroomSystem
+    - Name: customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: generalMenuModuleObject
+      Entry: 6
+      Data: 
+    - Name: tooltipText
+      Entry: 1
+      Data: Reset Rotation
+    - Name: isIndexed
+      Entry: 5
+      Data: false
+    - Name: CustomGeneralMenuModule_Button+customGeneralMenuModuleType
+      Entry: 3
+      Data: 0
+    - Name: buttonSprite
+      Entry: 6
+      Data: 
+    - Name: buttonOnClickFunctions
+      Entry: 7
+      Data: 35|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnEnterFunctions
+      Entry: 7
+      Data: 36|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: buttonOnExitFunctions
+      Entry: 7
+      Data: 37|System.Collections.Generic.List`1[[Function, B12.ShowroomSystem]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userInterfaceContainers
+      Entry: 7
+      Data: 38|System.Collections.Generic.List`1[[Showroom.UI.UserInterfaceContainer,
+        B12.ShowroomSystem]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: useCases
+      Entry: 7
+      Data: 39|System.Collections.Generic.List`1[[Showroom.ShowroomManager+UseCase,
+        B12.ShowroomSystem]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  showroomUI: {fileID: 0}
   subLevelName: 
   subLevelSubTitle: 
   subLevelID: 
-  SubLevelMainCamera: {fileID: 0}
+  subLevelMainCamera: {fileID: 0}
+  subLevelCameras: []
   onLevelLoaded: []
   isOnlyLevelInBuild: 0
   showDebugMessages: 0
@@ -65,19 +725,65 @@ MonoBehaviour:
   hasResetCameraButton: 0
   hasCameraPosButton: 0
   hasDragModeButton: 0
-  playButtonFunctions: []
-  resetButtonFunctions: []
-  pauseButtonFunctions: []
-  transparencyButtonFunctions: []
-  resetCameraButtonFunctions: []
-  dragModeButtonFunctions: []
-  resetSubLevelCameraButtonFunctions: []
-  cameraButtons: []
+  generalMenuPlayButton:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Play Animation
+    isIndexed: 0
+  generalMenuReplayButton:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Restart Animation
+    isIndexed: 0
+  generalMenuPauseButton:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: 
+    isIndexed: 0
+  generalMenuTransparencyToggle:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Toggle Transparency Mode
+    isIndexed: 0
+  generalMenuCameraDropdown:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: 
+    isIndexed: 0
+  generalMenuDragModeToggle:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Toggle Drag Mode
+    isIndexed: 0
+  generalMenuBackButton:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Back
+    isIndexed: 0
+  generalMenuHomeButton:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Return to Home-Position
+    isIndexed: 0
+  CustomGeneralMenuModules: []
   cameraPosIndex: -1
-  hasRightSideMenu: 0
+  hasFocusMenu: 0
   focusObjectPosition: {fileID: 0}
-  backButtonFunctions: []
-  resetRotationButtonFunctions: []
+  focusMenuBackButton:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Reset Rotation
+    isIndexed: 0
+  focusMenuResetRotationButton:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Return Object
+    isIndexed: 0
+  focusMenuRotationButton:
+    customGeneralMenuModuleType: 0
+    generalMenuModuleObject: {fileID: 0}
+    tooltipText: Reset Rotation
+    isIndexed: 0
   activeBulletPointIndex: -1
   bulletPoints: []
   playerIsAllowedToMove: 0
@@ -91,11 +797,20 @@ MonoBehaviour:
   onStopTeleporting: []
   onStopRotating: []
   onPlayerReset: []
+  hasTimelineStepper: 0
+  currentTimeline: {fileID: 0}
+  timelineStepperAutoPlay: 0
+  timelineStepperIndex: -1
+  timelineOldIndex: -1
+  currentTimelineTime: -1
+  timelineSteps: []
+  showroomManagerExtensions: []
+  productGroupManager: {fileID: 0}
+  userInterfaceContainers: []
   useCaseIndex: -1
   hasStandardUseCase: 0
   standardUseCaseIndex: 0
-  useCases: []
-  downloadFairtouchData: 0
+  downloadSSPData: 0
   isTransparent: 0
   isDragMode: 0
   isAtUseCaseHomePos: 0
