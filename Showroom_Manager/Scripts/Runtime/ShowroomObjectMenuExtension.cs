@@ -12,7 +12,7 @@ namespace Showroom
         static void CreateShowroomManager(MenuCommand menuCommand)
         {
 
-            Object showroomManagerPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Manager/--- Showroom Manager ---.prefab", typeof(Object));
+            Object showroomManagerPrefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/Showroom_Manager/--- Showroom Manager ---.prefab", typeof(Object));
 
             if (showroomManagerPrefab != null)
             {
@@ -27,7 +27,7 @@ namespace Showroom
         static void CreateDockingElements(MenuCommand menuCommand)
         {
 
-            Object dockingElementsPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/CodenameDockingElements/PRF_CodeNameDockingElements.prefab", typeof(Object));
+            Object dockingElementsPrefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/CodenameDockingElements/PRF_CodeNameDockingElements.prefab", typeof(Object));
 
             GameObject parent = GameObject.Find("/--- User Interface ---");
 
@@ -47,7 +47,7 @@ namespace Showroom
         static void CreatePlayer(MenuCommand menuCommand)
         {
 
-            Object playerPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Navigation/PRF_ShowroomNavigation.prefab", typeof(Object));
+            Object playerPrefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/Showroom_Navigation/PRF_ShowroomNavigation.prefab", typeof(Object));
 
             if (playerPrefab != null)
             {
@@ -62,7 +62,7 @@ namespace Showroom
         static void CreateEnviroment(MenuCommand menuCommand)
         {
 
-            Object enviromentPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_Enviroment/PRF_Background.prefab", typeof(Object));
+            Object enviromentPrefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/Showroom_Enviroment/PRF_Background.prefab", typeof(Object));
 
             GameObject parent = GameObject.Find("/--- Enviroment ---");
 
@@ -82,7 +82,7 @@ namespace Showroom
         static void CreateInteractButton(MenuCommand menuCommand)
         {
 
-            Object interactButtonPrefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_InteractButton.prefab", typeof(Object));
+            Object interactButtonPrefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/Showroom_WorldSpaceUI/WUI_Showroom_InteractButton.prefab", typeof(Object));
 
             if (interactButtonPrefab != null)
             {
@@ -100,7 +100,7 @@ namespace Showroom
         static void CreateInteractButtonLabel(MenuCommand menuCommand)
         {
 
-            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_InteractButton_Label Variant.prefab", typeof(Object));
+            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/Showroom_WorldSpaceUI/WUI_Showroom_InteractButton_Label Variant.prefab", typeof(Object));
 
             if (prefab != null)
             {
@@ -118,7 +118,7 @@ namespace Showroom
         static void CreateLabel(MenuCommand menuCommand)
         {
 
-            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Standard_Label.prefab", typeof(Object));
+            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/Showroom_WorldSpaceUI/WUI_Showroom_Standard_Label.prefab", typeof(Object));
 
             if (prefab != null)
             {
@@ -136,7 +136,7 @@ namespace Showroom
         static void CreateStandardObj(MenuCommand menuCommand)
         {
 
-            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Standard_Object.prefab", typeof(Object));
+            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/Showroom_WorldSpaceUI/WUI_Showroom_Standard_Object.prefab", typeof(Object));
 
             if (prefab != null)
             {
@@ -154,7 +154,7 @@ namespace Showroom
         static void Create3DTooltip(MenuCommand menuCommand)
         {
 
-            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/B12-Showroom-System/Showroom_WorldSpaceUI/WUI_Showroom_Tooltip3D.prefab", typeof(Object));
+            Object prefab = AssetDatabase.LoadAssetAtPath("Packages/com.b12.showroomsystem/Showroom_WorldSpaceUI/WUI_Showroom_Tooltip3D.prefab", typeof(Object));
 
             if (prefab != null)
             {
