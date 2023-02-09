@@ -1,0 +1,29 @@
+{
+    "name": "b12.showroomsystem",
+    "rootNamespace": "Showroom",
+    "references": [
+        "GUID:7df4100120e5a664997381f83b130983",
+        "GUID:f356fca8fb45ec14ea57f9402d15e4d0",
+        "GUID:a4160dd286a7e9f499cebf91d8dbeed9",
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
+        "GUID:234839f5b92104d4fb68841aefec625b",
+        "GUID:13a6fdc14ca9df84eb8019bc66fa9e5d",
+        "GUID:4a8f67a91e104c246b941d1aa6bf9680",
+        "GUID:63e7b511e23ffbc468fc69113d2e071e",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
+        "GUID:343deaaf83e0cee4ca978e7df0b80d21",
+        "GUID:68550284b645f4b9894995579f34290a",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:6546d7765b4165b40850b3667f981c26"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
