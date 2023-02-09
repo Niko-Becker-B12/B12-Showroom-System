@@ -7,7 +7,7 @@ using Sirenix.Serialization;
 using Sirenix.Utilities;
 using System.Linq;
 
-namespace Showroom
+namespace Showroom.Editor
 {
 
     public class ShowroomManagerEditorWindow : OdinMenuEditorWindow

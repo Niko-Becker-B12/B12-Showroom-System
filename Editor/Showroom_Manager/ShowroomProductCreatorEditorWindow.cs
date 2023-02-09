@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 
 
-namespace Showroom
+namespace Showroom.Editor
 {
 
     public class ShowroomProductCreatorEditorWindow : OdinEditorWindow

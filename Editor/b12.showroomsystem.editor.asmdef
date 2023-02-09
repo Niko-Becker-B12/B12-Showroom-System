@@ -1,6 +1,6 @@
 {
     "name": "b12.showroomsystem.editor",
-    "rootNamespace": "Showroom",
+    "rootNamespace": "Showroom.Editor",
     "references": [
         "GUID:efd93379a4de59143acfffe0e7e179c0",
         "GUID:343deaaf83e0cee4ca978e7df0b80d21",

@@ -10,7 +10,7 @@ using UnityEngine.Playables;
 using System;
 using static UnityEditor.UIElements.ToolbarMenu;
 
-namespace Showroom
+namespace Showroom.Editor
 {
     public class ShowroomSystemUpdaterEditorWindow : OdinEditorWindow
     {
