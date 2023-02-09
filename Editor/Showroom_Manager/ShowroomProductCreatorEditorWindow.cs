@@ -1,3 +1,4 @@
+using Showroom;
 using Showroom.UI;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
@@ -23,7 +24,7 @@ namespace Showroom
         public List<GameObject> highlightableObjects = new List<GameObject>();
 
 
-        ShowroomProduct showroomProduct;
+        Showroom.ShowroomProduct showroomProduct;
 
 
         [MenuItem("Window/Showroom/Product Creator")]

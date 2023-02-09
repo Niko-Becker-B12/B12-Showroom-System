@@ -12,7 +12,8 @@
         "NaughtyAttributes.Editor",
         "DOTween.Modules",
         "DOTweenPro.EditorScripts",
-        "DOTweenPro.Scripts"
+        "DOTweenPro.Scripts",
+        "B12.ShowroomSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
