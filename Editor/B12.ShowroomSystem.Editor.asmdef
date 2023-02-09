@@ -1,0 +1,26 @@
+{
+    "name": "B12.ShowroomSystem.Editor",
+    "rootNamespace": "Showroom.Editor",
+    "references": [
+        "Unity.TextMeshPro",
+        "Unity.InputSystem",
+        "ShapesEditor",
+        "ShapesRuntime",
+        "UIShapes.Editor",
+        "UIShapes",
+        "NaughtyAttributes.Core",
+        "NaughtyAttributes.Editor",
+        "DOTween.Modules",
+        "DOTweenPro.EditorScripts",
+        "DOTweenPro.Scripts"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
