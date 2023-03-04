@@ -1,8 +1,0 @@
-<svg id="ic24-information" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <rect id="BB" width="24" height="24" fill="none"/>
-  <g id="information" transform="translate(2 2)">
-    <path id="Pfad_276" data-name="Pfad 276" d="M10,4.67A1.19,1.19,0,0,0,8.76,5.89a1.23,1.23,0,1,0,2.45,0A1.18,1.18,0,0,0,10,4.67Z" fill="#fff"/>
-    <path id="Pfad_277" data-name="Pfad 277" d="M11.06,15.23V9H8.94v6.23Z" fill="#fff"/>
-    <path id="Pfad_278" data-name="Pfad 278" d="M0,10A10,10,0,1,1,10,20,10,10,0,0,1,0,10Zm2,0a8,8,0,1,0,8-8A8,8,0,0,0,2,10Z" fill="#fff" fill-rule="evenodd"/>
-  </g>
-</svg>
