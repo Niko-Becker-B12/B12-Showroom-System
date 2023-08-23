@@ -11,7 +11,8 @@
                     "id": "568a21b4-ff48-4a8a-9f2c-dca1e5e3f488",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Look",
@@ -19,15 +20,17 @@
                     "id": "7b432e87-b764-42bd-96d3-a3406926c79c",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Zoom",
                     "type": "Value",
                     "id": "a70bcf09-b9c8-4532-9efa-df9ac41d3d3a",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Teleport",
@@ -35,47 +38,8 @@
                     "id": "c2f5f314-b534-469b-b072-9330806a2715",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "MultiTap"
-                },
-                {
-                    "name": "PointerDrag",
-                    "type": "Value",
-                    "id": "be80473c-a7d9-4e17-822a-e96a3f6801cc",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "MouseDrag",
-                    "type": "Value",
-                    "id": "e1fa2ae1-ec37-4268-8e12-6d64ea27fc8c",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "PrimaryFingerPosition",
-                    "type": "Value",
-                    "id": "efd8466b-4e19-4da2-81ff-7103b6989cdd",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "SecondaryFingerPosition",
-                    "type": "Value",
-                    "id": "4cee48cb-eb5f-4b01-8921-4b717ab5f57d",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "SecondaryFingerTouchContact",
-                    "type": "Button",
-                    "id": "5214c94b-bd83-4792-912c-029cb6443254",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
+                    "interactions": "MultiTap",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -213,39 +177,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "ScaleVector2(x=0.2,y=0.2)",
-                    "groups": ";Keyboard&Mouse;Touch",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e5f5442-8668-4b27-a940-df99bad7e831",
-                    "path": "<Joystick>/{Hatswitch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "1279dc4e-1bea-4350-bf6d-83fa8c609d88",
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
@@ -254,6 +185,50 @@
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GestureZoom",
+                    "id": "dfba71d5-8c54-4bad-9713-b04010ba5f1a",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "8a1af635-8ce1-4f9a-8871-490f9453d9e6",
+                    "path": "<Touchscreen>/touch*/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "dfadf9ce-f96e-4d9e-82f2-669688dfcc38",
+                    "path": "<Touchscreen>/primaryTouch/startPosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "d3652e8a-39eb-48c3-99d8-063889615e75",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -269,176 +244,99 @@
                 {
                     "name": "",
                     "id": "9835de44-ed87-4b3a-9cd0-f6a9ef9b3d86",
-                    "path": "<Touchscreen>/touch0/press",
+                    "path": "<Touchscreen>/primaryTouch/tap",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Touch",
                     "action": "Teleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "TouchLook",
+                    "id": "c8484e41-eede-4d14-be8f-b47ce578a366",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "a600b72c-ef1c-4fb4-be53-4cf47a8c1e4d",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "7a036d5c-4143-4848-8ded-26758e15c4e1",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "MouseLook",
+                    "id": "9fb7fdad-3aa0-469e-af0b-f4871ce79295",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "15689b99-dc0e-40f2-ab8d-e767b08e5f22",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "63d64083-289a-4eff-8786-892699990816",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
-                    "id": "f19030cc-1d0b-4311-af87-e1be592b0770",
+                    "id": "6f609622-d1bc-4371-b914-39eced7b288b",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62715a61-b22c-4ea5-b40b-547e5f97483f",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PointerDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5c42405c-b10e-449e-824d-1707d6a0cd66",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PointerDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a915f125-3d68-4d05-8d2d-c36b1effa313",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PointerDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "MouseDrag",
-                    "id": "a76b8638-b39d-4ed8-a888-a55d0241dec3",
-                    "path": "MouseDrag",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseDrag",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Button",
-                    "id": "c1d7683d-f183-4259-be54-4e9acd0f20d4",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MouseDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Axis1",
-                    "id": "a9c69138-60b0-47bb-a2af-31debcb7c822",
-                    "path": "<Mouse>/delta/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MouseDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Axis2",
-                    "id": "03a5f15e-aa29-4f07-905c-eb6ce2786232",
-                    "path": "<Mouse>/delta/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MouseDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "GestureDrag",
-                    "id": "a9e4da91-4eb7-4236-a1a1-287cc2414c07",
-                    "path": "MouseDragVector3",
-                    "interactions": "",
-                    "processors": "ScaleVector2(x=0.01,y=0.01)",
-                    "groups": "",
-                    "action": "MouseDrag",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Button",
-                    "id": "7164e2ac-eb0a-416c-833b-a2239fb92884",
-                    "path": "<Touchscreen>/primaryTouch",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "MouseDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "X",
-                    "id": "3eb04083-5c26-4395-ae2a-277add7244d1",
-                    "path": "<Touchscreen>/delta/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "MouseDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Y",
-                    "id": "5e7f587c-07ae-4073-a5ee-eb9ac084cf1a",
-                    "path": "<Touchscreen>/delta/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "MouseDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Z",
-                    "id": "d6ab3e88-2193-428e-872c-f56e668913a8",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseDrag",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "91cb0ffc-d4f9-49b9-b935-7929658eace5",
-                    "path": "<Touchscreen>/touch0/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PrimaryFingerPosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "df42d74c-f702-4227-9520-c4769f904499",
-                    "path": "<Touchscreen>/touch1/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SecondaryFingerPosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a95ec47f-7e98-4ce3-bc82-6cd72b1a4e10",
-                    "path": "<Touchscreen>/touch2/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SecondaryFingerTouchContact",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -454,7 +352,8 @@
                     "id": "7b8e89f5-45f8-4965-bfa2-7bf8abcee96e",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Submit",
@@ -462,7 +361,8 @@
                     "id": "3575dfdb-7a5f-4c5c-9afb-76c783dc2149",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Cancel",
@@ -470,7 +370,8 @@
                     "id": "a5527dbb-d39e-4b2c-8564-5f5e2a353fd1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Point",
@@ -478,7 +379,8 @@
                     "id": "8fc43886-301d-40fe-a2f0-82434da36a52",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Click",
@@ -486,7 +388,8 @@
                     "id": "6374a029-e435-4d3e-9586-f75065c57bb9",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ScrollWheel",
@@ -494,7 +397,8 @@
                     "id": "4f741ed5-b4cc-47d3-8e84-19c7cc46bfcc",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MiddleClick",
@@ -502,7 +406,8 @@
                     "id": "422332e1-5040-4d26-85ce-391d4daf364f",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RightClick",
@@ -510,7 +415,8 @@
                     "id": "0ec26264-f9b3-4e35-9fa0-7fc8f0a177f6",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TrackedDevicePosition",
@@ -518,7 +424,8 @@
                     "id": "5e90682d-8bb1-400e-b41c-d99f5cf840f7",
                     "expectedControlType": "Vector3",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TrackedDeviceOrientation",
@@ -526,7 +433,8 @@
                     "id": "cbc82ceb-0d83-49c2-a42f-fd991ab75858",
                     "expectedControlType": "Quaternion",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
