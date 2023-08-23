@@ -95,6 +95,8 @@ namespace Showroom
 
         float actualZoomValue = 0;
 
+        public bool UseLensShift = false;
+
         Coroutine touchCoroutine;
 
 
@@ -806,6 +808,16 @@ namespace Showroom
 
 
         #endregion
+
+        public void ShiftCameraLens(Vector2 shift, float time)
+        {
+
+            if (!UseLensShift)
+                return;
+
+            DOTween.To(() => playerCamera.lensShift, x => playerCamera.lensShift = x, shift, time);
+
+        }
 
 
         IEnumerator Invoke(UnityEvent function, float delay)

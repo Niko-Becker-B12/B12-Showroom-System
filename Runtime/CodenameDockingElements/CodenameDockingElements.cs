@@ -1479,7 +1479,7 @@ namespace Showroom.UI
                 .OnStart(() =>
                 {
 
-
+                    ShowroomNavigation.Instance.ShiftCameraLens(new Vector2(-.15f, 0f), baseUISkin.animationSpeed);
 
                 })
                 .OnComplete(() =>
@@ -1497,7 +1497,7 @@ namespace Showroom.UI
                 .OnStart(() =>
                 {
 
-
+                    ShowroomNavigation.Instance.ShiftCameraLens(Vector2.zero, baseUISkin.animationSpeed);
 
                 })
                 .OnComplete(() =>
