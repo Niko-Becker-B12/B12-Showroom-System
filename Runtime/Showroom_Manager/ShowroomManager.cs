@@ -392,6 +392,7 @@ namespace Showroom
 
         }
 
+#if UNITY_EDITOR
         [FoldoutGroup("SSP")]
         [Button]
         void ExportDataForSSP()
@@ -463,12 +464,11 @@ namespace Showroom
 
             Debug.Log($"CSV file written to \"{filePath}\"");
 
-#if UNITY_EDITOR
+
             AssetDatabase.Refresh();
-#endif
 
         }
-
+#endif
 
         [ReadOnly]
         public bool isTransparent;
@@ -508,6 +508,7 @@ namespace Showroom
 
             }
 
+            StartLevel();
         }
 
         private void Update()

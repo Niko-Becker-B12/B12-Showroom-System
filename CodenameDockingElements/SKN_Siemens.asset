@@ -25,8 +25,8 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   useSidebarSettings: 1
-  sidebarClosedPos: {x: -445, y: 0}
-  sidebarOpenedPos: {x: 40, y: 0}
+  sidebarClosedPos: {x: -445, y: -152.5}
+  sidebarOpenedPos: {x: 40, y: -152.5}
   sidebarBackground: {fileID: 0}
   sidebarBackgroundColor: {r: 0, g: 0, b: 0.15686275, a: 1}
   sidebarRoundness:
@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  sidebarHasScrollGradient: 1
+  sidebarHasScrollGradient: 0
   sidebarScrollGradientColor: {r: 0, g: 0, b: 0.15686275, a: 0.5019608}
   sidebarHeaderSize: {x: 0, y: 0}
   sidebarHeaderRoundness:

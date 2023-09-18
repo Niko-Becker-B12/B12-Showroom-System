@@ -45,7 +45,7 @@ namespace Showroom.WorldSpace
             if(resizeByDistance)
             {
 
-                float size = resizeCurve.Evaluate(Vector3.Distance(ShowroomNavigation.Instance.transform.position, this.transform.position));
+                float size = resizeCurve.Evaluate(Vector3.Distance(ShowroomNavigation.Instance.playerCamera.transform.position, this.transform.position));
 
                 this.transform.localScale = new Vector3(size, size, size);
 

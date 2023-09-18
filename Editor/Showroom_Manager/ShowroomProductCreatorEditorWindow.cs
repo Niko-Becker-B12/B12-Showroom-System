@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using Showroom;
 using Showroom.UI;
 using Sirenix.OdinInspector;
@@ -146,3 +147,4 @@ namespace Showroom.Editor
     }
 
 }
+#endif

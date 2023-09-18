@@ -1,11 +1,13 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
 using UnityEditor;
-using Sirenix.Utilities.Editor;
-using Sirenix.Serialization;
 using Sirenix.Utilities;
 using System.Linq;
+using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities.Editor;
+using Sirenix.Serialization;
+
 
 namespace Showroom.Editor
 {
@@ -44,3 +46,4 @@ namespace Showroom.Editor
     }
 
 }
+#endif

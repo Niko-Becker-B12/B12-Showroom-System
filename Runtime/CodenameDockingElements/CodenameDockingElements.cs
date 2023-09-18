@@ -1,6 +1,5 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using System.Collections.Generic;
 using ThisOtherThing.UI.Shapes;
 using TMPro;
@@ -12,6 +11,7 @@ using System;
 using Random = UnityEngine.Random;
 #if UNITY_EDITOR
 using UnityEditor;
+using Sirenix.Serialization;
 #endif
 
 namespace Showroom.UI
@@ -71,7 +71,7 @@ namespace Showroom.UI
         [BoxGroup("General Menu Settings")][ReadOnly] public bool generalMenuIsOpen = false;
 
         [BoxGroup("General Menu Settings")]
-        [OdinSerialize]
+        [SerializeField]
         public CustomGeneralMenuModule generalMenuPlayButton = new CustomGeneralMenuModule
         {
 
@@ -734,9 +734,13 @@ namespace Showroom.UI
 
                 for (int i = CustomGeneralMenuModules.Count; i > 0; i--)
                 {
-                    Debug.Log(i - 1);
+                    int index = i - 1;
 
-                    CustomGeneralMenuModules[i - 1].SetUpButton(CustomGeneralMenuModules[i], i - 1);
+                    Debug.Log(index);
+
+
+
+                    CustomGeneralMenuModules[index].SetUpButton(CustomGeneralMenuModules[index], index, -1, generalMenuButtonParent);
 
                 }
 
@@ -1523,7 +1527,7 @@ namespace Showroom.UI
 
         }
 
-        public void ToggleGeneralMenu(bool reOpenAfter)
+        public void ToggleGeneralMenu(bool reOpenAfter = false)
         {
 
             DOTween.Kill(generalMenuContainerRect);
@@ -2095,6 +2099,8 @@ namespace Showroom.UI
             #endregion
         }
 
+#if UNITY_EDITOR
+
         [Button]
         private void OnDrawGizmosSelected()
         {
@@ -2120,6 +2126,8 @@ namespace Showroom.UI
 
         }
 
+#endif
+
         float UnitIntervalRange(float stageStartRange, float stageFinishRange, float newStartRange, float newFinishRange, float floatingValue)
         {
             float outRange = Math.Abs(newFinishRange - newStartRange);
@@ -2127,6 +2135,8 @@ namespace Showroom.UI
             float range = (outRange / inRange);
             return (newStartRange + (range * (floatingValue - stageStartRange)));
         }
+
+#if UNITY_EDITOR
 
         void DrawContainerRect(UserInterfaceContainer container, bool isClosed, int index)
         {
@@ -2298,7 +2308,9 @@ namespace Showroom.UI
             (cameraPos.z < distance));
         }
 
+#endif
     }
+
 
     public enum DockingPositions
     {
